@@ -82,9 +82,6 @@ public class PizzaDAO {
 			suljeYhteys(yhteys);
 		}
 
-		System.out.println("Tietokannassa on seuraavat pizzat: "
-				+ pizzat.toString());
-
 		// palautetaan pizzat
 		return pizzat;
 
