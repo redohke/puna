@@ -1,7 +1,4 @@
 
-insert into pizza(nimi, hinta) values ('Margarita', 7.90);
-insert into pizza(nimi, hinta) values ('Frutti di Mare', 9.90);
-insert into pizza(nimi, hinta) values ('Texan Style BBQ', 8.70);
 
 insert into Tayte(id, nimi)
 values (1, 'tomaatti');
@@ -19,7 +16,7 @@ insert into Tayte(id, nimi)
 values (5, 'kinkku');
 
 insert into Tayte(id, nimi)
-values (6, 'herkkusieni);
+values (6, 'herkkusieni');
 
 insert into Tayte(id, nimi)
 values (7, 'ananas');
