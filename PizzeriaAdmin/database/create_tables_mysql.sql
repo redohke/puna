@@ -22,7 +22,7 @@ create table taytepizza(
 	id tinyint not null,
 	pizza_id tinyint not null,
 	tayte_id tinyint not null,
-	primary key (id)
-	foreign key (tayte_id) references tayte(id)
+	primary key (id),
+	foreign key (tayte_id) references tayte(id),
 	foreign key (pizza_id) references pizza(id)
 );
