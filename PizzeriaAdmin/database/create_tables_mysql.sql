@@ -1,28 +1,28 @@
-CREATE TABLE tayte (
-        id				int not null,
-        nimi			nvarchar(25) not null,
-        PRIMARY KEY 	(id)
+create table pizza(
+	id tinyint not null,
+	nimi varchar(25) not null,
+	hinta decimal(5,2) not null,
+	primary key (id)
 );
 
-CREATE TABLE pizza (
-        id				int not null,
-        nimi			nvarchar(25) not null,
-        hinta			decimal(5,2) not null,
-        PRIMARY KEY 	(id)
+create table tayte(
+	id tinyint not null,
+	nimi varchar(25) not null,
+	primary key (id)
 );
 
-CREATE TABLE taytepizza (
-        id				int not null,
-       	pizza_id		int not null,
-        tayte_id		int not null,
-		PRIMARY KEY 	(id)
-		FOREIGN KEY 	(tayte_id) REFERENCES tayte(id)
-		FOREIGN KEY 	(pizaz_id) REFERENCES pizza(id)
+create table juoma(
+	id tinyint not null,
+	nimi varchar(25) not null,
+	hinta decimal(5,2) not null,
+	primary key (id)
 );
 
-CREATE TABLE juoma (
-        id				int not null,
-        nimi			nvarchar(50) not null,
-        hinta			decimal(5,2) not null,
-        PRIMARY KEY 	(id)
+create table taytepizza(
+	id tinyint not null,
+	pizza_id tinyint not null,
+	tayte_id tinyint not null,
+	primary key (id)
+	foreign key (tayte_id) references tayte(id)
+	foreign key (pizza_id) references pizza(id)
 );
