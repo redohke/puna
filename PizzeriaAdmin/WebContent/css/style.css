@@ -1,0 +1,59 @@
+@charset "utf-8";
+/* CSS Document */
+
+.h{
+	margin: 2px;
+font-family: Verdana, Geneva, sans-serif, cursive;
+	font-size:18px;
+	color:bf2c08;
+
+}
+
+.header {
+	width:1378px;
+	
+}
+
+.col{
+	vertical-align:central;
+	alignment-adjust:middle;
+	margin-left:70px;
+	margin-right:70px;
+}
+body {
+    background-image: url('http://s16.postimg.org/70fa8ydud/isit_prefgt.png');
+    background-repeat: repeat;
+	font-family: Verdana, Geneva, sans-serif, cursive;
+	font-size:18px;
+	color:#bf2c08;
+	
+	scrollbar-face-color: #6A8A76;  
+    scrollbar-shadow-color: #6A8A76;  
+    scrollbar-highlight-color:#6A8A76;  
+    scrollbar-3dlight-color: #6A8A76;  
+    scrollbar-darkshadow-color: #6A8A76;  
+    scrollbar-track-color: #6A8A76;  
+    scrollbar-arrow-color: #6A8A76;   
+}
+.s{	font: 50px arial, sans-serif;
+background:#F1B42F;
+box-shadow: 0px 0px 20px #F1B42F;
+	
+}
+.pl {
+	font: 50px arial, sans-serif;
+background:#F1B42F;
+box-shadow: 0px 0px 20px #F1B42F;
+}
+.header {
+margin-left:75px;
+margin-right:75px;
+}
+.content {
+width:960px;
+background: #F0F0F0;
+border: 1px solid #CCC;
+height: 2000px;
+margin: 70px auto;
+}
+
