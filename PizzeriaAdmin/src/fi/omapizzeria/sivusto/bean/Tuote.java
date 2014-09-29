@@ -16,9 +16,9 @@ public class Tuote {
 		this.nimi = nimi;
 		this.hinta = hinta;
 		this.tayte1 = tayte1;
-		this.tayte1 = tayte2;
-		this.tayte1 = tayte3;
-		this.tayte1 = tayte4;
+		this.tayte2 = tayte2;
+		this.tayte3 = tayte3;
+		this.tayte4 = tayte4;
 	}
 	
 	
@@ -88,6 +88,13 @@ public class Tuote {
 
 	public void setHinta(double hinta) {
 		this.hinta = hinta;
+	}
+
+	@Override
+	public String toString() {
+		return "Tuote [id=" + id + ", nimi=" + nimi + ", hinta=" + hinta
+				+ ", tayte1=" + tayte1 + ", tayte2=" + tayte2 + ", tayte3="
+				+ tayte3 + ", tayte4=" + tayte4 + "]";
 	}
 	
 }
