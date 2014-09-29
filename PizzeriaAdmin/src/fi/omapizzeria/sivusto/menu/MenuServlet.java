@@ -9,9 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fi.omapizzeria.admin.bean.Pizza;
-import fi.omapizzeria.admin.dao.DAOPoikkeus;
-import fi.omapizzeria.admin.dao.PizzaDAO;
+
+import fi.omapizzeria.dao.DAOPoikkeus;
+import fi.omapizzeria.sivusto.bean.Tuote;
+import fi.omapizzeria.sivusto.dao.TuoteDAO;
 
 /**
  * Servlet implementation class MenuServlet
@@ -33,21 +34,21 @@ public class MenuServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<Pizza> pizzat;
+		List<Tuote> tuote;
 
 		try {
 			// tietokannasta pizzat
-			PizzaDAO pDao = new PizzaDAO();
-			pizzat = pDao.haePizzat();
+			TuoteDAO pDao = new TuoteDAO();
+			tuote = pDao.haeTuote();
 		} catch (DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
 
 		// lista requestin attribuutiksi
-		request.setAttribute("plista", pizzat);
+		request.setAttribute("tlista", tuote);
 
 		// forwardi .jsp:lle
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		request.getRequestDispatcher("ruokalista.jsp").forward(request, response);
 	}
 
 	/**
