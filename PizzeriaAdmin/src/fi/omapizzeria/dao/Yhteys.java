@@ -2,13 +2,7 @@ package fi.omapizzeria.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
-import fi.omapizzeria.admin.bean.Pizza;
 import fi.omapizzeria.dao.DAOPoikkeus;
 import fi.omapizzeria.dao.DBConnectionProperties;
 
@@ -26,7 +20,7 @@ public class Yhteys {
 	}
 
 	// avaa yhteys metodi
-	private Connection avaaYhteys() throws DAOPoikkeus {
+	public Connection avaaYhteys() throws DAOPoikkeus {
 		try {
 			return DriverManager.getConnection(DBConnectionProperties
 					.getInstance().getProperty("url"), DBConnectionProperties
@@ -39,16 +33,14 @@ public class Yhteys {
 	}
 
 	// sulje yhteys metodi
-	private void suljeYhteys(Connection yhteys) throws DAOPoikkeus {
+	public void suljeYhteys(Connection yhteys) throws DAOPoikkeus {
 		try {
 			if (yhteys != null && !yhteys.isClosed())
-				yhteys.close(); 
+				yhteys.close();
 		} catch (Exception e) {
 			throw new DAOPoikkeus(
 					"Tietokantayhteys ei jostain syystä mene kiinni.", e);
 		}
 	}
-
-
 
 }
