@@ -45,10 +45,10 @@ public class MenuServlet extends HttpServlet {
 		}
 
 		// lista requestin attribuutiksi
-		request.setAttribute("tlista", tuote);
+		request.setAttribute("plista", tuote);
 
 		// forwardi .jsp:lle
-		request.getRequestDispatcher("ruokalista.jsp").forward(request, response);
+		request.getRequestDispatcher("list2.jsp").forward(request, response);
 	}
 
 	/**

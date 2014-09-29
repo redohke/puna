@@ -21,6 +21,7 @@ public class Tuote {
 		this.tayte1 = tayte4;
 	}
 	
+	
 	public String getTayte1() {
 		return tayte1;
 	}
@@ -88,5 +89,5 @@ public class Tuote {
 	public void setHinta(double hinta) {
 		this.hinta = hinta;
 	}
-
+	
 }

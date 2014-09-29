@@ -20,7 +20,7 @@ public class Yhteys {
 	}
 
 	// avaa yhteys metodi
-	public Connection avaaYhteys() throws DAOPoikkeus {
+	public static Connection avaaYhteys() throws DAOPoikkeus {
 		try {
 			return DriverManager.getConnection(DBConnectionProperties
 					.getInstance().getProperty("url"), DBConnectionProperties
@@ -33,7 +33,7 @@ public class Yhteys {
 	}
 
 	// sulje yhteys metodi
-	public void suljeYhteys(Connection yhteys) throws DAOPoikkeus {
+	public static void suljeYhteys(Connection yhteys) throws DAOPoikkeus {
 		try {
 			if (yhteys != null && !yhteys.isClosed())
 				yhteys.close();
