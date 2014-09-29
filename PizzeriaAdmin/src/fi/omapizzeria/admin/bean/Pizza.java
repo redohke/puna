@@ -5,9 +5,7 @@ public class Pizza {
 	private int id;
 	private String nimi;
 	private double hinta;
-		
-	
-	
+			
 	public Pizza(int id, String nimi, double hinta) {
 		this.id = id;
 		this.nimi = nimi;
