@@ -42,7 +42,7 @@ public class Yhteys {
 	private void suljeYhteys(Connection yhteys) throws DAOPoikkeus {
 		try {
 			if (yhteys != null && !yhteys.isClosed())
-				yhteys.close();
+				yhteys.close(); 
 		} catch (Exception e) {
 			throw new DAOPoikkeus(
 					"Tietokantayhteys ei jostain syystä mene kiinni.", e);

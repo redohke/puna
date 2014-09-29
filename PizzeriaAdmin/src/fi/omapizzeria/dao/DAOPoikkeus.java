@@ -18,7 +18,7 @@ public class DAOPoikkeus extends Exception {
 	}
 
 	public DAOPoikkeus(String viesti, Throwable aiheuttaja) {
-		super(viesti, aiheuttaja);
+		super(viesti, aiheuttaja); 
 	}
 
 }
