@@ -29,7 +29,7 @@ public class DBConnectionProperties {
 		if (instance == null) {
 			instance = new DBConnectionProperties();
 		}
-		return instance; 
+		return instance;
 	}
 
 }

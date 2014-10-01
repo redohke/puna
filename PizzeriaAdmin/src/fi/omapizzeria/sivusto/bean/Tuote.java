@@ -21,7 +21,6 @@ public class Tuote {
 		this.tayte4 = tayte4;
 	}
 	
-	
 	public String getTayte1() {
 		return tayte1;
 	}

@@ -19,7 +19,7 @@
 		<div class="left_col"></div>
 
 		<div class="otsikko_col">
-			<h1>Pizzojen Hallinta</h1>
+			<h1>Pizza Menu</h1>
 			<br/>
 		</div>
 
@@ -39,6 +39,24 @@
 						<td class="c_nappula"><form action="controller" method="post">
 								<input class="del_nappi" type="image" src="img/Delete.png">
 								<input type="hidden" name="id" value="${pl.id}"> 
+								<input type="hidden" name="action" value="del">
+						</form></td>
+					</tr>
+				</c:forEach>
+			</table>
+			<br/>
+			<br/>
+			<h2>Listalla olevat juomat:</h2>
+			<br />
+				<table class="taulukko">
+				<c:forEach items="${jlista}" var="jl">
+					<tr>
+						<td class="c_id"><c:out value="${jl.id}" /></td>
+						<td class="c_nimi"><c:out value="${jl.nimi}" /></td>
+						<td class="c_hinta"><c:out value="${jl.hinta}" /></td>				
+						<td class="c_nappula"><form action="controller" method="post">
+								<input class="del_nappi" type="image" src="img/Delete.png">
+								<input type="hidden" name="id" value="${jl.id}"> 
 								<input type="hidden" name="action" value="del">
 						</form></td>
 					</tr>

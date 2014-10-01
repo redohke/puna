@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fi.omapizzeria.sivusto.bean.Tuote;
+import fi.omapizzeria.sivusto.bean.Juoma;
 import fi.omapizzeria.dao.DBConnectionProperties;
 import fi.omapizzeria.dao.DAOPoikkeus;
 
@@ -109,5 +110,40 @@ public class TuoteDAO {
 		// palautetaan pizzat
 		return tuote;
 
+	}
+	
+	public List<Juoma> haeJuoma() throws DAOPoikkeus {
+		ArrayList<Juoma> juoma = new ArrayList<Juoma>();
+		
+		Connection yhteys = avaaYhteys();
+		
+		try {
+			// haetaan juomat
+			String sql = "select id, nimi, hinta from juoma";
+			Statement haku = yhteys.createStatement();
+			ResultSet tulokset = haku.executeQuery(sql);
+
+			// k‰yd‰‰n haku l‰pi
+			while (tulokset.next()) {
+				int id = tulokset.getInt("id");
+				String nimi = tulokset.getString("nimi");
+				double hinta = tulokset.getDouble("hinta");
+
+				// lis‰t‰‰n juoma listaan
+				Juoma j = new Juoma(id, nimi, hinta);
+				juoma.add(j);
+			}
+
+		} catch (Exception e) {
+			// heit‰ virhe jos virhe
+			throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
+		} finally {
+			// yhteys kii
+			suljeYhteys(yhteys);
+		}
+
+		// palautetaan juomat
+		return juoma;
+		
 	}
 }
