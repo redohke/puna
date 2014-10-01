@@ -20,7 +20,7 @@ insert into tayte(id, nimi)
 values (7, 'ananas');
 
 insert into tayte(id, nimi)
-values (8, 'sinihomejuusto');
+values (8, 'aurajuusto');
 
 insert into tayte(id, nimi)
 values (9, 'katkarapu');

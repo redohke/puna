@@ -9,7 +9,7 @@ import fi.omapizzeria.dao.DBConnectionProperties;
 public class Yhteys {
 
 	// ajuri
-	public Yhteys() throws DAOPoikkeus {
+	public static void lataaAjuri() throws DAOPoikkeus {
 		try {
 			Class.forName(
 					DBConnectionProperties.getInstance().getProperty("driver"))

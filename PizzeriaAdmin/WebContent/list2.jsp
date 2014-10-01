@@ -20,7 +20,6 @@
 
 		<div class="otsikko_col">
 			<h1>Pizza Menu</h1>
-			<br/>
 		</div>
 
 		<div class="otsikko_col">
