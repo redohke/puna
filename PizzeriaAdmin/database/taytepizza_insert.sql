@@ -111,6 +111,9 @@ values (33, 11, 7);
 insert into taytepizza(id, pizza_id, tayte_id)
 values (34, 11, 8);
 
+insert into taytepizza(id, pizza_id, tayte_id)
+values (51, 11, 14);
+
 /* Charmander */
 insert into taytepizza(id, pizza_id, tayte_id)
 values (35, 12, 5);

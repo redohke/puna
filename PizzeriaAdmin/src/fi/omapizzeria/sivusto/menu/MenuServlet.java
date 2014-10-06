@@ -35,12 +35,12 @@ public class MenuServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// luodaan listat
 		List<Tuote> tuote;
 		List<Juoma> juoma;
 
 		try {
-			// tietokannasta pizzat
+			// tietokannasta tuotteet listoihin
 			TuoteDAO pDao = new TuoteDAO();
 			tuote = pDao.haeTuote();
 			TuoteDAO jDao = new TuoteDAO();
@@ -48,13 +48,12 @@ public class MenuServlet extends HttpServlet {
 		} catch (DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
-
 		// listat requestin attribuutiksi
 		request.setAttribute("plista", tuote);
 		request.setAttribute("jlista", juoma);
 
-		// forwardi .jsp:lle
-		request.getRequestDispatcher("list2.jsp").forward(request, response);
+		// ohjataan .jsp:lle
+		request.getRequestDispatcher("ruokalista.jsp").forward(request, response);
 	}
 
 	/**

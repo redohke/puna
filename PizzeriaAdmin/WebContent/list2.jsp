@@ -31,10 +31,10 @@
 						<td class="c_id"><c:out value="${pl.id}" /></td>
 						<td class="c_nimi"><c:out value="${pl.nimi}" /></td>
 						<td class="c_hinta"><c:out value="${pl.hinta}" /></td>
-						<td><c:out value="${pl.tayte1}" /></td>
-						<td><c:out value="${pl.tayte2}" /></td>
-						<td><c:out value="${pl.tayte3}" /></td>
-						<td><c:out value="${pl.tayte4}" /></td>						
+						<td class="c_hinta"><c:out value="${pl.tayte1}" /></td>
+						<td class="c_hinta"><c:out value="${pl.tayte2}" /></td>
+						<td class="c_hinta"><c:out value="${pl.tayte3}" /></td>
+						<td class="c_hinta"><c:out value="${pl.tayte4}" /></td>						
 						<td class="c_nappula"><form action="controller" method="post">
 								<input class="del_nappi" type="image" src="img/Delete.png">
 								<input type="hidden" name="id" value="${pl.id}"> 
@@ -43,8 +43,8 @@
 					</tr>
 				</c:forEach>
 			</table>
-			<br/>
-			<br/>
+			</div>
+			<div class="otsikko_col">
 			<h2>Listalla olevat juomat:</h2>
 			<br />
 				<table class="taulukko">
