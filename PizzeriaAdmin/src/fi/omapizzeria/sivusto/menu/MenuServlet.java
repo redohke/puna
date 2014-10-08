@@ -19,7 +19,7 @@ import fi.omapizzeria.sivusto.dao.TuoteDAO;
 /**
  * Servlet implementation class MenuServlet
  */
-@WebServlet("/lista")
+@WebServlet("/ruokalista")
 public class MenuServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

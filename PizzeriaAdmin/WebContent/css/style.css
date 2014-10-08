@@ -1,6 +1,11 @@
 @charset "utf-8";
 /* CSS Document */
 
+.m{
+	horizontal-align: left;
+	align:left;
+	
+}
 .h{
 	margin: 2px;
 font-family: Verdana, Geneva, sans-serif, cursive;
@@ -11,20 +16,26 @@ font-family: Verdana, Geneva, sans-serif, cursive;
 
 .header {
 	width:1378px;
+	margin-left: 70px;
+	margin-right: 70px;
 	
 }
 
 .col{
-	vertical-align:central;
-	alignment-adjust:middle;
-	margin-left:70px;
-	margin-right:70px;
+	vertical-align: central;
+	alignment-adjust: middle;
+	margin-left: 250px;
+	margin-right: 250px;
+	box-shadow: 5px 5px 0px rgba(92, 120, 101, 0.5);
+	background-color: #DDCB9B;
 }
 body {
+	
     background-image: url('http://s16.postimg.org/70fa8ydud/isit_prefgt.png');
     background-repeat: repeat;
-	font-family: Verdana, Geneva, sans-serif, cursive;
-	font-size:18px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:larger;
+	
 	color:#bf2c08;
 	
 	scrollbar-face-color: #6A8A76;  
@@ -35,16 +46,57 @@ body {
     scrollbar-track-color: #6A8A76;  
     scrollbar-arrow-color: #6A8A76;   
 }
-.s{	font: 50px arial, sans-serif;
-background:#F1B42F;
-box-shadow: 0px 0px 20px #F1B42F;
+.sizeL{
+	font-size:110%;}
+.sizeLM{
+	font-size:135%;}
+.sizeLL{
+	font-size:155%;}
+.sizeXL{
+	font-size:195%;}
+.sizeM{
+	font-size:85%;}
+.sizeS{
+	font-size:5%;}
 	
-}
-.pl {
-	font: 50px arial, sans-serif;
+.s{	font: Arial, Helvetica, sans-serif;
+font-size:225%;
 background:#F1B42F;
-box-shadow: 0px 0px 20px #F1B42F;
+box-shadow: 5px 5px 0px #b0a27b;
 }
+
+.ss{font: Arial, Helvetica, sans-serif;
+vertical-align: text-top;
+valign: top;
+background:#F1B42F;
+box-shadow: 5px 5px 0px #b0a27b;
+}
+
+.sm{font: Arial, Helvetica, sans-serif;
+vertical-align: text-top;
+font-size:135%;
+valign: top;
+background:#F1B42F;
+box-shadow: 5px 5px 0px #b0a27b;
+}
+
+.sp{	font: Arial, Helvetica, sans-serif;
+font-size:225%;
+background:#F1B42F;
+box-shadow: 5px 5px 0px #b0a27b;
+margin-left: 36px;
+}
+
+
+.sl{font: Arial, Helvetica, sans-serif;
+font-size:225%;
+background:#F1B42F;
+box-shadow: 0px 5px 0px #b0a27b;}
+
+	.sh{
+		box-shadow: 5px 5px 0px #5c7865;
+	}
+	
 .header {
 margin-left:75px;
 margin-right:75px;
@@ -56,4 +108,28 @@ border: 1px solid #CCC;
 height: 2000px;
 margin: 70px auto;
 }
+.blur{
+	filter: blur(5px)
+}
+.up{
+		background-repeat: no-repeat;
+		background:#F1B42F;
+		box-shadow: 5px 5px 0px #b0a27b;
+	}
+	
+.joo{
+	vertical-align:center;
+}
 
+.si{	
+font-size:150%;
+}.ssi{	font: Arial, Helvetica, sans-serif;
+font-size:50%;
+}
+.ale
+{
+	background:#928665;
+	vertical-align:bottom;
+	align:right;
+	box-shadow: 5px 5px 0px #b0a27b;
+}
