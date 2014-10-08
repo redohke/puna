@@ -31,14 +31,14 @@ public class TuoteDAO {
 			String sql = "select id, nimi, hinta from pizza";
 			Statement haku = yhteys.createStatement();
 			ResultSet tulokset = haku.executeQuery(sql);
-			
-			
+						
 			// k‰yd‰‰n haku l‰pi
 			while (tulokset.next()) {
 				int pid = tulokset.getInt("id");
 				String nimi = tulokset.getString("nimi");
 				double hinta = tulokset.getDouble("hinta");
 				
+				// alkuarvot t‰ytteille
 				String tayte1=null, tayte2=null, tayte3=null, tayte4=null;
 				
 				// tehd‰‰n uusi haku josta saadaan edellisen haun tuotteen id:n perusteella sen t‰ytteet
