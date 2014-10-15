@@ -1,4 +1,4 @@
-package fi.omapizzeria.dao;
+package fi.omapizzeria.yhteys;
 
 import java.io.IOException;
 import java.io.InputStream;

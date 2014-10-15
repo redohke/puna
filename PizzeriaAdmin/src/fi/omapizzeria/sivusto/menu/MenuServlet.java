@@ -11,10 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-import fi.omapizzeria.dao.DAOPoikkeus;
+
+
 import fi.omapizzeria.sivusto.bean.Juoma;
-import fi.omapizzeria.sivusto.bean.Tuote;
+import fi.omapizzeria.sivusto.bean.Pizza;
 import fi.omapizzeria.sivusto.dao.TuoteDAO;
+import fi.omapizzeria.yhteys.DAOPoikkeus;
 
 /**
  * Servlet implementation class MenuServlet
@@ -36,15 +38,14 @@ public class MenuServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// luodaan listat
-		List<Tuote> tuote;
+		List<Pizza> tuote;
 		List<Juoma> juoma;
 
 		try {
 			// tietokannasta tuotteet listoihin
-			TuoteDAO pDao = new TuoteDAO();
-			tuote = pDao.haeTuote();
-			TuoteDAO jDao = new TuoteDAO();
-			juoma = jDao.haeJuoma();
+			TuoteDAO tDao = new TuoteDAO();
+			tuote = tDao.haeTuote();
+			juoma = tDao.haeJuoma();
 		} catch (DAOPoikkeus e) {
 			throw new ServletException(e);
 		}

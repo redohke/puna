@@ -1,26 +1,15 @@
-package fi.omapizzeria.dao;
+package fi.omapizzeria.yhteys;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-import fi.omapizzeria.dao.DAOPoikkeus;
-import fi.omapizzeria.dao.DBConnectionProperties;
+import fi.omapizzeria.yhteys.DAOPoikkeus;
+import fi.omapizzeria.yhteys.DBConnectionProperties;
 
 public class Yhteys {
 
-	// ajuri
-	public static void lataaAjuri() throws DAOPoikkeus {
-		try {
-			Class.forName(
-					DBConnectionProperties.getInstance().getProperty("driver"))
-					.newInstance();
-		} catch (Exception e) {
-			throw new DAOPoikkeus("Tietokannan ajuria ei kyetty lataamaan.", e);
-		}
-	}
-
-	// avaa yhteys metodi
-	public static Connection avaaYhteys() throws DAOPoikkeus {
+	// metodi, joka avaa yhteyden tietokantaan
+	public Connection avaaYhteys() throws DAOPoikkeus {
 		try {
 			return DriverManager.getConnection(DBConnectionProperties
 					.getInstance().getProperty("url"), DBConnectionProperties
@@ -32,8 +21,8 @@ public class Yhteys {
 		}
 	}
 
-	// sulje yhteys metodi
-	public static void suljeYhteys(Connection yhteys) throws DAOPoikkeus {
+	// sulje yhteys tietokantaan
+	public void suljeYhteys(Connection yhteys) throws DAOPoikkeus {
 		try {
 			if (yhteys != null && !yhteys.isClosed())
 				yhteys.close();

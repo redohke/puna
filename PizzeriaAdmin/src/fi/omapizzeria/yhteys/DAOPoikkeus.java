@@ -1,4 +1,4 @@
-package fi.omapizzeria.dao;
+package fi.omapizzeria.yhteys;
 
 public class DAOPoikkeus extends Exception {
 
