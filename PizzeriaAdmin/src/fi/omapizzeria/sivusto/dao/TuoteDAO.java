@@ -1,72 +1,80 @@
 package fi.omapizzeria.sivusto.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 
-import fi.omapizzeria.sivusto.bean.Pizza;
 import fi.omapizzeria.sivusto.bean.Juoma;
+import fi.omapizzeria.sivusto.bean.Pizza;
 import fi.omapizzeria.sivusto.bean.Tayte;
-import fi.omapizzeria.yhteys.DAOPoikkeus;
-import fi.omapizzeria.yhteys.DBConnectionProperties;
-import fi.omapizzeria.yhteys.Yhteys;
 
-public class TuoteDAO extends Yhteys{
-	
+public class TuoteDAO extends DAO {
+
 	public TuoteDAO() throws DAOPoikkeus {
+		
+
 		try {
-			Class.forName(DBConnectionProperties.getInstance().getProperty("driver")).newInstance();
-		} catch(Exception e) {
+			Class.forName(
+					DBConnectionProperties.getInstance().getProperty("driver"))
+					.newInstance();
+		} catch (Exception e) {
 			throw new DAOPoikkeus("Tietokannan ajuria ei kyetty lataamaan.", e);
 		}
 	}
 
-	public List<Pizza> haeTuote() throws DAOPoikkeus {
+	public ArrayList<Pizza> haePizzat() throws DAOPoikkeus {
 
-		// luodaan pizzoille arraylist
-		ArrayList<Pizza> tuote = new ArrayList<Pizza>();
-	
+		// alkuarvot
 		Connection yhteys = null;
+		ArrayList<Pizza> pizzalista = new ArrayList<Pizza>();
 
 		try {
+			// avataan yhteys tietokantaan
+			yhteys = avaaYhteys();
+
+			// Luodaan sql stringist‰ statement ja suoritetaan sql haku
+			String sql = "select id, nimi, hinta from pizza";
+			Statement haku = yhteys.createStatement();
+			ResultSet rs = haku.executeQuery(sql);
+
+			while (rs.next()) {
+				pizzalista.add(new Pizza(rs.getInt("id"), rs.getString("nimi"),
+						rs.getDouble("hinta")));
+			}
+
+		} catch (Exception e) {
+			// heit‰ virhe jos virhe
+			throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
+		} finally {
+			// yhteys kiinni
+			suljeYhteys(yhteys);
+		}
+		// palautetaan saatu tulos
+		return pizzalista;
+	}
+
+	public ArrayList<Tayte> haeTaytteetPizzalle(int pizzaId) throws DAOPoikkeus {
+
+		ArrayList<Tayte> taytteet = new ArrayList<Tayte>();
+		// alkuarvo yhteydelle
+		Connection yhteys = null;
 			
+		try {
 			// avataan yhteys tietokantaan
 			yhteys = avaaYhteys();
 			
-			// haetaan pizzat tietokannasta statementill‰
-			String sql = "select id, nimi, hinta from pizza";
-			Statement haku = yhteys.createStatement();
-			ResultSet tulokset = haku.executeQuery(sql);
-						
-			// k‰yd‰‰n haku l‰pi
-			while (tulokset.next()) {
-				int pid = tulokset.getInt("id");
-				String nimi = tulokset.getString("nimi");
-				double hinta = tulokset.getDouble("hinta");
-				
-				// alkuarvo t‰ytteille
-				List<Tayte> taytteet = new ArrayList<Tayte>();
-				
-				// tehd‰‰n uusi haku josta saadaan edellisen haun tuotteen id:n perusteella sen t‰ytteet
-				String sql2 = "select ta.nimi from taytepizza t join pizza p on t.pizza_id = p.id join tayte ta on ta.id = t.tayte_id where p.id ="
-						+ pid;
-				Statement haku2 = yhteys.createStatement();
-				ResultSet tulokset2 = haku2.executeQuery(sql2);
-
-				// k‰yd‰‰n t‰ytteet l‰pi
-				while (tulokset2.next()) {
-					taytteet.add(new Tayte(tulokset2.getString("nimi")));
-				}
-
-				// sijoitetaan pizzan infot ja taytteen infot constructoriin
-						Pizza p = new Pizza(pid, nimi, hinta, taytteet);
-						System.out.println(p);
-						tuote.add(p);
-
+			// haetaan taytteet tietokannasta statementill‰ laitetaan haun tulokset ResultSetiksis
+			String sql = "select ta.nimi, ta.id from taytepizza t join tayte ta on ta.id = t.tayte_id where t.pizza_id = ?";
+			PreparedStatement ps = yhteys.prepareStatement(sql);
+			ps.setInt(1, pizzaId);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				taytteet.add(new Tayte(rs.getInt("id"), rs.getString("nimi")));
 			}
-
+		
 		} catch (Exception e) {
 			// heit‰ virhe jos virhe
 			throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
@@ -74,35 +82,28 @@ public class TuoteDAO extends Yhteys{
 			// yhteys kii
 			suljeYhteys(yhteys);
 		}
-
-		// palautetaan pizzat
-		return tuote;
-
+		// palautetaan t‰ytteet
+		return taytteet;
 	}
-	
-	public List<Juoma> haeJuoma() throws DAOPoikkeus {
-		ArrayList<Juoma> juoma = new ArrayList<Juoma>();
+
+	public ArrayList<Juoma> haeJuomat() throws DAOPoikkeus {
 		
+		ArrayList<Juoma> juomalista = new ArrayList<Juoma>();
 		Connection yhteys = null;
-		
-		try {			
+
+		try {
 			yhteys = avaaYhteys();
-			
+
 			// haetaan juomat
 			String sql = "select id, nimi, hinta from juoma";
 			Statement haku = yhteys.createStatement();
-			ResultSet tulokset = haku.executeQuery(sql);
-
-			// k‰yd‰‰n haku l‰pi
-			while (tulokset.next()) {
-				int id = tulokset.getInt("id");
-				String nimi = tulokset.getString("nimi");
-				double hinta = tulokset.getDouble("hinta");
-
-				// lis‰t‰‰n juoma listaan
-				Juoma j = new Juoma(id, nimi, hinta);
-				juoma.add(j);
+			ResultSet rs = haku.executeQuery(sql);
+			
+			while (rs.next()) {
+				juomalista.add(new Juoma(rs.getInt("id"), rs.getString("nimi"),
+						rs.getDouble("hinta")));
 			}
+		
 
 		} catch (Exception e) {
 			// heit‰ virhe jos virhe
@@ -111,9 +112,8 @@ public class TuoteDAO extends Yhteys{
 			// yhteys kii
 			suljeYhteys(yhteys);
 		}
-
 		// palautetaan juomat
-		return juoma;
-		
+		return juomalista;
+
 	}
 }

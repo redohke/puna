@@ -9,11 +9,10 @@ public class Pizza {
 	private double hinta;
 	private List<Tayte> taytteet;
 		
-	public Pizza(int id, String nimi, double hinta, List<Tayte> taytteet) {
+	public Pizza(int id, String nimi, double hinta) {
 		this.id = id;
 		this.nimi = nimi;
 		this.hinta = hinta;
-		this.taytteet = taytteet;
 	}
 
 	public int getId() {

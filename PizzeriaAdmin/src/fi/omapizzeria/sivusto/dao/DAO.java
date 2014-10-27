@@ -1,12 +1,12 @@
-package fi.omapizzeria.yhteys;
+package fi.omapizzeria.sivusto.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-import fi.omapizzeria.yhteys.DAOPoikkeus;
-import fi.omapizzeria.yhteys.DBConnectionProperties;
+import fi.omapizzeria.sivusto.dao.DAOPoikkeus;
+import fi.omapizzeria.sivusto.dao.DBConnectionProperties;
 
-public class Yhteys {
+public abstract class DAO {
 
 	// metodi, joka avaa yhteyden tietokantaan
 	public Connection avaaYhteys() throws DAOPoikkeus {

@@ -4,7 +4,8 @@ public class Tayte {
 	int id;
 	String nimi;
 	
-	public Tayte(String nimi) {
+	public Tayte(int id, String nimi) {
+		this.id = id;
 		this.nimi = nimi;
 	}
 
