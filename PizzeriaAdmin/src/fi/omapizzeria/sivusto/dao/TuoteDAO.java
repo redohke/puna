@@ -35,7 +35,7 @@ public class TuoteDAO extends DAO {
 			yhteys = avaaYhteys();
 
 			// Luodaan sql stringistä statement ja suoritetaan sql haku
-			String sql = "select id, nimi, hinta from pizza";
+			String sql = "select id, nimi, hinta from pizza where tarjolla = 1";
 			Statement haku = yhteys.createStatement();
 			ResultSet rs = haku.executeQuery(sql);
 
@@ -66,7 +66,7 @@ public class TuoteDAO extends DAO {
 			yhteys = avaaYhteys();
 			
 			// haetaan taytteet tietokannasta statementillä laitetaan haun tulokset ResultSetiksis
-			String sql = "select ta.nimi, ta.id from taytepizza t join tayte ta on ta.id = t.tayte_id where t.pizza_id = ?";
+			String sql = "select ta.nimi, ta.id from pizzatayte t join tayte ta on ta.id = t.tayte_id where t.pizza_id = ?";
 			PreparedStatement ps = yhteys.prepareStatement(sql);
 			ps.setInt(1, pizzaId);
 			ResultSet rs = ps.executeQuery();
@@ -95,7 +95,7 @@ public class TuoteDAO extends DAO {
 			yhteys = avaaYhteys();
 
 			// haetaan juomat
-			String sql = "select id, nimi, hinta from juoma";
+			String sql = "select id, nimi, hinta from juoma where tarjolla = 1";
 			Statement haku = yhteys.createStatement();
 			ResultSet rs = haku.executeQuery(sql);
 			
