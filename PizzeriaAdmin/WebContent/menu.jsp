@@ -28,6 +28,7 @@
 
 		<div id="main_lista">
 			<div id="pizzalista">
+			<div id="pizzablock">
 				<p class="otsikko">Pizzalista:</p>
 
 				<c:forEach items="${plista}" var="pl">
@@ -48,8 +49,8 @@
 							</tr>
 							<tr>
 								<td class="pmauste"><input type="checkbox" name="Oregano"
-									value="1"> Oregano <input type="checkbox"
-									name="Valkosipuli" value="2"> Valkosipuli</td>
+									value="1"> oregano <input type="checkbox"
+									name="Valkosipuli" value="2"> valkosipuli</td>
 								<td>Määrä: <select>
 										<option value="1">1 kpl</option>
 										<option value="2">2 kpl</option>
@@ -69,7 +70,9 @@
 				</c:forEach>
 				<hr class="pviiva" />
 				</div>
+				</div>
 				<div id="juomalista">
+				<div id="pizzablock">
 				<p class="otsikko">Juomalista:</p>
 
 				<c:forEach items="${jlista}" var="jl">
@@ -81,7 +84,6 @@
 										value="${jl.nimi}" /></td>
 								<td class="phinta"><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="2" value="${jl.hinta}"/> &#x20ac;</td>
 							<tr>
-	
 							</tr>
 							<tr>
 								<td class="pmauste"></td>
@@ -103,7 +105,7 @@
 				</c:forEach>
 				<hr class="pviiva" />
 			</div>
-
+			</div>
 		</div>
 
 

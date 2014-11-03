@@ -201,25 +201,30 @@ input {
 	-webkit-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
 }
 
+
 #pizzalista {
 	font-size: 13px;
-	width: 890px;
 	height: 1270px;
-	padding: 10px;
-	margin-bottom: 5px;
+	padding-top: 10px;
 	background: #f1efd8;
+	margin-bottom: 5px;
 	box-shadow:0  1px 1px 2px rgba(0, 0, 0, .1);
 	-moz-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
 	-webkit-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
 }
 
+#pizzablock {
+	margin: 0 auto;
+	display: block;
+	width: 65%;	
+}
+
 #juomalista {
 	font-size: 13px;
-	width: 890px;
 	height: 510px;
-	padding: 10px;
-	margin-bottom: 5px;
+	padding-top: 10px;
 	background: #f1efd8;
+	margin-bottom: 5px;
 	box-shadow:0  1px 1px 2px rgba(0, 0, 0, .1);
 	-moz-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
 	-webkit-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
@@ -237,7 +242,7 @@ input {
 .pviiva {
 	border: 0;
 	height: 2px;
-	width: 480px;
+	width: 575px;
 	color: #c3d95d;
 	background: #c3d95d;
 	margin-bottom: 8px;
@@ -289,7 +294,7 @@ input {
 
 .pnimi {
 	font-size: 15px;
-	width: 320px;
+	width: 410px;
 }
 
 .phinta {
