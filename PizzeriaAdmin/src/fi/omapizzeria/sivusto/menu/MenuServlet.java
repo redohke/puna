@@ -17,7 +17,7 @@ import fi.omapizzeria.sivusto.service.PizzaService;
 /**
  * Servlet implementation class MenuServlet
  */
-@WebServlet("/ruokalista")
+@WebServlet("/menu")
 public class MenuServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -50,7 +50,7 @@ public class MenuServlet extends HttpServlet {
 		request.setAttribute("jlista", juoma);
 
 		// ohjataan .jsp:lle
-		request.getRequestDispatcher("ruokalista.jsp").forward(request, response);
+		request.getRequestDispatcher("menu.jsp").forward(request, response);
 	}
 
 	/**
