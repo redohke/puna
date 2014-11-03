@@ -18,8 +18,8 @@
           <ul>
             <li class="nav-bar-active"><a href="index.jsp">Koti</a></li>
               <li><a href="menu">Menu</a></li>
-              <li><a href="#">Kori</a></li>
-              <li><a href="#">Me</a></li>
+              <li><a href="kori.jsp">Kori</a></li>
+              <li><a href="me.jsp">Me</a></li>
             </ul>
           </nav>
         </div>

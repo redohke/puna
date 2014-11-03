@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,8 +20,8 @@
 				<ul>
 					<li><a href="index.jsp">Koti</a></li>
 					<li class="nav-bar-active"><a href="menu">Menu</a></li>
-					<li><a href="#">Kori</a></li>
-					<li><a href="#">Me</a></li>
+					<li><a href="kori.jsp">Kori</a></li>
+					<li><a href="me.jsp">Me</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -34,24 +35,66 @@
 					<form action=ruokalista method="post">
 						<table class="ptaulu">
 							<tr>
-								<td class="pnimi"><c:out value="${pl.id}. " />
-									<c:out value="${pl.nimi}" /></td>
-								<td class="phinta"><c:out value="${pl.hinta}" />
-									&#x20ac;</td>
+								<td class="pnimi"><c:out value="${pl.id}. " /> <c:out
+										value="${pl.nimi}" /></td>
+								<td class="phinta"><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="2" value="${pl.hinta}"/> &#x20ac;</td>
+							</tr>
 							<tr>
-								<td class="ptayte">
-									<c:forEach items="${pl.taytteet}" var="tayte" varStatus="status">
+								<td class="ptayte"><c:forEach items="${pl.taytteet}"
+										var="tayte" varStatus="status">
     								${tayte}
     								<c:if test="${!status.last}">,</c:if>
-									</c:forEach>
-								</td>
+									</c:forEach></td>
 							</tr>
 							<tr>
 								<td class="pmauste"><input type="checkbox" name="Oregano"
 									value="1"> Oregano <input type="checkbox"
 									name="Valkosipuli" value="2"> Valkosipuli</td>
-								<td>Määrä: <input class="kentta" type="text" name="Määrä"
-									value="1"> <input class="nappula" type="button"
+								<td>Määrä: <select>
+										<option value="1">1 kpl</option>
+										<option value="2">2 kpl</option>
+										<option value="3">3 kpl</option>
+										<option value="4">4 kpl</option>
+										<option value="5">5 kpl</option>
+										<option value="6">6 kpl</option>
+										<option value="7">7 kpl</option>
+										<option value="8">8 kpl</option>
+										<option value="9">9 kpl</option>
+								</select> <input class="nappula" type="button" name="action"
+									value="Tilaa">
+								</td>
+							</tr>
+						</table>
+					</form>
+				</c:forEach>
+				<hr class="pviiva" />
+				</div>
+				<div id="juomalista">
+				<p class="otsikko">Juomalista:</p>
+
+				<c:forEach items="${jlista}" var="jl">
+					<hr class="pviiva" />
+					<form action=menu method="post">
+						<table class="ptaulu">
+							<tr>
+								<td class="pnimi"><c:out value="${jl.id}. " /> <c:out
+										value="${jl.nimi}" /></td>
+								<td class="phinta"><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="2" value="${jl.hinta}"/> &#x20ac;</td>
+							<tr>
+	
+							</tr>
+							<tr>
+								<td class="pmauste"></td>
+								<td>Määrä: <select>
+										<option value="1">1 kpl</option>
+										<option value="2">2 kpl</option>
+										<option value="3">3 kpl</option>
+										<option value="4">4 kpl</option>
+										<option value="5">5 kpl</option>
+										<option value="6">6 kpl</option>
+										<option value="7">7 kpl</option>
+										<option value="8">8 kpl</option>
+										<option value="9">9 kpl</option></select> <input class="nappula" type="button"
 									name="action" value="Tilaa">
 								</td>
 							</tr>
@@ -60,6 +103,7 @@
 				</c:forEach>
 				<hr class="pviiva" />
 			</div>
+
 		</div>
 
 

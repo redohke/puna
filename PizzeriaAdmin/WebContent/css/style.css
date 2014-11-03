@@ -13,13 +13,17 @@
 	box-sizing: border-box;
 }
 
-body {
+html {
 	background: url("img/woody.png") no-repeat center center fixed;
 	background-color: #605951;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+}
+
+body {
+
 }
 
 nav {
@@ -92,7 +96,7 @@ input {
 #main_lista {
 	font-size: 13px;
 	width: 900px;
-	height: 1310px;
+	height: 1795px;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	padding: 5px;
@@ -185,10 +189,34 @@ input {
 	-webkit-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
 }
 
+#content {
+	font-size: 13px;
+	width: 890px;
+	height: 310px;
+	padding: 10px;
+	margin-bottom: 5px;
+	background: #f1efd8;
+	box-shadow:0  1px 1px 2px rgba(0, 0, 0, .1);
+	-moz-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
+	-webkit-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
+}
+
 #pizzalista {
 	font-size: 13px;
 	width: 890px;
-	height: 1300px;
+	height: 1270px;
+	padding: 10px;
+	margin-bottom: 5px;
+	background: #f1efd8;
+	box-shadow:0  1px 1px 2px rgba(0, 0, 0, .1);
+	-moz-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
+	-webkit-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
+}
+
+#juomalista {
+	font-size: 13px;
+	width: 890px;
+	height: 510px;
 	padding: 10px;
 	margin-bottom: 5px;
 	background: #f1efd8;
@@ -200,7 +228,7 @@ input {
 .viiva {
 	border: 0;
 	height: 2px;
-	width: 220px;
+	width: 200px;
 	color: #c3d95d;
 	background: #c3d95d;
 	margin-bottom: 8px;
@@ -209,7 +237,7 @@ input {
 .pviiva {
 	border: 0;
 	height: 2px;
-	width: 485px;
+	width: 480px;
 	color: #c3d95d;
 	background: #c3d95d;
 	margin-bottom: 8px;
@@ -261,7 +289,7 @@ input {
 
 .pnimi {
 	font-size: 15px;
-	width: 350px;
+	width: 320px;
 }
 
 .phinta {
