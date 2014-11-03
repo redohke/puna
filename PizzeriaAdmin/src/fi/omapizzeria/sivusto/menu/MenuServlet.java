@@ -38,18 +38,18 @@ public class MenuServlet extends HttpServlet {
 		List<Juoma> juoma;
 
 		try {
-			// tietokannasta tuotteet listoihin
+			// serviceltä tuottelistat
 			PizzaService p = new PizzaService();
 			pizza = p.haePizzaLista();
 			juoma = p.haeJuomaLista();
 		} catch (DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
-		// listat requestin attribuutiksi
+		// listat sivulle
 		request.setAttribute("plista", pizza);
 		request.setAttribute("jlista", juoma);
 
-		// ohjataan .jsp:lle
+		// ohjaus .jsp:lle
 		request.getRequestDispatcher("menu.jsp").forward(request, response);
 	}
 

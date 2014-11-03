@@ -14,6 +14,7 @@ public class PizzaService {
 		super();
 	}
 
+	// hakee pizzalistan dao:lta
 	public List<Pizza> haePizzaLista() throws DAOPoikkeus {
 		
 		TuoteDAO dao = new TuoteDAO();
@@ -25,7 +26,7 @@ public class PizzaService {
 		return pizzalista;
 	}
 	
-
+	// hakee juomalistan dao:lta
 	public List<Juoma> haeJuomaLista() throws DAOPoikkeus {
 		
 		TuoteDAO dao = new TuoteDAO();
@@ -35,13 +36,4 @@ public class PizzaService {
 		return juomalista;
 	}
  
-
-	/*
-	 * // k‰yd‰‰n haku l‰pi while (tulokset.next()) { int id =
-	 * tulokset.getInt("id"); String nimi = tulokset.getString("nimi"); double
-	 * hinta = tulokset.getDouble("hinta");
-	 * 
-	 * // lis‰t‰‰n juoma listaan Juoma j = new Juoma(id, nimi, hinta);
-	 * juoma.add(j); }
-	 */
 }

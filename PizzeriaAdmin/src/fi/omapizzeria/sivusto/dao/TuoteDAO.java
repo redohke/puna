@@ -26,7 +26,6 @@ public class TuoteDAO extends DAO {
 
 	public ArrayList<Pizza> haePizzat() throws DAOPoikkeus {
 
-		// alkuarvot
 		Connection yhteys = null;
 		ArrayList<Pizza> pizzalista = new ArrayList<Pizza>();
 
@@ -57,9 +56,8 @@ public class TuoteDAO extends DAO {
 
 	public ArrayList<Tayte> haeTaytteetPizzalle(int pizzaId) throws DAOPoikkeus {
 
-		ArrayList<Tayte> taytteet = new ArrayList<Tayte>();
-		// alkuarvo yhteydelle
 		Connection yhteys = null;
+		ArrayList<Tayte> taytteet = new ArrayList<Tayte>();
 			
 		try {
 			// avataan yhteys tietokantaan
