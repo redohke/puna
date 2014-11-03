@@ -96,7 +96,7 @@ input {
 #main_lista {
 	font-size: 13px;
 	width: 900px;
-	height: 1795px;
+	height: 100%;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	padding: 5px;
@@ -204,8 +204,8 @@ input {
 
 #pizzalista {
 	font-size: 13px;
-	height: 1270px;
 	padding-top: 10px;
+	padding-bottom: 10px;
 	background: #f1efd8;
 	margin-bottom: 5px;
 	box-shadow:0  1px 1px 2px rgba(0, 0, 0, .1);
@@ -221,10 +221,9 @@ input {
 
 #juomalista {
 	font-size: 13px;
-	height: 510px;
 	padding-top: 10px;
+	padding-bottom: 10px;
 	background: #f1efd8;
-	margin-bottom: 5px;
 	box-shadow:0  1px 1px 2px rgba(0, 0, 0, .1);
 	-moz-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
 	-webkit-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
