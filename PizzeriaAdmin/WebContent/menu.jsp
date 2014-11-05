@@ -33,7 +33,7 @@
 
 				<c:forEach items="${plista}" var="pl">
 					<hr class="pviiva" />
-					<form action=ruokalista method="post">
+					<form name="action" method="post">
 						<table class="ptaulu">
 							<tr>
 								<td class="pnimi"><c:out value="${pl.id}. " /> <c:out
@@ -51,7 +51,7 @@
 								<td class="pmauste"><input type="checkbox" name="Oregano"
 									value="1"> oregano <input type="checkbox"
 									name="Valkosipuli" value="2"> valkosipuli</td>
-								<td>Määrä: <select>
+								<td>Määrä: <select name="lkm">
 										<option value="1">1 kpl</option>
 										<option value="2">2 kpl</option>
 										<option value="3">3 kpl</option>
@@ -61,8 +61,12 @@
 										<option value="7">7 kpl</option>
 										<option value="8">8 kpl</option>
 										<option value="9">9 kpl</option>
-								</select> <input class="nappula" type="button" name="action"
-									value="Tilaa">
+								</select>
+								<input type="hidden" name="action" value="add"> 
+									<input type="hidden" name="id" value="${pl.id}">
+									<input type="hidden" name="nimi" value="${pl.nimi}">
+									<input type="hidden" name="hinta" value="${pl.hinta}">
+								<button type="submit">Tilaa</button>
 								</td>
 							</tr>
 						</table>
@@ -107,8 +111,6 @@
 			</div>
 			</div>
 		</div>
-
-
 
 		<div id="footer">Copyright © 2014 Pizzeria Tyyni</div>
 	</div>

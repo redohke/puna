@@ -102,7 +102,9 @@
                 </tr>
               </table>
             </div>
-            <div id="right_col"><iframe class="s" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7935.176676219475!2d24.830083800000015!3d60.184139099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x468df5ed5c13c5f3%3A0x2600b5523c18ef71!2sOtaniemi%2C+02150+Espoo!5e0!3m2!1sen!2sfi!4v1411368807431" width="432" height="265" style="border:0"></iframe></div>
+            <div id="right_col">
+            	<iframe class="s" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7935.176676219475!2d24.830083800000015!3d60.184139099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x468df5ed5c13c5f3%3A0x2600b5523c18ef71!2sOtaniemi%2C+02150+Espoo!5e0!3m2!1sen!2sfi!4v1411368807431" width="432" height="265" style="border:0"></iframe>
+            </div>
           </div>
 
           <div id="footer">Copyright © 2014 Pizzeria Tyyni</div>

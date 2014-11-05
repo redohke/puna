@@ -10,9 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import fi.omapizzeria.admin.dao.PizzaDAO;
 import fi.omapizzeria.sivusto.bean.Juoma;
-import fi.omapizzeria.sivusto.bean.Ostos;
 import fi.omapizzeria.sivusto.bean.Ostoskori;
 import fi.omapizzeria.sivusto.bean.Pizza;
 import fi.omapizzeria.sivusto.dao.DAOPoikkeus;
@@ -21,7 +19,7 @@ import fi.omapizzeria.sivusto.service.PizzaService;
 /**
  * Servlet implementation class MenuServlet
  */
-@WebServlet("/ruokalista")
+@WebServlet("/menu")
 
 public class MenuServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -69,7 +67,7 @@ public class MenuServlet extends HttpServlet {
 		request.setAttribute("jlista", juoma);
 
 		// ohjataan .jsp:lle
-		request.getRequestDispatcher("ruokalista.jsp").forward(request, response);
+		request.getRequestDispatcher("menu.jsp").forward(request, response);
 	}
 	
 	
@@ -134,7 +132,7 @@ public class MenuServlet extends HttpServlet {
 		
 		session.setAttribute("ostos", f);
 		
-		response.sendRedirect("/PizzeriaTyyni/ruokalista");
+		response.sendRedirect("/PizzeriaTyyni/menu");
 		System.out.println(kori.ostokset());
 		} else {
 			
