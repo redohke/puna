@@ -5,6 +5,8 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Pizzeria Tyyni</title>
+    <link href="css/Slider.css" rel="stylesheet" type="text/css" />
+    <script src="Javascript/Slider.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
@@ -27,7 +29,16 @@
         <div id="main">
 
           <div id="main_col">
-            <img class="pizza" src="img/pizza2.png">
+             <div id="sliderFrame">
+        <div id="slider">
+            <img src="images/Pizza.png" alt="" />
+            <img src="images/Limukka.png" alt="" />
+            <img src="images/kotiinkuljetus.png" alt="" />
+            <img src="images/Pizza 2.png" alt="" />
+            <img src="images/VikaPizza.png" />
+        </div>
+       
+    </div>
           </div>
 
           <div id="left_col">
