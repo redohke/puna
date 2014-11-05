@@ -7,6 +7,8 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Pizzeria Tyyni - Meistä</title>
+    <link href="css/Slider.css" rel="stylesheet" type="text/css" />
+    <script src="Javascript/Slider.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
@@ -26,13 +28,28 @@
           </nav>
         </div>
 
-        <div id="main">
+        <div id="main2">
 
           <div id="content">
           <p class="otsikko">Meistä lyhyesti:</p>
           <hr class="viiva" />
+      
+      	
+      
           
           </div>
+			
+			    <div id="sliderFrame">
+        <div id="slider">
+            <img src="images/uuni.jpg" alt="" />
+            <img src="images/pizzasisa.png" alt="" />
+            <img src="images/kotiinkuljetus.png" alt="" />
+            <img src="images/pizzeriaexterior.png" alt="" />
+            <img src="images/VikaPizza.png" />
+        </div>
+       
+    </div>
+	
          </div>
 
           <div id="footer">Copyright © 2014 Pizzeria Tyyni</div>
