@@ -96,7 +96,7 @@ input {
 #main2{
 	font-size: 13px;
 	width: 900px;
-	height: 625px;
+	height: 580px;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	padding: 5px;
@@ -208,6 +208,18 @@ input {
 	font-size: 13px;
 	width: 890px;
 	height: 310px;
+	padding: 10px;
+	margin-bottom: 5px;
+	background: #f1efd8;
+	box-shadow:0  1px 1px 2px rgba(0, 0, 0, .1);
+	-moz-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
+	-webkit-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
+}
+
+#content2 {
+	font-size: 13px;
+	width: 890px;
+	height: 250px;
 	padding: 10px;
 	margin-bottom: 5px;
 	background: #f1efd8;
