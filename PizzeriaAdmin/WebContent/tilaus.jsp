@@ -112,7 +112,7 @@
 						<tr>
 							<td><input class="tnappula" type="submit" value="Takaisin"></td>
 							<td><input class="tnappula" type="submit"
-								value="Tilauksen yhteenveto"></td>
+								value="Tilauksen yhteenvetoon"></td>
 						</tr>
 					</table>
 				</form>

@@ -33,14 +33,13 @@
 			<div id="main_col">
 				<p class="otsikko">Meistä lyhyesti:</p>
 				<hr class="viiva" />
-
-				<br>
-				<br> Sijaitsemme teekkarikylän sydämessä osoitteessa
+				<p> Sijaitsemme teekkarikylän sydämessä osoitteessa
 				Otaniementie 9.<br> Olemme ensisijaisesti take away -ravintola,
 				joten meillä<br> on ainoastaan 8 asiakaspaikkaa itse
 				ravintolassa.<br>
 				<br> Meiltä saat pizzat myös kotiin kuljetettuna.<br>
 				<br> Muistathan myös opiskelija-alennuksemme!<br>
+				</p>
 
 
 			</div>
