@@ -31,7 +31,9 @@
           <div id="content">
           <p class="otsikko">Ostoskori:</p>
           <hr class="viiva" />
-          
+          <form action="tilaus.jsp">
+   			 <input class="nappula" type="submit" value="Osta">
+		</form>
           </div>
          </div>
 

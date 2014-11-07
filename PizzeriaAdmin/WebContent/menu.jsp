@@ -48,9 +48,9 @@
 									</c:forEach></td>
 							</tr>
 							<tr>
-								<td class="pmauste"><input type="checkbox" name="Oregano"
+								<td class="pmauste"><input type="checkbox" name="oregano"
 									value="1"> oregano <input type="checkbox"
-									name="Valkosipuli" value="2"> valkosipuli</td>
+									name="valkosipuli" value="1"> valkosipuli</td>
 								<td>Määrä: <select name="lkm">
 										<option value="1">1 kpl</option>
 										<option value="2">2 kpl</option>
@@ -66,7 +66,7 @@
 									<input type="hidden" name="id" value="${pl.id}">
 									<input type="hidden" name="nimi" value="${pl.nimi}">
 									<input type="hidden" name="hinta" value="${pl.hinta}">
-								<button type="submit">Tilaa</button>
+								<button class="nappula" type="submit">Tilaa</button>
 								</td>
 							</tr>
 						</table>
