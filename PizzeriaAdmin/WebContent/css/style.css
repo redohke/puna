@@ -89,20 +89,6 @@ input {
 #main {
 	font-size: 13px;
 	width: 900px;
-	height: 600px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	padding: 5px;
-	background: #bfaf80;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
-	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
-	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
-}
-
-#main2{
-	font-size: 13px;
-	width: 900px;
-	height: 580px;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	padding: 5px;
@@ -115,7 +101,6 @@ input {
 #main_lista {
 	font-size: 13px;
 	width: 900px;
-	height: 100%;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	padding: 5px;
@@ -135,7 +120,6 @@ input {
 	margin-bottom: 5px;
 	padding: 5px;
 }
-
 
 #banner {
 	font-size: 28px;
@@ -175,7 +159,6 @@ input {
 #main_col {
 	font-size: 13px;
 	width: 890px;
-	height: 310px;
 	padding: 5px;
 	margin-bottom: 5px;
 	background: #f1efd8;
@@ -185,12 +168,11 @@ input {
 }
 
 #left_col {
-	float: left;
+	float:left;
 	font-size: 13px;
 	width: 442px;
 	height: 275px;
 	padding: 10px;
-	margin-bottom: 5px;
 	background: #f1efd8;
 	box-shadow:0  1px 1px 2px rgba(0, 0, 0, .1);
 	-moz-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
@@ -203,7 +185,6 @@ input {
 	width: 442px;
 	height: 275px;
 	padding: 5px;
-	margin-bottom: 5px;
 	background: #f1efd8;
 	box-shadow:0  1px 1px 2px rgba(0, 0, 0, .1);
 	-moz-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
@@ -215,19 +196,6 @@ input {
 	width: 890px;
 	height: 100%;
 	padding: 10px;
-	margin-bottom: 5px;
-	background: #f1efd8;
-	box-shadow:0  1px 1px 2px rgba(0, 0, 0, .1);
-	-moz-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
-	-webkit-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
-}
-
-#content2 {
-	font-size: 13px;
-	width: 890px;
-	height: 250px;
-	padding: 10px;
-	margin-bottom: 5px;
 	background: #f1efd8;
 	box-shadow:0  1px 1px 2px rgba(0, 0, 0, .1);
 	-moz-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
@@ -259,6 +227,21 @@ input {
 	box-shadow:0  1px 1px 2px rgba(0, 0, 0, .1);
 	-moz-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
 	-webkit-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
+}
+
+#me {
+	font-size: 13px;
+	width: 890px;
+	height: 100%;
+	padding: 5px;
+	background: #f1efd8;
+	box-shadow:0  1px 1px 2px rgba(0, 0, 0, .1);
+	-moz-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
+	-webkit-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
+}
+
+.clear {
+    clear: both;
 }
 
 .viiva {

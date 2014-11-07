@@ -26,7 +26,7 @@
 			</nav>
 		</div>
 
-		<div id="main_lista">
+		<div id="main">
 			<div id="pizzalista">
 			<div id="pizzablock">
 				<p class="otsikko">Pizzalista:</p>
@@ -62,7 +62,7 @@
 										<option value="8">8 kpl</option>
 										<option value="9">9 kpl</option>
 								</select>
-								<input type="hidden" name="action" value="add"> 
+									<input type="hidden" name="action" value="add"> 
 									<input type="hidden" name="id" value="${pl.id}">
 									<input type="hidden" name="nimi" value="${pl.nimi}">
 									<input type="hidden" name="hinta" value="${pl.hinta}">
