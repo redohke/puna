@@ -64,8 +64,6 @@
 								</select>
 									<input type="hidden" name="action" value="add"> 
 									<input type="hidden" name="id" value="${pl.id}">
-									<input type="hidden" name="nimi" value="${pl.nimi}">
-									<input type="hidden" name="hinta" value="${pl.hinta}">
 								<button class="nappula" type="submit">Tilaa</button>
 								</td>
 							</tr>
