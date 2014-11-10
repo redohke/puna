@@ -67,7 +67,7 @@ input {
 }
 
 #wrapper {
-	width: 920px;
+	width: 900px;
 	height: 100%;
 	margin: 0 auto;
 	overflow: hidden;
@@ -151,8 +151,8 @@ input {
 .mekuva {
 	display: block;
 	margin: 0 auto;
-	width: 500px;
-	height: 500px;
+	width: 250px;
+	height: 250px;
 }
 
 .nav-bar-active {
@@ -252,6 +252,7 @@ input {
 }
 
 .viiva {
+	text-align: left;
 	border: 0;
 	height: 2px;
 	width: 200px;
@@ -261,6 +262,7 @@ input {
 }
 
 .pviiva {
+	text-align: left;
 	border: 0;
 	height: 2px;
 	width: 575px;

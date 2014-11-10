@@ -33,7 +33,7 @@
 
 				<c:forEach items="${plista}" var="pl">
 					<hr class="pviiva" />
-					<form name="action" method="post">
+					<form name="action" action="menu" method="post">
 						<table class="ptaulu">
 							<tr>
 								<td class="pnimi"><c:out value="${pl.id}. " /> <c:out
@@ -64,7 +64,7 @@
 								</select>
 									<input type="hidden" name="action" value="add"> 
 									<input type="hidden" name="id" value="${pl.id}">
-								<button class="nappula" type="submit">Tilaa</button>
+								<button class="nappula" type="submit" value="add">Tilaa</button>
 								</td>
 							</tr>
 						</table>

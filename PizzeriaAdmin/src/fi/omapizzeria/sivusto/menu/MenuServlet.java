@@ -147,14 +147,14 @@ public class MenuServlet extends HttpServlet {
 				Pizza uusiPizza = pService.tuoPizza(id);
 				
 				kori.lisaaTuote(uusiPizza, lkm, oregano, valkosipuli);
-				session.setAttribute("kori", kori);
-				response.sendRedirect("/PizzeriaTyyni/menu");
 				
 			} catch (DAOPoikkeus e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+			request.getSession().setAttribute("kori", kori);
 			
+			response.sendRedirect("/PizzeriaTyyni/menu");
 		
 		
 	

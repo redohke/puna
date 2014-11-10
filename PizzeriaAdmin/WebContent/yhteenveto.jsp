@@ -6,7 +6,7 @@
   <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Pizzeria Tyyni - Ostoskori</title>
+    <title>Pizzeria Tyyni - Yhteenveto</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
@@ -29,27 +29,11 @@
         <div id="main">
 
           <div id="content">
-          <p class="otsikko">Ostoskori:</p>
+          <p class="otsikko">Tilauksen yhteenveto:</p>
           <hr class="viiva" />
-
-          	<form>
-          	<table>
-          	<tr>
-          	<td>
-          	<c:out value="${kori}" />
-          	</td>
-          	</tr>
-          	<tr>
-          	<td>
-          	          	 <input type="hidden" name="action" value="del">
-          	</td>
-          	</tr>
-
-          	</table>
-          	</form>
-
           <form action="tilaus.jsp">
-   			 <input class="nappula" type="submit" value="Osta">
+          	<input class="tnappula" type="submit" value="Takaisin">
+   			 <input class="tnappula" type="submit" value="Vahvista tilaus">
 		</form>
           </div>
          </div>

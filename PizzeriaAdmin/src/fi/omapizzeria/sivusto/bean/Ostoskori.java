@@ -7,6 +7,13 @@ public class Ostoskori {
 	private ArrayList<Ostos> ostokset;
 	
 	
+@Override
+	public String toString() {
+		return "Ostoskori ostokset=" + ostokset;
+	}
+
+
+
 public Ostoskori() {
 	ostokset = new ArrayList<Ostos>();
 }
