@@ -31,23 +31,29 @@
           <div id="content">
           <p class="otsikko">Ostoskori:</p>
           <hr class="viiva" />
+			<c:forEach items="${kori.ostokset}" var="k">
 
-          	<form>
           	<table>
           	<tr>
           	<td>
-          	<c:out value="${kori}" />
+          	<c:out value="${k.pizza.id}. " />
+          	<c:out value="${k.pizza.nimi}" />
           	</td>
           	</tr>
           	<tr>
           	<td>
-          	          	 <input type="hidden" name="action" value="del">
+          	<td class="c_nappula">
+          	<form action="menu" method="post">
+			<input class="del_nappi" type="image" src="img/Delete.png">
+          	<input type="hidden" name="oId" value="${k.oId}">
+          	<input type="hidden" name="action" value="del">
+          	</form>
           	</td>
           	</tr>
 
           	</table>
-          	</form>
 
+          </c:forEach>
           <form action="tilaus.jsp">
    			 <input class="nappula" type="submit" value="Osta">
 		</form>

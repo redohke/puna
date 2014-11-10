@@ -95,7 +95,7 @@ public int tuotteitaKorissa() {
 			//ostokset.add(new Ostos(oId, lisattava, lkm, valkosipuli, oregano));
 
 	
-	public ArrayList<Ostos> ostokset() {
+	public ArrayList<Ostos> getOstokset() {
 		return ostokset;
 	}
 	
@@ -105,20 +105,20 @@ public int tuotteitaKorissa() {
 		ostokset.clear();
 	}
 	
-	
-/*	public void poista(Ostos poistettava) {
-		Ostos ostos = etsituote(poistettava);
-			if (ostos.getoId()>1) {
-				ostos.vahennaLukumaaraa();
-			} else {
+
+	public void poista(Ostos poistettava) {
+		Ostos ostos = etsiPoistettava(poistettava);
+			try {
 				ostokset.remove(ostos);
+			} catch (Exception e) {
+				
 			}
 		
 	}
 	
-	private Ostos etsi(Pizza etsittava) {
+	private Ostos etsiPoistettava(Ostos etsittava) {
 		for (Ostos ostos: ostokset) {
-			if (ostos.tuotteenId() == etsittava.getId()) {
+			if (ostos.getoId() == etsittava.getoId()) {
 				
 				return ostos;
 				
@@ -126,9 +126,6 @@ public int tuotteitaKorissa() {
 		}
 		return null;
 	}
-	
-	*/
-	
 	
 	
 }
