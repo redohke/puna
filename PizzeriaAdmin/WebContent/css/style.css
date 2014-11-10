@@ -148,6 +148,13 @@ input {
 	height: 155px;
 }
 
+.mekuva {
+	display: block;
+	margin: 0 auto;
+	width: 500px;
+	height: 500px;
+}
+
 .nav-bar-active {
 	height: 40px;
 	border-bottom: 4px solid #c3d95d;

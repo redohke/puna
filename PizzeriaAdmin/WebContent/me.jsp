@@ -49,15 +49,7 @@
 
 					<div id="me">
 
-				<div id="sliderFrame">
-					<div id="slider">
-						<img src="images/uuni.jpg" alt="" /> <img
-							src="images/pizzasisa.png" alt="" /> <img
-							src="images/kotiinkuljetus.png" alt="" /> <img
-							src="images/pizzeriaexterior.png" alt="" /> <img
-							src="images/VikaPizza.png" />
-					</div>
-				</div>
+				<img class="mekuva" src="img/char.png" alt=""/>
 				
 			</div>
 
