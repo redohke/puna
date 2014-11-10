@@ -15,7 +15,6 @@ import fi.omapizzeria.sivusto.bean.Ostos;
 import fi.omapizzeria.sivusto.bean.Ostoskori;
 import fi.omapizzeria.sivusto.bean.Pizza;
 import fi.omapizzeria.sivusto.dao.DAOPoikkeus;
-import fi.omapizzeria.sivusto.dao.TuoteDAO;
 import fi.omapizzeria.sivusto.service.PizzaService;
 
 /**
@@ -73,81 +72,80 @@ public class MenuServlet extends HttpServlet {
 		Ostoskori kori = (Ostoskori) session.getAttribute("kori");
 
 		if (request.getParameter("action").equals("add")) {
-
 			if (kori == null) {
-
 				kori = new Ostoskori();
-
 			}
 
 			// haetaan ID formista
-
 			String sid = request.getParameter("id");
 			int id = Integer.parseInt(sid);
 
 			String maara = request.getParameter("lkm");
 			int lkm = Integer.parseInt(maara);
 
-			String klikattuOregano = request.getParameter("oregano"); // oregano
-																		// valinta
-																		// checkboxista
-			String klikattuValkosipuli = request.getParameter("valkosipuli"); // valkosipuli
-																				// valinta
-																				// checkboxista
+			// oregano/valkosipuli valinta checkboxista
+			String klikattuOregano = request.getParameter("oregano");
+			String klikattuValkosipuli = request.getParameter("valkosipuli");
 
-			boolean oregano;
-			boolean valkosipuli;
+			boolean oregano = false;
+			boolean valkosipuli = false;
 
-			// tsekataan ett‰ onko oregano valittu
+			// tsekataan ett‰ onko oregano/valkosipuli valittu
 			if (klikattuOregano != null) {
 				oregano = true;
-			} else {
-				oregano = false;
 			}
-			// tsekataan ett‰ onko valkosipuli valittu
 			if (klikattuValkosipuli != null) {
 				valkosipuli = true;
-			} else {
-				valkosipuli = false;
 			}
+
 			// haetaan pizzaID:ll‰ pizzan tiedot tietokannasta
-
 			try {
-
 				PizzaService pService = new PizzaService();
 				Pizza uusiPizza = pService.tuoPizza(id);
-
-				kori.lisaaTuote(uusiPizza, lkm, oregano, valkosipuli);
+				double rivihinta = lkm * uusiPizza.getHinta();
+				kori.lisaaTuote(uusiPizza, lkm, oregano, valkosipuli, rivihinta);
 
 			} catch (DAOPoikkeus e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+
 			request.getSession().setAttribute("kori", kori);
-
 			response.sendRedirect("/PizzeriaTyyni/menu");
-
 			System.out.println(kori.getOstokset());
+
 		}
 
+		// ostoskorista tuotteen poistaminen
 		if (request.getParameter("action").equals("del")) {
 
+			// haetaan oId ostoskorista
 			String oId = request.getParameter("oId");
 			int poistettavaOid = Integer.parseInt(oId);
 
-			Ostos x = new Ostos(poistettavaOid, null, 0, false, false);
+			Ostos x = new Ostos(poistettavaOid, null, 0, false, false, 0);
 
 			try {
 				kori.poista(x);
-
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+
+			// tallennetaan sessioon
 			request.getSession().setAttribute("kori", kori);
-
+			// siirryt‰‰n takaisin koriin
 			response.sendRedirect("/PizzeriaTyyni/kori.jsp");
-
 			System.out.println(kori.getOstokset());
+
+		}
+		
+		if (request.getParameter("action").equals("clear")) {
+
+			try {
+				kori.tyhjenna();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
 		}
 	}
 }

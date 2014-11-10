@@ -49,7 +49,7 @@
 
 					<div id="me">
 
-				<img class="mekuva" src="img/char.png" alt=""/>
+				<img src="img/rafla.jpg" alt=""/>
 				
 			</div>
 

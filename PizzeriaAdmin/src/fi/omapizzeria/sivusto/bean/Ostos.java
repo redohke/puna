@@ -8,15 +8,17 @@ public class Ostos {
 	private int lkm;
 	boolean valkosipuli;
 	boolean oregano;
+	private double rivihinta;
 	
 	
 	
-	public Ostos(int oId, Pizza pizza, int lkm, boolean oregano, boolean valkosipuli) {
+	public Ostos(int oId, Pizza pizza, int lkm, boolean oregano, boolean valkosipuli, double rivihinta) {
 		this.oId = oId;
 		this.pizza = pizza;
 		this.lkm = lkm;
 		this.valkosipuli = valkosipuli;
 		this.oregano = oregano;
+		this.setRivihinta(rivihinta);
 	}
 	
 
@@ -48,6 +50,14 @@ public class Ostos {
 
 	public Pizza getPizza() {
 		return pizza;
+	}
+	
+	public boolean getValkosipuli() {
+		return valkosipuli;
+	}
+	
+	public boolean getOregano() {
+		return oregano;
 	}
 
 
@@ -98,6 +108,24 @@ public class Ostos {
 	public String toString() {
 		return "Ostos [oId=" + oId + ", pizza=" + pizza + ", lkm=" + lkm
 				+ ", valkosipuli=" + valkosipuli + ", oregano=" + oregano + "]";
+	}
+
+
+
+
+
+
+	public double getRivihinta() {
+		return rivihinta;
+	}
+
+
+
+
+
+
+	public void setRivihinta(double rivihinta) {
+		this.rivihinta = rivihinta;
 	}
 
 
