@@ -14,6 +14,7 @@ import fi.omapizzeria.sivusto.bean.Juoma;
 import fi.omapizzeria.sivusto.bean.Ostoskori;
 import fi.omapizzeria.sivusto.bean.Pizza;
 import fi.omapizzeria.sivusto.dao.DAOPoikkeus;
+import fi.omapizzeria.sivusto.dao.TuoteDAO;
 import fi.omapizzeria.sivusto.service.PizzaService;
 
 /**
@@ -100,42 +101,66 @@ public class MenuServlet extends HttpServlet {
 			if (kori == null) {
 
                 kori = new Ostoskori();
-                session.setAttribute("kori", kori);
-            }
+
+			
+			}
+		
+			// haetaan ID formista
+			
+	
 			
 			
+		String sid = request.getParameter("id");
+			int id = Integer.parseInt(sid);			
+			
+		String maara = request.getParameter("lkm");
+			int lkm = Integer.parseInt(maara);
 		
+			
+		String klikattuOregano = request.getParameter("oregano"); // oregano valinta checkboxista
+		String klikattuValkosipuli = request.getParameter("valkosipuli"); //valkosipuli valinta checkboxista
 		
-		String syotettyId = request.getParameter("id");
-		String syotettyNimi = request.getParameter("nimi");
-		String syotettyHinta = request.getParameter("hinta");
+			boolean oregano;
+			boolean valkosipuli;
+			
 		
-		int id = Integer.parseInt(syotettyId);
-		double pd = Double.parseDouble(syotettyHinta);
+			
+			// tsekataan että onko oregano valittu	
+		if (klikattuOregano != null) {
+			oregano = true;
+			} else {
+			oregano = false;
+			}
+			// tsekataan että onko valkosipuli valittu	
+		if (klikattuValkosipuli != null) {
+			valkosipuli = true;
+			} else {
+			valkosipuli = false;
+		}
+						//haetaan pizzaID:llä pizzan tiedot tietokannasta
 		
-		Pizza f = new Pizza(id, syotettyNimi, pd);
+			
+			try {
+				
+				
+				PizzaService pService = new PizzaService();
+				Pizza uusiPizza = pService.tuoPizza(id);
+				
+				kori.lisaaTuote(uusiPizza, lkm, oregano, valkosipuli);
+				session.setAttribute("kori", kori);
+				response.sendRedirect("/PizzeriaTyyni/menu");
+				
+			} catch (DAOPoikkeus e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 		
 		
 	
-		
-	//	Ostos p = new Ostos(f);
-		
-		
-		try {
-			
-			kori.lisaaTuote(f);
-		
-			
-		} catch (Exception e) {
-			throw new ServletException(e);
-		}
-		
-		session.setAttribute("ostos", f);
-		
-		response.sendRedirect("/PizzeriaTyyni/menu");
 		System.out.println(kori.ostokset());
 		} else {
 			
 		}
-
-	}}
+		 }
+	}

@@ -36,4 +36,13 @@ public class PizzaService {
 		return juomalista;
 	}
  
+	
+	public Pizza tuoPizza(int id) throws DAOPoikkeus {
+		
+		TuoteDAO dao = new TuoteDAO();
+		
+		Pizza pizza = dao.haePizza(id);
+		
+		return pizza;
+	}
 }

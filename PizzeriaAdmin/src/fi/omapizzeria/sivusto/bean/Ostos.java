@@ -3,28 +3,76 @@ import fi.omapizzeria.sivusto.bean.Pizza;
 
 public class Ostos {
 	
-	private int lkm;
+	private int oId;
 	private Pizza pizza;
+	private int lkm;
+	boolean valkosipuli;
+	boolean oregano;
 	
 	
 	
-	public Ostos(Pizza pizza) {
-		this.lkm = 1;
+	public Ostos(int oId, Pizza pizza, int lkm, boolean oregano, boolean valkosipuli) {
+		this.oId = oId;
 		this.pizza = pizza;
+		this.lkm = lkm;
+		this.valkosipuli = valkosipuli;
+		this.oregano = oregano;
 	}
+	
+
 	
 
 	
 	
 	public double hinta() {
-		return lkm * pizza.getHinta();
+		return oId * pizza.getHinta();
 	}
 	
 	
+
 	
-	public int lukumaara() {
+	
+	public int getoId() {
+		return oId;
+	}
+
+
+
+
+	public void setoId(int oId) {
+		this.oId = oId;
+	}
+
+
+
+
+	public Pizza getPizza() {
+		return pizza;
+	}
+
+
+
+
+	public void setPizza(Pizza pizza) {
+		this.pizza = pizza;
+	}
+
+
+
+
+	public int getLkm() {
 		return lkm;
 	}
+
+
+
+
+	public void setLkm(int lkm) {
+		this.lkm = lkm;
+	}
+
+
+
 	
 	
 	public String tuotteenNimi() {
@@ -36,18 +84,28 @@ public class Ostos {
 		return pizza.getId();
 	}
 	
-	public void muutaLukumaaraa(int muutos) {
-		lkm += muutos;
-		if (lkm<0) lkm = 0;
+	
+	
+	public void muutaOid(int muutos) {
+		oId += muutos;
 	}
-
+	
+	
 
 
 
 	@Override
 	public String toString() {
-		return "Ostos [lkm=" + lkm + ", pizza=" + pizza + "]";
+		return "Ostos [oId=" + oId + ", pizza=" + pizza + ", lkm=" + lkm
+				+ ", valkosipuli=" + valkosipuli + ", oregano=" + oregano + "]";
 	}
+
+
+	
+
+
+
+	
 	
 	
 	
