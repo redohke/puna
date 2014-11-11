@@ -27,53 +27,57 @@
 		</div>
 
 		<div id="main">
-			
+
 			<div id="pizzalista">
-			<div id="pizzablock">
-				<p class="otsikko">Ostoskori:</p>
-				<hr class="pviiva" />
-				<c:forEach items="${kori.ostokset}" var="k">
+				<div id="pizzablock">
+					<p class="otsikko">Ostoskori:</p>
+					<hr class="pviiva" />
+					<c:if test="${empty kori}">
+						<p>
+							<i>Ostoskori on tyhjä.</i>
+						</p>
+						<br />
+					</c:if>
+					<c:forEach items="${kori.ostokset}" var="k">
 
-					<table>
-						<tr>
-							<td class="pnimi"><c:out value="${k.pizza.id}. " /> <c:out
-									value="${k.pizza.nimi}" /></td>
-									<td></td>
-							<td class="phinta"><fmt:formatNumber type="number"
-									minFractionDigits="2" maxFractionDigits="2" value="${k.rivihinta}" />
-								&#x20ac;</td>
-						</tr>
-						<tr>
-							<td>
-							<c:if test="${k.valkosipuli == true}">
+						<table>
+							<tr>
+								<td class="pnimi"><c:out value="${k.pizza.id}. " /> <c:out
+										value="${k.pizza.nimi}" />
+									<c:out value=" x${k.lkm}" /></td>
+								<td></td>
+								<td class="phinta"><fmt:formatNumber type="number"
+										minFractionDigits="2" maxFractionDigits="2"
+										value="${k.rivihinta}" /> &#x20ac;</td>
+							</tr>
+							<tr>
+								<td><c:if test="${k.valkosipuli == true}">
 							valkosipuli
-							</c:if>
-							<c:if test="${k.oregano == true}">
+							</c:if> <c:if test="${k.oregano == true}">
 							oregano
-							</c:if>
-							</td>
-							<td>
-							<c:out value="Määrä: ${k.lkm }"/>
-							</td>
-							
-							<td class="c_nappula">
-								<form action="menu" method="post">
-									<button class="pnappula" type="submit" value="del">Poista</button>
-									<input type="hidden" name="oId" value="${k.oId}"> <input
-										type="hidden" name="action" value="del">
-								</form>
-							</td>
-						</tr>
+							</c:if></td>
+								<td></td>
 
-					</table>
+								<td class="c_nappula">
+									<form action="menu" method="post">
+										<button class="pnappula" type="submit" value="del">Poista</button>
+										<input type="hidden" name="oId" value="${k.oId}"> <input
+											type="hidden" name="action" value="del">
+									</form>
+								</td>
+							</tr>
 
-				</c:forEach>
-				<hr class="pviiva" />
-					<form action="tilaus.jsp">
-					<input class="nappula" type="submit" value="Osta">
-				</form>
+						</table>
+
+					</c:forEach>
+					<hr class="pviiva" />
+					<c:if test="${not empty kori}">
+						<form action="tilaus.jsp">
+							<input class="nappula" type="submit" value="Osta">
+						</form>
+					</c:if>
 				</div>
-				</div>
+			</div>
 		</div>
 
 		<div id="footer">Copyright © 2014 Pizzeria Tyyni</div>

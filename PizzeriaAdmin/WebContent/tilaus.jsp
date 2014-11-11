@@ -32,40 +32,40 @@
 				<p class="otsikko">Tilaus:</p>
 				<hr class="viiva" />
 
-				<form>
+				<form action="tilaus" method="post">
 					<table>
 						<tr>
 							<th>Tilaajan tiedot:</th>
 						</tr>
 						<tr>
-							<td class="tnimi">Etunimi: <input type="text">
+							<td class="tnimi">Etunimi: <input name="enimi" type="text">
 							</td>
 						</tr>
 						<tr>
-							<td class="tnimi">Sukunimi: <input type="text">
+							<td class="tnimi">Sukunimi: <input name="snimi" type="text">
 							</td>
 						</tr>
 						<tr>
-							<td class="tnimi">Yritys: <input type="text">
+							<td class="tnimi">Yritys: <input name="yr" type="text">
 							</td>
 						</tr>
 						<tr>
-							<td class="tnimi">Puhelin: <input type="text">
+							<td class="tnimi">Puhelin: <input name="puh" type="text">
 							</td>
 						</tr>
 						<tr>
-							<td class="tnimi">Sähköposti: <input type="text">
+							<td class="tnimi">Sähköposti: <input name="email" type="text">
 							</td>
 
 						</tr>
 						<tr>
-							<td class="tnimi">Osoite: <input type="text">
+							<td class="tnimi">Osoite: <input name="os" type="text">
 							</td>
 						</tr>
 						<tr>
-							<td class="tnimi">Postinumero: <input type="text">
+							<td class="tnimi">Postinumero: <input name="pnro" type="text">
 							</td>
-							<td class="tnimi">Kaupunki: <input type="text">
+							<td class="tnimi">Kaupunki: <input name="kaup" type="text">
 							</td>
 						</tr>
 												<tr>						
@@ -103,10 +103,12 @@
 						<tr>
 							<td><input type="radio" name="maksu" value="lounari">
 								Lounasseteli</td>
+								
 						</tr>
 						<tr>						
 						<td>
 						&nbsp;
+						<input type="hidden" name="action" value="summary">
 						</td>
 						</tr>
 						<tr>

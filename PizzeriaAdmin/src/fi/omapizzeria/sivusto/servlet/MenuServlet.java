@@ -1,4 +1,4 @@
-package fi.omapizzeria.sivusto.menu;
+package fi.omapizzeria.sivusto.servlet;
 
 import java.io.IOException;
 import java.util.List;

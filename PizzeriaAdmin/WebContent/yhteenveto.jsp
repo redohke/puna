@@ -31,6 +31,77 @@
           <div id="content">
           <p class="otsikko">Tilauksen yhteenveto:</p>
           <hr class="viiva" />
+          <table>
+          <tr>
+         <td>
+          <c:set var="ta" value="${tilaus.asiakas}"/>
+          <c:set var="tk" value="${tilaus.ostoskori.ostokset}"/>
+          <p class="pnimi">Tilaaja:</p>
+          </td>
+          </tr>
+          <tr>
+          <td>
+          Etunimi:
+          <c:out value="${ta.etunimi}"/>
+          </td>
+          </tr>
+                    <tr>
+          <td>
+          Sukunimi:
+          <c:out value="${ta.sukunimi}"/>
+          </td>
+          </tr>
+                    <tr>
+          <td>
+          Yritys:
+          <c:out value="${ta.yritys}"/>
+          </td>
+          </tr>
+                    <tr>
+          <td>
+          Puhelinnumero:
+          <c:out value="${ta.puh}"/>
+          </td>
+          </tr>
+                    <tr>
+          <td>
+          Sähköposti:
+          <c:out value="${ta.email}"/>
+          </td>
+          </tr>
+                    <tr>
+          <td>
+          Osoite:
+          <c:out value="${ta.osoite} "/>
+          </td>
+          </tr>
+          <tr>
+          <td>
+          <c:out value="${ta.postnro} "/><c:out value="${ta.kaupunki}"/>
+          </td>
+          </tr>
+               <tr>
+          <td>
+          &nbsp;
+          </td>
+          </tr>                        
+                         <tr>
+          <td>
+          <p class="pnimi">Tuotteet:</p>
+          </td>
+          </tr> 
+                    <tr>
+          <td>
+          <c:out value="${tk}"/>
+          </td>
+          </tr>
+                         <tr>
+          <td>
+          &nbsp;
+          </td>
+          </tr>         
+          </table>
+          <hr class="viiva" />
           <form action="tilaus.jsp">
           	<input class="tnappula" type="submit" value="Takaisin">
    			 <input class="tnappula" type="submit" value="Vahvista tilaus">
