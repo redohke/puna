@@ -22,17 +22,7 @@ public class Ostos {
 	}
 	
 
-	
 
-	
-	
-	public double hinta() {
-		return oId * pizza.getHinta();
-	}
-	
-	
-
-	
 	
 	public int getoId() {
 		return oId;

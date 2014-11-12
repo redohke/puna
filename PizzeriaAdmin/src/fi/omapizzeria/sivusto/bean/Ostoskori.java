@@ -6,7 +6,7 @@ public class Ostoskori {
 
 	private ArrayList<Ostos> ostokset;
 
-	@Override
+	
 	public String toString() {
 		return "Ostoskori ostokset=" + ostokset;
 	}
@@ -24,14 +24,6 @@ public class Ostoskori {
 		return tuotteita;
 	}
 
-	public double hinta() {
-		int hinta = 0;
-
-		for (Ostos ostos : ostokset) {
-			hinta += ostos.hinta();
-		}
-		return hinta;
-	}
 
 	int i = 1;
 
@@ -72,7 +64,7 @@ public class Ostoskori {
 
 	}
 
-	// ostokset.add(new Ostos(oId, lisattava, lkm, valkosipuli, oregano));
+	
 
 	public ArrayList<Ostos> getOstokset() {
 		return ostokset;
@@ -103,15 +95,21 @@ public class Ostoskori {
 		return null;
 	}
 
-	public double yhteisHinta() {
-		double hinta = 0;
+	
+	public double getTilauksenHinta() {
+		double tilausHinta = 0;
 
 		for (Ostos ostos : ostokset) {
-			hinta += ostos.getRivihinta();
+			tilausHinta += ostos.getRivihinta();
 		}
-		return hinta;
+		return tilausHinta;
 	}
+	
+	
+	
+	
 
+	
 	/*
 	 * public double haeRivihinta() {
 	 * 
@@ -125,4 +123,17 @@ public class Ostoskori {
 	 * return rivihinta; }
 	 */
 
+	
+	/*
+	 * public double hinta() {
+		int hinta = 0;
+
+		for (Ostos ostos : ostokset) {
+			hinta += ostos.hinta();
+		}
+		return hinta;
+	}*/
+	 
+	
+	
 }

@@ -93,6 +93,7 @@
                     <tr>
           <td>
           <c:out value="${tk}"/>
+         <c:out value="${tilaus}"/>
           </td>
           </tr>
                          <tr>

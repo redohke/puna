@@ -11,6 +11,7 @@ public class Tilausrivi {
 		super();
 		this.asiakas = asiakas;
 		this.ostoskori = ostoskori;
+		this.hinta = hinta;
 	}
 	
 	public double getHinta() {

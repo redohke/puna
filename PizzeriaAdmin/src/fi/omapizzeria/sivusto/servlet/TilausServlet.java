@@ -61,7 +61,7 @@ public class TilausServlet extends HttpServlet {
 				Asiakas asiakas = new Asiakas(etunimi, sukunimi, yritys, puh, 
 						email, osoite, pnro, kaupunki);
 				
-				double kokohinta = 0;
+				double kokohinta = kori.getTilauksenHinta();
 
 				tilaus = new Tilausrivi(asiakas, kori, kokohinta);
 
