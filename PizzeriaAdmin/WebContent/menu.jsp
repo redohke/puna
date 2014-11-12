@@ -33,7 +33,7 @@
 
 				<c:forEach items="${plista}" var="pl">
 					<hr class="pviiva" />
-					<form name="action" action="menu" method="post">
+					<form action="menu" method="post">
 						<table class="ptaulu">
 							<tr>
 								<td class="pnimi"><c:out value="${pl.id}. " /> <c:out
@@ -89,7 +89,7 @@
 							</tr>
 							<tr>
 								<td class="pmauste"></td>
-								<td>Määrä: <select>
+								<td>Määrä: <select name="lkm">
 										<option value="1">1 kpl</option>
 										<option value="2">2 kpl</option>
 										<option value="3">3 kpl</option>
@@ -98,8 +98,13 @@
 										<option value="6">6 kpl</option>
 										<option value="7">7 kpl</option>
 										<option value="8">8 kpl</option>
-										<option value="9">9 kpl</option></select> <input class="nappula" type="button"
-									name="action" value="Tilaa">
+										<option value="9">9 kpl</option></select>
+										
+										<input type="hidden" name="action" value="jadd"> 
+										<input type="hidden" name="id" value="${jl.id}">
+										<button class="nappula" type="submit" value="jadd">Tilaa</button>
+										
+									
 								</td>
 							</tr>
 						</table>

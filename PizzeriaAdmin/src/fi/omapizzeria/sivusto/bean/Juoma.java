@@ -35,4 +35,9 @@ public class Juoma {
 		this.hinta = hinta;
 	}
 
+	@Override
+	public String toString() {
+		return "Juoma [id=" + id + ", nimi=" + nimi + ", hinta=" + hinta + "]";
+	}
+
 }

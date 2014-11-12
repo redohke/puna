@@ -45,4 +45,15 @@ public class PizzaService {
 		
 		return pizza;
 	}
+	
+	
+public Juoma tuoJuoma(int id) throws DAOPoikkeus {
+		
+		TuoteDAO dao = new TuoteDAO();
+		
+		Juoma juoma = dao.haeJuoma(id);
+		
+		return juoma;
+	}
+	
 }

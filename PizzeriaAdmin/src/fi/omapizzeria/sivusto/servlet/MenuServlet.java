@@ -71,6 +71,8 @@ public class MenuServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		Ostoskori kori = (Ostoskori) session.getAttribute("kori");
 
+		
+		
 		if (request.getParameter("action").equals("add")) {
 			if (kori == null) {
 				kori = new Ostoskori();
@@ -83,12 +85,16 @@ public class MenuServlet extends HttpServlet {
 			String maara = request.getParameter("lkm");
 			int lkm = Integer.parseInt(maara);
 
+			
+			
 			// oregano/valkosipuli valinta checkboxista
 			String klikattuOregano = request.getParameter("oregano");
 			String klikattuValkosipuli = request.getParameter("valkosipuli");
 
 			boolean oregano = false;
 			boolean valkosipuli = false;
+			
+			Juoma juoma = null;
 
 			// tsekataan että onko oregano/valkosipuli valittu
 			if (klikattuOregano != null) {
@@ -97,13 +103,15 @@ public class MenuServlet extends HttpServlet {
 			if (klikattuValkosipuli != null) {
 				valkosipuli = true;
 			}
+			
+			
 
 			// haetaan pizzaID:llä pizzan tiedot tietokannasta
 			try {
 				PizzaService pService = new PizzaService();
 				Pizza uusiPizza = pService.tuoPizza(id);
 				double rivihinta = lkm * uusiPizza.getHinta();
-				kori.lisaaTuote(uusiPizza, lkm, oregano, valkosipuli, rivihinta);
+				kori.lisaaPizza(uusiPizza, juoma, lkm, oregano, valkosipuli, rivihinta);
 
 			} catch (DAOPoikkeus e1) {
 				e1.printStackTrace();
@@ -115,6 +123,46 @@ public class MenuServlet extends HttpServlet {
 
 		}
 
+		
+		
+		
+		
+		if (request.getParameter("action").equals("jadd")) {
+			if (kori == null) {
+				kori = new Ostoskori();
+			}
+
+			// haetaan ID formista
+			String sid = request.getParameter("id");
+			int id = Integer.parseInt(sid);
+
+			String maara = request.getParameter("lkm");
+			int lkm = Integer.parseInt(maara);
+
+			
+			
+			
+			// haetaan pizzaID:llä pizzan tiedot tietokannasta
+			try {
+				PizzaService pService = new PizzaService();
+				Juoma uusiJuoma = pService.tuoJuoma(id);
+				double rivihinta = lkm * uusiJuoma.getHinta();
+				kori.lisaaJuoma(null, uusiJuoma, lkm, false, false, rivihinta);
+
+			} catch (DAOPoikkeus e1) {
+				e1.printStackTrace();
+			}
+
+			request.getSession().setAttribute("kori", kori);
+			response.sendRedirect("/PizzeriaTyyni/menu");
+			System.out.println(kori.getOstokset());
+
+		}
+		
+	
+	
+		
+		
 		// ostoskorista tuotteen poistaminen
 		if (request.getParameter("action").equals("del")) {
 
@@ -122,7 +170,7 @@ public class MenuServlet extends HttpServlet {
 			String oId = request.getParameter("oId");
 			int poistettavaOid = Integer.parseInt(oId);
 
-			Ostos x = new Ostos(poistettavaOid, null, 0, false, false, 0);
+			Ostos x = new Ostos(poistettavaOid, null, null, 0, false, false, 0);
 
 			try {
 				kori.poista(x);

@@ -3,68 +3,15 @@ package fi.omapizzeria.sivusto.bean;
 import java.util.ArrayList;
 
 public class Ostoskori {
-
+	
+	private int i = 1;
 	private ArrayList<Ostos> ostokset;
 
 	
-	public String toString() {
-		return "Ostoskori ostokset=" + ostokset;
-	}
-
+	
 	public Ostoskori() {
 		ostokset = new ArrayList<Ostos>();
 	}
-
-	public int tuotteitaKorissa() {
-		int tuotteita = 0;
-
-		for (Ostos ostos : ostokset) {
-			tuotteita += ostos.getoId();
-		}
-		return tuotteita;
-	}
-
-
-	int i = 1;
-
-	public void lisaaTuote(Pizza pizza, int lkm, boolean oregano,
-			boolean valkosipuli, double rivihinta) {
-
-		int oId = i++;
-		Ostos ostos = new Ostos(oId, pizza, lkm, oregano, valkosipuli,
-				rivihinta);
-
-		if (ostos != null) {
-
-			ostos.muutaOid(i);
-
-			if (oregano == true && valkosipuli == true) {
-
-				ostokset.add(new Ostos(oId, pizza, lkm, true, true, rivihinta));
-
-			}
-
-			else if (oregano == false && valkosipuli == true) {
-
-				ostokset.add(new Ostos(oId, pizza, lkm, false, true, rivihinta));
-			}
-
-			else if (oregano == true && valkosipuli == false) {
-
-				ostokset.add(new Ostos(oId, pizza, lkm, true, false, rivihinta));
-			}
-
-			else {
-
-				ostokset.add(new Ostos(oId, pizza, lkm, false, false, rivihinta));
-			}
-
-			i = i + 1;
-		}
-
-	}
-
-	
 
 	public ArrayList<Ostos> getOstokset() {
 		return ostokset;
@@ -72,6 +19,61 @@ public class Ostoskori {
 
 	public void tyhjenna() {
 		ostokset.clear();
+	}
+
+	
+
+	public void lisaaPizza(Pizza pizza, Juoma juoma, int lkm, boolean oregano, boolean valkosipuli, double rivihinta) {
+
+		int oId = i++;
+		Ostos ostos = new Ostos(oId, pizza, null, lkm, oregano, valkosipuli, rivihinta);
+
+		if (ostos != null) {
+
+			ostos.muutaOid(i);
+
+			if (oregano == true && valkosipuli == true) {
+
+				ostokset.add(new Ostos(oId, pizza, null, lkm, true, true,
+						rivihinta));
+
+			}
+
+			else if (oregano == false && valkosipuli == true) {
+
+				ostokset.add(new Ostos(oId, pizza, null, lkm, false, true,
+						rivihinta));
+			}
+
+			else if (oregano == true && valkosipuli == false) {
+
+				ostokset.add(new Ostos(oId, pizza, null, lkm, true, false,
+						rivihinta));
+			}
+
+			else {
+
+				ostokset.add(new Ostos(oId, pizza, null, lkm, false, false,
+						rivihinta));
+			}
+
+		}
+
+	}
+
+	
+	public void lisaaJuoma(Pizza pizza, Juoma juoma, int lkm, boolean oregano, boolean valkosipuli, double rivihinta) {
+
+		int oId = i++;
+		Ostos ostos = new Ostos(oId, null, juoma, lkm, oregano, valkosipuli, rivihinta);
+
+		if (ostos != null) {
+			ostos.muutaOid(i);
+			ostokset.add(new Ostos(oId, null, juoma, lkm, false, false,
+					rivihinta));
+
+		}
+
 	}
 
 	public void poista(Ostos poistettava) {
@@ -104,36 +106,10 @@ public class Ostoskori {
 		}
 		return tilausHinta;
 	}
-	
-	
-	
-	
 
 	
-	/*
-	 * public double haeRivihinta() {
-	 * 
-	 * double rivihinta = 0;
-	 * 
-	 * for (Ostos pOstos : ostokset) {
-	 * 
-	 * Pizza pizza = (Pizza) pOstos.getPizza(); rivihinta += (pOstos.getLkm() *
-	 * pizza.getHinta()); }
-	 * 
-	 * return rivihinta; }
-	 */
+	public String toString() {
+		return "Ostoskori ostokset=" + ostokset;
+	}
 
-	
-	/*
-	 * public double hinta() {
-		int hinta = 0;
-
-		for (Ostos ostos : ostokset) {
-			hinta += ostos.hinta();
-		}
-		return hinta;
-	}*/
-	 
-	
-	
 }

@@ -147,4 +147,40 @@ public class TuoteDAO extends DAO {
 		// palautetaan saatu tulos
 			return pizza;
 	}
+	
+	public Juoma haeJuoma(int id) throws DAOPoikkeus {
+
+		Juoma juoma = null;
+		Connection yhteys = null;
+		
+
+		try {
+			// avataan yhteys tietokantaan
+			yhteys = avaaYhteys();
+
+			// Luodaan sql stringistä statement ja suoritetaan sql haku
+			String sql = "select id, nimi, hinta from juoma where id = ?";
+			
+			PreparedStatement ps = yhteys.prepareStatement(sql);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+			
+			juoma = new Juoma(rs.getInt("id"), rs.getString("nimi"),rs.getDouble("hinta"));
+			}
+
+		} catch (Exception e) {
+			// heitä virhe jos virhe
+			throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
+		} finally {
+			// yhteys kiinni
+			suljeYhteys(yhteys);
+		}
+		// palautetaan saatu tulos
+			return juoma;
+	}
+	
+	
+	
 }
