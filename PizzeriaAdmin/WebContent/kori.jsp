@@ -31,7 +31,7 @@
 			<div id="pizzalista">
 				<div id="pizzablock">
 					<p class="otsikko">Ostoskori:</p>
-					<hr class="pviiva" />
+									<hr class="pviiva" />
 					<c:if test="${empty kori.ostokset}">
 						<p>
 							<i>Ostoskori on tyhjä.</i>
@@ -40,10 +40,11 @@
 					</c:if>
 					<c:forEach items="${kori.ostokset}" var="k">
 
-						<table>
-							<tr>
-								<td class="pnimi"><c:out value="${k.pizza.id}. " /> <c:out
-										value="${k.pizza.nimi}" />
+						<table class="ktaulu">
+								<tr>
+								<td class="pnimi"><c:out value="${k.pizza.id} " /> <c:out value="${k.juoma.id}. " /><c:out
+										value="${k.pizza.nimi}" /><c:out
+										value="${k.juoma.nimi}" />
 									<c:out value=" x${k.lkm}" /></td>
 								<td></td>
 								<td class="phinta"><fmt:formatNumber type="number"
@@ -51,8 +52,17 @@
 										value="${k.rivihinta}" /> &#x20ac;</td>
 							</tr>
 							<tr>
-								<td><c:if test="${k.valkosipuli == true}">
-							valkosipuli
+							<td>
+							<c:forEach items="${k.pizza.taytteet}" var="tayte" varStatus="status">
+    								${tayte}<c:if test="${!status.last}">,</c:if>
+									</c:forEach>
+							</td>
+							</tr>
+							<tr>
+								<td><c:if test="${k.valkosipuli == true}">							
+							valkosipuli<c:if test="${k.valkosipuli == true && k.oregano == true}">, 
+							</c:if>
+
 							</c:if> <c:if test="${k.oregano == true}">
 							oregano
 							</c:if></td>
@@ -69,32 +79,38 @@
 						</table>
 
 					</c:forEach>
-					<br/>
+					<br />
 					<hr class="pviiva" />
-					<br/>
-					<table>
-					<tr>
-					<td>
-					<p class="knimi">Yhteensä: <fmt:formatNumber type="number"
-										minFractionDigits="2" maxFractionDigits="2"
-										value="${hinta}" /> &#x20ac; &#8199;</p>
-										</td>
-										</tr>
-										<tr>
-															<td>
-					<p class="knimi">Opiskelijalle: <fmt:formatNumber type="number"
-										minFractionDigits="2" maxFractionDigits="2"
-										value="${ohinta}" /> &#x20ac; &#8199;</p>
-										</td>
-										<td>
 					<c:if test="${not empty kori.ostokset}">
-						<form action="tilaus.jsp">
-							<input class="nappula" type="submit" value="Osta">
-						</form>
+						<table>
+							<tr>
+								<td>
+									<p class="knimi">
+										Yhteensä:
+										<fmt:formatNumber type="number" minFractionDigits="2"
+											maxFractionDigits="2" value="${hinta}" />
+										&#x20ac; &#8199;
+									</p>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<p class="knimi">
+										Opiskelijalle:
+										<fmt:formatNumber type="number" minFractionDigits="2"
+											maxFractionDigits="2" value="${ohinta}" />
+										&#x20ac; &#8199;
+									</p>
+								</td>
+								<td>
+									<form action="tilaus.jsp">
+										<input class="nappula" type="submit" value="Osta">
+									</form>
+
+								</td>
+							</tr>
+						</table>
 					</c:if>
-					</td>
-					</tr>
-					</table>
 				</div>
 			</div>
 		</div>

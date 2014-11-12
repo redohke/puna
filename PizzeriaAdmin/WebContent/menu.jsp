@@ -41,10 +41,8 @@
 								<td class="phinta"><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="2" value="${pl.hinta}"/> &#x20ac;</td>
 							</tr>
 							<tr>
-								<td class="ptayte"><c:forEach items="${pl.taytteet}"
-										var="tayte" varStatus="status">
-    								${tayte}
-    								<c:if test="${!status.last}">,</c:if>
+								<td class="ptayte">							<c:forEach items="${pl.taytteet}" var="tayte" varStatus="status">
+    								${tayte}<c:if test="${!status.last}">,</c:if>
 									</c:forEach></td>
 							</tr>
 							<tr>
@@ -116,6 +114,71 @@
 		</div>
 
 		<div id="footer">Copyright © 2014 Pizzeria Tyyni</div>
+		<%-- TÄSTÄ ALKAA LEIJUVA OSTOSKORI --%>
+		<div id="openCart" class="cart">
+		<c:if test="${not empty kori.ostokset}">
+
+<div id="leijuvaKori" >
+   
+          <div id="pizzalista">
+				<div id="pizzablock">
+					<p >Ostoskori:</p>
+					<c:if test="${empty kori}">
+						<p>
+							<i>Ostoskori on tyhjä.</i>
+						</p>
+						<br />
+					</c:if>
+					<c:forEach items="${kori.ostokset}" var="k">
+
+						<table>
+							<tr>
+								<td><c:out value="${k.pizza.id}. " /> <c:out
+										value="${k.pizza.nimi}" />
+									<c:out value=" x${k.lkm}" /></td>
+								<td></td>
+								<td><fmt:formatNumber type="number"
+										minFractionDigits="2" maxFractionDigits="2"
+										value="${k.rivihinta}" /> &#x20ac;</td>
+							</tr>
+							<tr>
+								<td><c:if test="${k.valkosipuli == true}">
+							valkosipuli
+							</c:if> <c:if test="${k.oregano == true}">
+							oregano
+							</c:if></td>
+								<td></td>
+
+								<td class="c_nappula">
+									<form action="menu" method="post">
+										<button class="pnappula" type="submit" value="userDel">Poista</button>
+										<input type="hidden" name="oId" value="${k.oId}"> <input
+											type="hidden" name="action" value="userDel">
+									</form>
+								</td>
+							</tr>
+
+						</table>
+
+					</c:forEach>
+				
+				</div>
+			</div>
+          </div>
+
+</c:if><c:if test="${not empty kori.ostokset}">
+					<form action="menu" method="post">
+										<button class="pnappula" type="submit" value="clear">Tyhj</button>
+										 <input type="hidden" name="action" value="clear">
+									</form>
+						<form action="tilaus.jsp">
+						<div align="right">
+							<input class="nappula" type="submit" value="Osta" >
+							</div>
+						</form>
+					</c:if>
+</div>	
+		<%-- TÄHÄN LOPPUU LEIJUVA OSTOSKORI --%>
 	</div>
 
 </body>

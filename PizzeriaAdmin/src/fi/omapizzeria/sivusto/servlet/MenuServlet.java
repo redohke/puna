@@ -198,16 +198,41 @@ public class MenuServlet extends HttpServlet {
 
 		}
 		
-		if (request.getParameter("action").equals("clear")) {
+		if (request.getParameter("action").equals("userDel")) {
+
+			// haetaan oId ostoskorista
+			String oId = request.getParameter("oId");
+			int poistettavaOid = Integer.parseInt(oId);
+
+			Ostos x = new Ostos(poistettavaOid, null, null, 0, false, false, 0);
 
 			try {
-				kori.tyhjenna();
+				kori.poista(x);
+				
+				double hinta = kori.getTilauksenHinta();
+				request.getSession().setAttribute("hinta", hinta);
+				request.getSession().setAttribute("ohinta", hinta*0.9);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			// tallennetaan sessioon
+			request.getSession().setAttribute("kori", kori);
+			// siirryt‰‰n takaisin koriin
+			response.sendRedirect("menu");
+			System.out.println(kori.getOstokset());
+			
+		}
+		
+		if (request.getParameter("action").equals("clear")) {
+			
+			try {
 				session.invalidate();
 				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-
+			response.sendRedirect("menu");
 		}
 	}
 }

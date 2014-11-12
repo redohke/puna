@@ -42,6 +42,7 @@ public class PizzaService {
 		TuoteDAO dao = new TuoteDAO();
 		
 		Pizza pizza = dao.haePizza(id);
+		pizza.setTaytteet(dao.haeTaytteetPizzalle(pizza.getId()));
 		
 		return pizza;
 	}
