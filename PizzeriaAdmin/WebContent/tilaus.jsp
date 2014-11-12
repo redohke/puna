@@ -38,11 +38,11 @@
 							<th>Tilaajan tiedot:</th>
 						</tr>
 						<tr>
-							<td class="tnimi">Etunimi: <input name="enimi" type="text">
+							<td class="tnimi">Etunimi: <input name="enimi" type="text" required>
 							</td>
 						</tr>
 						<tr>
-							<td class="tnimi">Sukunimi: <input name="snimi" type="text">
+							<td class="tnimi">Sukunimi: <input name="snimi" type="text" required>
 							</td>
 						</tr>
 						<tr>
@@ -50,22 +50,22 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="tnimi">Puhelin: <input name="puh" type="text">
+							<td class="tnimi">Puhelin: <input name="puh" type="text" required>
 							</td>
 						</tr>
 						<tr>
-							<td class="tnimi">Sähköposti: <input name="email" type="text">
+							<td class="tnimi">Sähköposti: <input name="email" type="text" required>
 							</td>
 
 						</tr>
 						<tr>
-							<td class="tnimi">Osoite: <input name="os" type="text">
+							<td class="tnimi">Osoite: <input name="os" type="text" required>
 							</td>
 						</tr>
 						<tr>
-							<td class="tnimi">Postinumero: <input name="pnro" type="text">
+							<td class="tnimi">Postinumero: <input name="pnro" type="text" required>
 							</td>
-							<td class="tnimi">Kaupunki: <input name="kaup" type="text">
+							<td class="tnimi">Kaupunki: <input name="kaup" type="text" required>
 							</td>
 						</tr>
 												<tr>						
