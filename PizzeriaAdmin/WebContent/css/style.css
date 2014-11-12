@@ -344,6 +344,12 @@ input {
 	width: 410px;
 }
 
+.knimi {
+	font-size: 15px;
+	width: 410px;
+	text-align:right;
+}
+
 .phinta {
 	font-size: 15px;
 	text-align: right;

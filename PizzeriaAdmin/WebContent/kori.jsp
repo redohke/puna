@@ -32,7 +32,7 @@
 				<div id="pizzablock">
 					<p class="otsikko">Ostoskori:</p>
 					<hr class="pviiva" />
-					<c:if test="${empty kori}">
+					<c:if test="${empty kori.ostokset}">
 						<p>
 							<i>Ostoskori on tyhjä.</i>
 						</p>
@@ -66,16 +66,35 @@
 									</form>
 								</td>
 							</tr>
-
 						</table>
 
 					</c:forEach>
+					<br/>
 					<hr class="pviiva" />
-					<c:if test="${not empty kori}">
+					<br/>
+					<table>
+					<tr>
+					<td>
+					<p class="knimi">Yhteensä: <fmt:formatNumber type="number"
+										minFractionDigits="2" maxFractionDigits="2"
+										value="${hinta}" /> &#x20ac; &#8199;</p>
+										</td>
+										</tr>
+										<tr>
+															<td>
+					<p class="knimi">Opiskelijalle: <fmt:formatNumber type="number"
+										minFractionDigits="2" maxFractionDigits="2"
+										value="${ohinta}" /> &#x20ac; &#8199;</p>
+										</td>
+										<td>
+					<c:if test="${not empty kori.ostokset}">
 						<form action="tilaus.jsp">
 							<input class="nappula" type="submit" value="Osta">
 						</form>
 					</c:if>
+					</td>
+					</tr>
+					</table>
 				</div>
 			</div>
 		</div>

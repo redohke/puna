@@ -112,6 +112,10 @@ public class MenuServlet extends HttpServlet {
 				Pizza uusiPizza = pService.tuoPizza(id);
 				double rivihinta = lkm * uusiPizza.getHinta();
 				kori.lisaaPizza(uusiPizza, juoma, lkm, oregano, valkosipuli, rivihinta);
+				
+				double hinta = kori.getTilauksenHinta();
+				request.getSession().setAttribute("hinta", hinta);
+				request.getSession().setAttribute("ohinta", hinta*0.9);
 
 			} catch (DAOPoikkeus e1) {
 				e1.printStackTrace();
@@ -148,6 +152,10 @@ public class MenuServlet extends HttpServlet {
 				Juoma uusiJuoma = pService.tuoJuoma(id);
 				double rivihinta = lkm * uusiJuoma.getHinta();
 				kori.lisaaJuoma(null, uusiJuoma, lkm, false, false, rivihinta);
+				
+				double hinta = kori.getTilauksenHinta();
+				request.getSession().setAttribute("hinta", hinta);
+				request.getSession().setAttribute("ohinta", hinta*0.9);
 
 			} catch (DAOPoikkeus e1) {
 				e1.printStackTrace();
@@ -174,6 +182,10 @@ public class MenuServlet extends HttpServlet {
 
 			try {
 				kori.poista(x);
+				
+				double hinta = kori.getTilauksenHinta();
+				request.getSession().setAttribute("hinta", hinta);
+				request.getSession().setAttribute("ohinta", hinta*0.9);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -190,6 +202,8 @@ public class MenuServlet extends HttpServlet {
 
 			try {
 				kori.tyhjenna();
+				session.invalidate();
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
