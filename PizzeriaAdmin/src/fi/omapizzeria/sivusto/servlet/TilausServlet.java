@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import fi.omapizzeria.sivusto.bean.Asiakas;
 import fi.omapizzeria.sivusto.bean.Ostoskori;
-import fi.omapizzeria.sivusto.bean.Tilausrivi;
+import fi.omapizzeria.sivusto.bean.Tilaus;
 
 /**
  * Servlet implementation class TilausServlet
@@ -42,7 +42,7 @@ public class TilausServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		Ostoskori kori = (Ostoskori) session.getAttribute("kori");
-		Tilausrivi tilaus = (Tilausrivi) session.getAttribute("tilaus");
+		Tilaus tilaus = (Tilaus) session.getAttribute("tilaus");
 		
 		if (request.getParameter("action").equals("summary")) {
 			
@@ -60,9 +60,15 @@ public class TilausServlet extends HttpServlet {
 				Asiakas asiakas = new Asiakas(etunimi, sukunimi, yritys, puh, 
 						email, osoite, pnro, kaupunki);
 				
+				
+				String toimitus = request.getParameter("toimitus");
+				String maksu = request.getParameter("maksu");
 				double kokohinta = kori.getTilauksenHinta();
 
-				tilaus = new Tilausrivi(asiakas, kori, kokohinta);
+				
+				request.getSession().setAttribute("toimitus", toimitus);
+				request.getSession().setAttribute("maksu", maksu);
+				tilaus = new Tilaus(asiakas, kori, kokohinta);
 
 			} catch (Exception e) {
 				e.printStackTrace();

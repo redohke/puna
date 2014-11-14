@@ -33,6 +33,11 @@
 			<div id="main_col">
 				<p class="otsikko">Tilausvahvistus:</p>
 				<hr class="viiva" />
+				<p>Tilauksesi on vastaanotettu!</p>
+				<br/>
+				<p>Arvioitu toimitusaika 30-60min</p>
+				<br/>
+				<a href="index.jsp">Palaa etusivulle</a>
 
 			</div>
 

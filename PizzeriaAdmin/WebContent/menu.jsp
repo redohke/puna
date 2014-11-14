@@ -114,36 +114,46 @@
 		</div>
 
 		<div id="footer">Copyright © 2014 Pizzeria Tyyni</div>
-		<%-- TÄSTÄ ALKAA LEIJUVA OSTOSKORI --%>
-		<div id="openCart" class="cart">
+<%-- TÄSTÄ ALKAA LEIJUVA OSTOSKORI 
+		
 		<c:if test="${not empty kori.ostokset}">
-
+<div id="openCart" class="cart">
 <div id="leijuvaKori" >
    
           <div id="pizzalista">
 				<div id="pizzablock">
-					<p >Ostoskori:</p>
-					<c:if test="${empty kori}">
+					<p class="otsikko">Ostoskori:</p>
+									
+					<c:if test="${empty kori.ostokset}">
 						<p>
-							<i>Ostoskori on tyhjä.</i>
+							<i>Kori on tyhjä.</i>
 						</p>
-						<br />
 					</c:if>
 					<c:forEach items="${kori.ostokset}" var="k">
 
-						<table>
-							<tr>
-								<td><c:out value="${k.pizza.id}. " /> <c:out
-										value="${k.pizza.nimi}" />
+						<table class="ktaulu">
+								<tr>
+								<td class="pnimi"><c:out value="${k.pizza.id} " /> <c:out value="${k.juoma.id}. " /><c:out
+										value="${k.pizza.nimi}" /><c:out
+										value="${k.juoma.nimi}" />
 									<c:out value=" x${k.lkm}" /></td>
 								<td></td>
-								<td><fmt:formatNumber type="number"
+								<td class="phinta"><fmt:formatNumber type="number"
 										minFractionDigits="2" maxFractionDigits="2"
 										value="${k.rivihinta}" /> &#x20ac;</td>
 							</tr>
 							<tr>
-								<td><c:if test="${k.valkosipuli == true}">
-							valkosipuli
+							<td>
+							<c:forEach items="${k.pizza.taytteet}" var="tayte" varStatus="status">
+    								${tayte}<c:if test="${!status.last}">,</c:if>
+									</c:forEach>
+							</td>
+							</tr>
+							<tr>
+								<td><c:if test="${k.valkosipuli == true}">							
+							valkosipuli<c:if test="${k.valkosipuli == true && k.oregano == true}">, 
+							</c:if>
+
 							</c:if> <c:if test="${k.oregano == true}">
 							oregano
 							</c:if></td>
@@ -157,29 +167,43 @@
 									</form>
 								</td>
 							</tr>
-
 						</table>
-
+						<hr class="viiva">
+						
 					</c:forEach>
-				
-				</div>
-			</div>
-          </div>
-
-</c:if><c:if test="${not empty kori.ostokset}">
-					<form action="menu" method="post">
-										<button class="pnappula" type="submit" value="clear">Tyhj</button>
-										 <input type="hidden" name="action" value="clear">
-									</form>
+					<br />
+					
+					<c:if test="${not empty kori.ostokset}">
+						<table>
+							<tr>
+								
+							</tr>
+							<tr>
+							<td>
+							<form action="menu" method="post">
+										<div align="right"> <button class="pnappula" type="submit" value="clear">Clear</button> </div>
+										<input type="hidden" name="action" value="clear">
+									</form>		
 						<form action="tilaus.jsp">
 						<div align="right">
 							<input class="nappula" type="submit" value="Osta" >
 							</div>
 						</form>
+						</td>
+							</tr>
+						</table>
 					</c:if>
+				</div>
+			</div>
+</div>
+</div>
+</c:if><c:if test="${not empty kori.ostokset}">
+					
+					</c:if>
+						 TÄHÄN LOPPUU LEIJUVA OSTOSKORI --%>
+					
 </div>	
-		<%-- TÄHÄN LOPPUU LEIJUVA OSTOSKORI --%>
-	</div>
+
 
 </body>
 </html>

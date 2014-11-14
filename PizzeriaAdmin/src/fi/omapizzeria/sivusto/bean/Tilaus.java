@@ -1,13 +1,13 @@
 package fi.omapizzeria.sivusto.bean;
 
-public class Tilausrivi {
+public class Tilaus {
 	
 	private Asiakas asiakas;
 	private Ostoskori ostoskori;
 	private double hinta;
 	
 
-	public Tilausrivi(Asiakas asiakas, Ostoskori ostoskori, double hinta) {
+	public Tilaus(Asiakas asiakas, Ostoskori ostoskori, double hinta) {
 		super();
 		this.asiakas = asiakas;
 		this.ostoskori = ostoskori;

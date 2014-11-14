@@ -10,10 +10,7 @@ public class Ostos {
 	boolean valkosipuli;
 	boolean oregano;
 	private double rivihinta;
-	
-	
-	
-	
+		
 	public Ostos(int oId, Pizza pizza, Juoma juoma, int lkm, boolean oregano, boolean valkosipuli, double rivihinta) {
 		this.oId = oId;
 		this.pizza = pizza;
@@ -24,8 +21,6 @@ public class Ostos {
 		this.setRivihinta(rivihinta);
 	}
 	
-
-
 	
 	public int getoId() {
 		return oId;

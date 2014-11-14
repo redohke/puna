@@ -234,5 +234,16 @@ public class MenuServlet extends HttpServlet {
 			}
 			response.sendRedirect("menu");
 		}
+		if (request.getParameter("action").equals("tyhjkori")) {
+			
+			try {
+				session.invalidate();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			response.sendRedirect("/PizzeriaTyyni/kori.jsp");
+		}
+		
 	}
 }

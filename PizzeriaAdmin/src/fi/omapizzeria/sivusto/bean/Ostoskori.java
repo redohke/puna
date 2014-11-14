@@ -9,6 +9,10 @@ public class Ostoskori {
 
 	
 	
+	public void setOstokset(ArrayList<Ostos> ostokset) {
+		this.ostokset = ostokset;
+	}
+
 	public Ostoskori() {
 		ostokset = new ArrayList<Ostos>();
 	}

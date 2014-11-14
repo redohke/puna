@@ -84,6 +84,10 @@
 						<table>
 							<tr>
 								<td>
+								<form action="menu" method="post">
+								<input type="hidden" name="action" value="tyhjkori">
+								<button class="tnappula" type="submit" value="tyhjkori">Tyhjennä kori</button>
+								</form>
 									<p class="knimi">
 										Yhteensä:
 										<fmt:formatNumber type="number" minFractionDigits="2"

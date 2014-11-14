@@ -77,11 +77,11 @@
 							<th>Toimitustapa:</th>
 						</tr>
 								<tr>
-							<td><input type="radio" name="toimitus" value="koti" checked="checked">
+							<td><input type="radio" name="toimitus" value="kotiinkuljetus" checked="checked">
 								Kotiinkuljetus</td>
 						</tr>
 						<tr>
-							<td><input type="radio" name="toimitus" value="paikka">
+							<td><input type="radio" name="toimitus" value="nouto">
 								Nouto</td>
 						</tr>
 												<tr>						
@@ -93,15 +93,15 @@
 							<th>Maksutapa:</th>
 						</tr>
 						<tr>
-							<td><input type="radio" name="maksu" value="cash" checked="checked">
+							<td><input type="radio" name="maksu" value="käteinen" checked="checked">
 								Käteinen</td>
 						</tr>
 						<tr>
-							<td><input type="radio" name="maksu" value="luotto">
+							<td><input type="radio" name="maksu" value="pankkikortti">
 								Pankkikortti</td>
 						</tr>
 						<tr>
-							<td><input type="radio" name="maksu" value="lounari">
+							<td><input type="radio" name="maksu" value="lounasseteli">
 								Lounasseteli</td>
 								
 						</tr>

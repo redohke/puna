@@ -33,8 +33,7 @@
 				<hr class="viiva" />
 				<table>
 					<tr>
-						<td><c:set var="ta" value="${tilaus.asiakas}" /> <c:set
-								var="tk" value="${tilaus.ostoskori.ostokset}" />
+						<td><c:set var="ta" value="${tilaus.asiakas}" />
 							<p class="pnimi">Tilaaja:</p></td>
 					</tr>
 					<tr>
@@ -70,14 +69,82 @@
 					</tr>
 					<tr>
 						<td>
+							<p class="pnimi">Maksu:</p>
+						</td>
+					</tr>
+								<tr>
+						<td>
+							<p>Toimitustapa: <c:out value="${toimitus}"/></p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>Maksutapa: <c:out value="${maksu}"/></p>
+						</td>
+					</tr>
+						<tr>
+						<td>
+							<p>&nbsp;</p>
+						</td>
+					</tr>
+
+					<tr>
+						<td>
 							<p class="pnimi">Tuotteet:</p>
 						</td>
 					</tr>
 					<tr>
-						<td><c:out value="${tk}" /> <c:out value="${tilaus}" /></td>
+						<td><c:forEach items="${tilaus.ostoskori.ostokset}" var="to"
+								varStatus="looppi">
+								<table>
+									<tr>
+										<td class="tnimi"><c:out value="${looppi.count}" /> <c:out
+												value="${to.pizza.nimi}" /> <c:out value="${to.juoma.nimi}" />x<c:out
+												value="${ to.lkm}" /></td>
+										<td><fmt:formatNumber type="number" minFractionDigits="2"
+												maxFractionDigits="2" value="${to.rivihinta}" /> &#x20ac;</td>
+									</tr>
+									<tr>
+										<td><c:forEach items="${to.pizza.taytteet}" var="tayte"
+												varStatus="status">
+    								${tayte}<c:if test="${!status.last}">,</c:if>
+											</c:forEach></td>
+									</tr>
+									<tr>
+										<td><c:if test="${to.valkosipuli == true}">
+							valkosipuli</c:if><c:if test="${to.valkosipuli == true && to.oregano == true}">, 
+							</c:if> <c:if test="${to.oregano == true}">
+							oregano
+							</c:if></td>
+									</tr>
+								</table>
+								<br />
+							</c:forEach></td>
 					</tr>
 					<tr>
-						<td>&nbsp;</td>
+								<td>
+									<p class="pnimi">
+										Yhteensä:
+										<fmt:formatNumber type="number" minFractionDigits="2"
+											maxFractionDigits="2" value="${hinta}" />
+										&#x20ac; &#8199;
+									</p>
+								</td>
+	</tr>
+	<tr>
+								<td>
+									<p class="pnimi">
+										Opiskelijalle:
+										<fmt:formatNumber type="number" minFractionDigits="2"
+											maxFractionDigits="2" value="${ohinta}" />
+										&#x20ac; &#8199;
+									</p>
+								</td>
+					</tr>
+					<tr>
+					<td>
+					&#8199;
+					</td>
 					</tr>
 				</table>
 				<hr class="viiva" />
