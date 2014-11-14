@@ -11,7 +11,6 @@ import javax.servlet.http.HttpSession;
 
 import fi.omapizzeria.sivusto.bean.Asiakas;
 import fi.omapizzeria.sivusto.bean.Ostoskori;
-
 import fi.omapizzeria.sivusto.bean.Tilausrivi;
 
 /**
@@ -73,6 +72,15 @@ public class TilausServlet extends HttpServlet {
 			response.sendRedirect("/PizzeriaTyyni/yhteenveto.jsp");
 			System.out.println(tilaus);
 			
+		}
+		
+		if (request.getParameter("action").equals("valmis")) {
+
+			session.invalidate();
+				
+
+			response.sendRedirect("tilausvahvistus.jsp");
+					
 		}
 	}
 

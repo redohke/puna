@@ -32,7 +32,7 @@
 				<p class="otsikko">Tilaus:</p>
 				<hr class="viiva" />
 
-				<form action="tilaus" method="post">
+				<form action="tilaus" method="post" autocomplete="on">
 					<table>
 						<tr>
 							<th>Tilaajan tiedot:</th>
@@ -112,7 +112,7 @@
 						</td>
 						</tr>
 						<tr>
-							<td><input class="tnappula" type="submit" value="Takaisin"></td>
+							<td><input class="tnappula" type="button" onclick="history.back(-1)" value="Takaisin"></td>
 							<td><input class="tnappula" type="submit"
 								value="Tilauksen yhteenvetoon"></td>
 						</tr>

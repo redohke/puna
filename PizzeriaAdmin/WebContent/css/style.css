@@ -275,6 +275,18 @@ input {
     clear: both;
 }
 
+.block {
+	display: block;
+}
+
+.rite {
+	text-align: right;
+}
+
+.left {
+	float: left;
+}
+
 .viiva {
 	text-align: left;
 	border: 0;
@@ -353,6 +365,17 @@ input {
 }
 
 .tnappula {
+	height: 20px;
+	padding-left: 2px;
+	padding-right: 2px;
+	background-color: #c3d95d;
+	border: 1px solid #666;
+	color: #000;
+	text-decoration: none;
+}
+
+.tnappular {
+	text-align: right;
 	height: 20px;
 	padding-left: 2px;
 	padding-right: 2px;

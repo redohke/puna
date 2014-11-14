@@ -34,9 +34,8 @@
 									<hr class="pviiva" />
 					<c:if test="${empty kori.ostokset}">
 						<p>
-							<i>Ostoskori on tyhjä.</i>
+							<i>Kori on tyhjä.</i>
 						</p>
-						<br />
 					</c:if>
 					<c:forEach items="${kori.ostokset}" var="k">
 
