@@ -99,23 +99,23 @@
 								<table>
 									<tr>
 										<td class="tnimi"><c:out value="${looppi.count}" /> <c:out
-												value="${to.pizza.nimi}" /> <c:out value="${to.juoma.nimi}" />x<c:out
+												value="${to.tuote.nimi}" /> x<c:out
 												value="${ to.lkm}" /></td>
 										<td><fmt:formatNumber type="number" minFractionDigits="2"
 												maxFractionDigits="2" value="${to.rivihinta}" /> &#x20ac;</td>
 									</tr>
 									<tr>
-										<td><c:forEach items="${to.pizza.taytteet}" var="tayte"
+										<td><c:if test="${to.tuote.getClass().simpleName == 'Pizza'}"><c:forEach items="${to.tuote.taytteet}" var="tayte"
 												varStatus="status">
     								${tayte}<c:if test="${!status.last}">,</c:if>
-											</c:forEach></td>
+											</c:forEach></c:if></td>
 									</tr>
 									<tr>
-										<td><c:if test="${to.valkosipuli == true}">
-							valkosipuli</c:if><c:if test="${to.valkosipuli == true && to.oregano == true}">, 
-							</c:if> <c:if test="${to.oregano == true}">
+										<td><c:if test="${to.tuote.getClass().simpleName == 'Pizza'}"><c:if test="${to.tuote.valkosipuli == true}">
+							valkosipuli</c:if><c:if test="${to.tuote.valkosipuli == true && to.tuote.oregano == true}">, 
+							</c:if> <c:if test="${to.tuote.oregano == true}">
 							oregano
-							</c:if></td>
+							</c:if></c:if></td>
 									</tr>
 								</table>
 								<br />
