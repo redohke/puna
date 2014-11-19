@@ -37,7 +37,7 @@
 							<i>Kori on tyhjä.</i>
 						</p>
 					</c:if>
-					<c:forEach items="${kori.ostokset}" var="k">
+					<c:forEach items="${kori.ostokset}" var="k" varStatus="looppi">
 
 						<table class="ktaulu">
 								<tr>
@@ -74,10 +74,9 @@
 								<td></td>
 
 								<td class="c_nappula">
-									<form action="menu" method="post">
+									<form action="menu" method="post">										
+										<input type="hidden" name="rivinumero" value="<c:out value="${luuppi.index}"/>">
 										<button class="pnappula" type="submit" value="del">Poista</button>
-										<input type="hidden" name="oId" value="x"> <input
-											type="hidden" name="action" value="del">
 									</form>
 								</td>
 							</tr>
