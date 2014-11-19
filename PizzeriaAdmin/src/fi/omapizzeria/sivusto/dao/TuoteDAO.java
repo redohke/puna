@@ -40,7 +40,7 @@ public class TuoteDAO extends DAO {
 
 			while (rs.next()) {
 				pizzalista.add(new Pizza(rs.getInt("id"), rs.getString("nimi"),
-						rs.getDouble("hinta")));
+						rs.getDouble("hinta"), false, false));
 			}
 
 		} catch (Exception e) {
@@ -134,7 +134,7 @@ public class TuoteDAO extends DAO {
 			
 			while (rs.next()) {
 			
-			pizza = new Pizza(rs.getInt("id"), rs.getString("nimi"),rs.getDouble("hinta"));
+			pizza = new Pizza(rs.getInt("id"), rs.getString("nimi"),rs.getDouble("hinta"), false, false);
 			}
 
 		} catch (Exception e) {

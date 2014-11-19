@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Ostoskori {
 	
-	private int i = 1;
 	private ArrayList<Ostos> ostokset;
 
 	
@@ -25,7 +24,7 @@ public class Ostoskori {
 		ostokset.clear();
 	}
 
-	
+	/*
 
 	public void lisaaPizza(Pizza pizza, Juoma juoma, int lkm, boolean oregano, boolean valkosipuli, double rivihinta) {
 
@@ -65,41 +64,19 @@ public class Ostoskori {
 
 	}
 
+	*/
 	
-	public void lisaaJuoma(Pizza pizza, Juoma juoma, int lkm, boolean oregano, boolean valkosipuli, double rivihinta) {
-
-		int oId = i++;
-		Ostos ostos = new Ostos(oId, null, juoma, lkm, oregano, valkosipuli, rivihinta);
-
-		if (ostos != null) {
-			ostos.muutaOid(i);
-			ostokset.add(new Ostos(oId, null, juoma, lkm, false, false,
-					rivihinta));
-
-		}
-
+	
+	
+	
+	public void lisaaOstoskoriin(Tuote tuote, int lkm, double rivihinta) {
+		
+		Ostos ostos = new Ostos(tuote, lkm, rivihinta);
+		ostokset.add(ostos);
+		
 	}
-
-	public void poista(Ostos poistettava) {
-		Ostos ostos = etsiPoistettava(poistettava);
-		try {
-			ostokset.remove(ostos);
-		} catch (Exception e) {
-
-		}
-
-	}
-
-	private Ostos etsiPoistettava(Ostos etsittava) {
-		for (Ostos ostos : ostokset) {
-			if (ostos.getoId() == etsittava.getoId()) {
-
-				return ostos;
-
-			}
-		}
-		return null;
-	}
+	
+	
 
 	
 	public double getTilauksenHinta() {
@@ -112,8 +89,9 @@ public class Ostoskori {
 	}
 
 	
+	@Override
 	public String toString() {
-		return "Ostoskori ostokset=" + ostokset;
+		return "Ostoskori [ostokset=" + ostokset + "]";
 	}
 
 }

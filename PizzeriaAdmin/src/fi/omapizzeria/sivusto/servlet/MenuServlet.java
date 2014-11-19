@@ -14,6 +14,7 @@ import fi.omapizzeria.sivusto.bean.Juoma;
 import fi.omapizzeria.sivusto.bean.Ostos;
 import fi.omapizzeria.sivusto.bean.Ostoskori;
 import fi.omapizzeria.sivusto.bean.Pizza;
+import fi.omapizzeria.sivusto.bean.Tuote;
 import fi.omapizzeria.sivusto.dao.DAOPoikkeus;
 import fi.omapizzeria.sivusto.service.PizzaService;
 
@@ -94,8 +95,7 @@ public class MenuServlet extends HttpServlet {
 			boolean oregano = false;
 			boolean valkosipuli = false;
 			
-			Juoma juoma = null;
-
+			
 			// tsekataan että onko oregano/valkosipuli valittu
 			if (klikattuOregano != null) {
 				oregano = true;
@@ -111,8 +111,18 @@ public class MenuServlet extends HttpServlet {
 				PizzaService pService = new PizzaService();
 				Pizza uusiPizza = pService.tuoPizza(id);
 				double rivihinta = lkm * uusiPizza.getHinta();
-				kori.lisaaPizza(uusiPizza, juoma, lkm, oregano, valkosipuli, rivihinta);
 				
+				uusiPizza.setOregano(oregano);
+				uusiPizza.setValkosipuli(valkosipuli);
+				
+				
+				Tuote uusituote = uusiPizza;
+				
+				kori.lisaaOstoskoriin(uusituote, lkm, rivihinta);
+				
+				System.out.println(uusituote);
+				
+				//Hinnat sessioon
 				double hinta = kori.getTilauksenHinta();
 				request.getSession().setAttribute("hinta", hinta);
 				request.getSession().setAttribute("ohinta", hinta*0.9);
@@ -151,7 +161,10 @@ public class MenuServlet extends HttpServlet {
 				PizzaService pService = new PizzaService();
 				Juoma uusiJuoma = pService.tuoJuoma(id);
 				double rivihinta = lkm * uusiJuoma.getHinta();
-				kori.lisaaJuoma(null, uusiJuoma, lkm, false, false, rivihinta);
+				
+				Tuote uusiTuote = uusiJuoma;
+				
+				kori.lisaaOstoskoriin(uusiTuote, lkm, rivihinta);
 				
 				double hinta = kori.getTilauksenHinta();
 				request.getSession().setAttribute("hinta", hinta);
@@ -170,7 +183,7 @@ public class MenuServlet extends HttpServlet {
 	
 	
 		
-		
+	/*	
 		// ostoskorista tuotteen poistaminen
 		if (request.getParameter("action").equals("del")) {
 
@@ -223,7 +236,7 @@ public class MenuServlet extends HttpServlet {
 			System.out.println(kori.getOstokset());
 			
 		}
-		
+		*/
 		if (request.getParameter("action").equals("clear")) {
 			
 			try {
