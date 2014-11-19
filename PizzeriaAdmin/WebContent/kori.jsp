@@ -41,9 +41,9 @@
 
 						<table class="ktaulu">
 								<tr>
-								<td class="pnimi"><c:out value="${k.pizza.id} " /> <c:out value="${k.juoma.id}. " /><c:out
-										value="${k.pizza.nimi}" /><c:out
-										value="${k.juoma.nimi}" />
+								<td class="pnimi"><c:out value="${k.tuote.pizza.id} " /> <c:out value="${k.tuote.juoma.id}. " /><c:out
+										value="${k.tuote.pizza.nimi}" /><c:out
+										value="${k.tuote.juoma.nimi}" />
 									<c:out value=" x${k.lkm}" /></td>
 								<td></td>
 								<td class="phinta"><fmt:formatNumber type="number"
@@ -52,17 +52,17 @@
 							</tr>
 							<tr>
 							<td>
-							<c:forEach items="${k.pizza.taytteet}" var="tayte" varStatus="status">
+							<c:forEach items="${k.tuote.pizza.taytteet}" var="tayte" varStatus="status">
     								${tayte}<c:if test="${!status.last}">,</c:if>
 									</c:forEach>
 							</td>
 							</tr>
 							<tr>
-								<td><c:if test="${k.valkosipuli == true}">							
-							valkosipuli<c:if test="${k.valkosipuli == true && k.oregano == true}">, 
+								<td><c:if test="${k.tuote.pizza.valkosipuli == true}">							
+							valkosipuli<c:if test="${k.tuote.pizza.valkosipuli == true && k.tuote.pizza.oregano == true}">, 
 							</c:if>
 
-							</c:if> <c:if test="${k.oregano == true}">
+							</c:if> <c:if test="${k.tuote.pizza.oregano == true}">
 							oregano
 							</c:if></td>
 								<td></td>
@@ -70,7 +70,7 @@
 								<td class="c_nappula">
 									<form action="menu" method="post">
 										<button class="pnappula" type="submit" value="del">Poista</button>
-										<input type="hidden" name="oId" value="${k.oId}"> <input
+										<input type="hidden" name="oId" value="x"> <input
 											type="hidden" name="action" value="del">
 									</form>
 								</td>
