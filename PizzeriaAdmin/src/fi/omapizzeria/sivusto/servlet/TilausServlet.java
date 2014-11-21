@@ -68,7 +68,10 @@ public class TilausServlet extends HttpServlet {
 				
 				request.getSession().setAttribute("toimitus", toimitus);
 				request.getSession().setAttribute("maksu", maksu);
+				
+				//tehd‰‰n tilaus olio
 				tilaus = new Tilaus(asiakas, kori, kokohinta);
+				System.out.println(tilaus);
 
 			} catch (Exception e) {
 				e.printStackTrace();

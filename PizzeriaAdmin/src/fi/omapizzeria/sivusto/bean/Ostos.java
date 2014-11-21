@@ -14,7 +14,7 @@ public class Ostos {
 
 		this.tuote = tuote;
 		this.lkm = lkm;
-		this.rivihinta = rivihinta;
+		this.rivihinta = rivihinta; // lkm * tuote.getHinta()
 	}
 
 
