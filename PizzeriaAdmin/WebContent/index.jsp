@@ -48,7 +48,7 @@
 					<tr>
 						<td><img class="kuva" src="img/pizza7.png" alt="Opiskelija">
 						</td>
-						<td>Opiskelijakortilla kaikki pizzat -10%</td>
+						<td>Opiskelijakortilla kaikki tuotteet -10%</td>
 					<tr>
 						<td class="irivi"><img class="kuva" src="img/round27.png"
 							alt="Aukiolo"></td>

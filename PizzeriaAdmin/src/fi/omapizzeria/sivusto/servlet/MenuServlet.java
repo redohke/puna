@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import fi.omapizzeria.sivusto.bean.Juoma;
-import fi.omapizzeria.sivusto.bean.Ostos;
 import fi.omapizzeria.sivusto.bean.Ostoskori;
 import fi.omapizzeria.sivusto.bean.Pizza;
 import fi.omapizzeria.sivusto.bean.Tuote;

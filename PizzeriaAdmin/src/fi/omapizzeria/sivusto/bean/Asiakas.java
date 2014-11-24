@@ -2,7 +2,6 @@ package fi.omapizzeria.sivusto.bean;
 
 public class Asiakas {
 
-	private int id;
 	private String etunimi, sukunimi, yritys, puh, email, osoite, postnro, kaupunki;
 	
 	public Asiakas(String etunimi, String sukunimi, String yritys,
@@ -19,15 +18,6 @@ public class Asiakas {
 		this.kaupunki = kaupunki;
 	}
 	
-	public int getId() {
-		return id;
-	}
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 
 	public String getEtunimi() {
 		return etunimi;
@@ -110,7 +100,7 @@ public class Asiakas {
 
 	@Override
 	public String toString() {
-		return "Asiakas [id=" + id + ", etunimi=" + etunimi + ", sukunimi="
+		return "Asiakas [etunimi=" + etunimi + ", sukunimi="
 				+ sukunimi + ", yritys=" + yritys + ", puh=" + puh + ", email="
 				+ email + ", osoite=" + osoite + ", postnro=" + postnro
 				+ ", kaupunki=" + kaupunki + "]";
