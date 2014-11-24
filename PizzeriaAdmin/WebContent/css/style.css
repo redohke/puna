@@ -420,6 +420,11 @@ input {
 	width: 150px;
 }
 
+.mnimi {
+	font-size: 12px;
+	font-style: italic;
+}
+
 .del_nappi {
 	height: 20px;
 	width: 20px;
@@ -459,4 +464,76 @@ input {
 
 .p_alas {
 	text-align: right;
+}
+
+#muru_step {
+	
+}
+
+ul.muru li {
+    height: 35px;
+    float: left;
+    width: 90px;
+    text-align: center;
+}
+
+.muru_text_todo {
+	    font-style: italic;
+}
+
+.muru_text_current {
+    color: #788f49;
+    font-weight: bold;
+}
+
+ul.muru li.muru_current {
+	background: url('../img/alkupallo.png') no-repeat scroll left bottom transparent;
+}
+
+ul.muru li.muru_alkudone {
+	background: url('../img/taytalkupallo.png') no-repeat scroll left bottom transparent;
+}
+
+ul.muru li.muru_keskipuoldone {
+	background: url('../img/puoltaytkeskpallo.png') no-repeat scroll left bottom transparent;
+}
+
+ul.muru li.muru_keskidone {
+	background: url('../img/keskdonepallo.png') no-repeat scroll left bottom transparent;
+}
+
+ul.muru li.muru_loppudone {
+	background: url('../img/loppudonepallo.png') no-repeat scroll left bottom transparent;
+}
+
+ul.muru {
+	list-style: outside none none;
+}
+
+ul.muru li.muru_todo {
+	background: url('../img/kesktyhjpallo.png') no-repeat scroll left bottom transparent;
+
+}
+
+ul.muru li.muru_loppu {
+	background: url('../img/loptyhjpallo.png') no-repeat scroll left bottom transparent;
+}
+
+
+ul.muru li#muru_end {
+   
+}
+
+ul.muru li#muru_end {
+    width: 80px;
+}
+
+
+.muru {
+	
+    list-style: outside none none;
+    margin: 0.8em auto 2em;
+    padding-left: 40px;
+    height: 35px;
+    width: 465px;
 }

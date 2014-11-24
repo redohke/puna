@@ -31,6 +31,17 @@
 		<div id="main">
 
 			<div id="main_col">
+								<div>
+						<ul id="muru_step" class="muru">
+
+							<li class="muru_alkudone"><span class="muru_text_todo">Kori</span></li>
+							<li class="muru_keskidone"><span class="muru_text_todo">Tilaus</span></li>
+							<li class="muru_keskidone"><span class="muru_text_todo">Yhteenveto</span></li>
+							<li id="muru_end" class="muru_loppudone"><span class="muru_text_current">Vahvistus</span></li>
+
+						</ul>
+					</div>
+			
 				<p class="otsikko">Tilausvahvistus:</p>
 				<hr class="viiva" />
 				<p>Tilauksesi on vastaanotettu!</p>

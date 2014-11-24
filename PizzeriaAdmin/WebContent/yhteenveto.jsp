@@ -29,6 +29,16 @@
 		<div id="main">
 
 			<div id="content">
+					<div>
+						<ul id="muru_step" class="muru">
+
+							<li class="muru_alkudone"><span class="muru_text_todo">Kori</span></li>
+							<li class="muru_keskidone"><span class="muru_text_todo">Tilaus</span></li>
+							<li class="muru_keskipuoldone"><span class="muru_text_current">Yhteenveto</span></li>
+							<li id="muru_end" class="muru_loppu"><span class="muru_text_todo">Vahvistus</span></li>
+
+						</ul>
+					</div>
 				<p class="otsikko">Tilauksen yhteenveto:</p>
 				<hr class="viiva" />
 				<table>

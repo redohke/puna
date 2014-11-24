@@ -29,7 +29,19 @@
 		<div id="main">
 
 			<div id="content">
-				<p class="otsikko">Tilaus:</p>
+
+									<div>
+						<ul id="muru_step" class="muru">
+
+							<li class="muru_alkudone"><span class="muru_text_todo">Kori</span></li>
+							<li class="muru_keskipuoldone"><span class="muru_text_current">Tilaus</span></li>
+							<li class="muru_todo"><span class="muru_text_todo">Yhteenveto</span></li>
+							<li id="muru_end" class="muru_loppu"><span class="muru_text_todo">Vahvistus</span></li>
+
+						</ul>
+					</div>
+					
+									<p class="otsikko">Tilaus:</p>
 				<hr class="viiva" />
 
 				<form action="tilaus" method="post" autocomplete="on">
