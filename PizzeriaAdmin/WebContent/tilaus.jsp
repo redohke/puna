@@ -38,34 +38,34 @@
 							<th>Tilaajan tiedot:</th>
 						</tr>
 						<tr>
-							<td class="tnimi">Etunimi: <input name="enimi" type="text" required>
+							<td class="tnimi">Etunimi: <input name="enimi" type="text" maxlength="30" required>
 							</td>
 						</tr>
 						<tr>
-							<td class="tnimi">Sukunimi: <input name="snimi" type="text" required>
+							<td class="tnimi">Sukunimi: <input name="snimi" type="text" maxlength="30" required>
 							</td>
 						</tr>
 						<tr>
-							<td class="tnimi">Yritys: <input name="yr" type="text">
+							<td class="tnimi">Yritys: <input name="yr" type="text" maxlength="30">
 							</td>
 						</tr>
 						<tr>
-							<td class="tnimi">Puhelin: <input name="puh" type="text" required>
+							<td class="tnimi">Puhelin: <input name="puh" type="text" maxlength="15" required>
 							</td>
 						</tr>
 						<tr>
-							<td class="tnimi">Sähköposti: <input name="email" type="text" required>
+							<td class="tnimi">Sähköposti: <input name="email" type="text" maxlength="50" required>
 							</td>
 
 						</tr>
 						<tr>
-							<td class="tnimi">Osoite: <input name="os" type="text" required>
+							<td class="tnimi">Osoite: <input name="os" type="text" maxlength="50" required>
 							</td>
 						</tr>
 						<tr>
-							<td class="tnimi">Postinumero: <input name="pnro" type="text" required>
+							<td class="tnimi">Postinumero: <input name="pnro" type="text" maxlength="5" required>
 							</td>
-							<td class="tnimi">Kaupunki: <input name="kaup" type="text" required>
+							<td class="tnimi">Kaupunki: <input name="kaup" type="text" maxlength="30" required>
 							</td>
 						</tr>
 												<tr>						
