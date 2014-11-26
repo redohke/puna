@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import fi.omapizzeria.sivusto.bean.Juoma;
-import fi.omapizzeria.sivusto.bean.Ostos;
 import fi.omapizzeria.sivusto.bean.Ostoskori;
 import fi.omapizzeria.sivusto.bean.Pizza;
 import fi.omapizzeria.sivusto.bean.Tuote;
@@ -194,9 +193,9 @@ public class MenuServlet extends HttpServlet {
 			// haetaan oId ostoskorista
 			
 			String poistettavaRivi = request.getParameter("rivinumero");
-			int poistettavaRiviINT = Integer.parseInt(poistettavaRivi);
+			int poistettava = Integer.parseInt(poistettavaRivi);
 
-			kori.poistaOstoskorista(poistettavaRiviINT);
+			kori.poistaOstoskorista(poistettava);
 
 			double hinta = kori.getTilauksenHinta();
 			request.getSession().setAttribute("hinta", hinta);
@@ -243,6 +242,7 @@ public class MenuServlet extends HttpServlet {
 			}
 			response.sendRedirect("menu");
 		}
+		
 		if (request.getParameter("action").equals("tyhjkori")) {
 			
 			try {

@@ -38,13 +38,14 @@
 							<li class="muru_current"><span class="muru_text_current">Kori</span></li>
 							<li class="muru_todo"><span class="muru_text_todo">Tilaus</span></li>
 							<li class="muru_todo"><span class="muru_text_todo">Yhteenveto</span></li>
-							<li id="muru_end" class="muru_loppu"><span class="muru_text_todo">Vahvistus</span></li>
+							<li id="muru_end" class="muru_loppu"><span
+								class="muru_text_todo">Vahvistus</span></li>
 
 						</ul>
 					</div>
-										<p class="otsikko">Ostoskori:</p>
-					
-										<hr class="pviiva" />
+					<p class="otsikko">Ostoskori:</p>
+
+					<hr class="pviiva" />
 					<c:if test="${empty kori.ostokset}">
 						<p>
 							<i>Kori on tyhjä.</i>
@@ -90,14 +91,15 @@
 
 								<td class="c_nappula">
 									<form action="menu" method="post">
+									<input type="hidden" name="action" value="del">
 										<input type="hidden" name="rivinumero"
-											value="<c:out value="${luuppi.index}"/>">
+											value="<c:out value="${looppi.index}"/>"> 
 										<button class="pnappula" type="submit" value="del">Poista</button>
 									</form>
 								</td>
 							</tr>
 						</table>
-						<br/>
+						<br />
 
 					</c:forEach>
 					<br />

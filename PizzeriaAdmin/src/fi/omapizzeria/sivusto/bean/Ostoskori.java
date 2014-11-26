@@ -35,8 +35,8 @@ public class Ostoskori {
 		
 	}
 	
-	public void poistaOstoskorista(int poistettavaRiviINT) {
-		ostokset.remove(poistettavaRiviINT);
+	public void poistaOstoskorista(int poistettava) {
+		ostokset.remove(poistettava);
 	}
 	
 	public double getTilauksenHinta() {
