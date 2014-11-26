@@ -1,9 +1,7 @@
 package fi.omapizzeria.sivusto.bean;
 
 public class Juoma extends Tuote {
-	private int id;
-	private String nimi;
-	private double hinta;
+	
 
 	public Juoma(int id, String nimi, double hinta) {
 		this.id = id;

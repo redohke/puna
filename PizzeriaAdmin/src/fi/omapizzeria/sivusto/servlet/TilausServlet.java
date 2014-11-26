@@ -9,9 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
+
+
 import fi.omapizzeria.sivusto.bean.Asiakas;
 import fi.omapizzeria.sivusto.bean.Ostoskori;
 import fi.omapizzeria.sivusto.bean.Tilaus;
+import fi.omapizzeria.sivusto.dao.DAOPoikkeus;
+import fi.omapizzeria.sivusto.dao.TilausDAO;
 
 /**
  * Servlet implementation class TilausServlet
@@ -44,40 +49,36 @@ public class TilausServlet extends HttpServlet {
 		Ostoskori kori = (Ostoskori) session.getAttribute("kori");
 		Tilaus tilaus = (Tilaus) session.getAttribute("tilaus");
 		
-		if (request.getParameter("action").equals("summary")) {
-			
-			try {				
-				//haetaan kamat formista
-				String etunimi = request.getParameter("enimi");
-				String sukunimi = request.getParameter("snimi");
-				String yritys = request.getParameter("yr");
-				String puh = request.getParameter("puh");
-				String email = request.getParameter("email");
-				String osoite = request.getParameter("os");
-				String pnro = request.getParameter("pnro");
-				String kaupunki = request.getParameter("kaup");
-				
-				Asiakas asiakas = new Asiakas(etunimi, sukunimi, yritys, puh, 
+		
+		String etunimi = request.getParameter("enimi");
+		String sukunimi = request.getParameter("snimi");
+		String yritys = request.getParameter("yr");
+		String puh = request.getParameter("puh");
+		String email = request.getParameter("email");
+		String osoite = request.getParameter("os");
+		String pnro = request.getParameter("pnro");
+		String kaupunki = request.getParameter("kaup");
+		String toimitus = request.getParameter("toimitus");
+		String maksu = request.getParameter("maksu");
+		double kokohinta = kori.getTilauksenHinta();
+
+		Asiakas asiakas = new Asiakas(etunimi, sukunimi, yritys, puh, 
 						email, osoite, pnro, kaupunki);
-				
-				
-				String toimitus = request.getParameter("toimitus");
-				String maksu = request.getParameter("maksu");
-				double kokohinta = kori.getTilauksenHinta();
+		
+		
+		
+		tilaus = new Tilaus(asiakas, kori, kokohinta);
+		
 
-				
-				request.getSession().setAttribute("toimitus", toimitus);
-				request.getSession().setAttribute("maksu", maksu);
-				
-				//tehdään tilaus olio
-				tilaus = new Tilaus(asiakas, kori, kokohinta);
-				System.out.println(tilaus);
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			request.getSession().setAttribute("tilaus", tilaus);
+		
+		System.out.println(tilaus);
+		
+		request.getSession().setAttribute("toimitus", toimitus);
+		request.getSession().setAttribute("maksu", maksu);
+		request.getSession().setAttribute("tilaus", tilaus);
+		
+		if (request.getParameter("action").equals("summary")) {
+								
 			response.sendRedirect("/PizzeriaTyyni/yhteenveto.jsp");
 			System.out.println(tilaus);
 			
@@ -85,6 +86,25 @@ public class TilausServlet extends HttpServlet {
 		
 		if (request.getParameter("action").equals("valmis")) {
 
+			
+			try {
+				//uusi tilausdao
+				TilausDAO tDAO = new TilausDAO();
+				
+				tDAO.lisaaTilaus(tilaus);
+				
+				
+				
+			} catch (DAOPoikkeus e) {
+				throw new ServletException(e);
+			}
+			
+			
+			//tilaus on lisätty -->
+			response.sendRedirect("tilausvahvistus.jsp?added=true");
+			
+			
+			
 			session.invalidate();
 				
 

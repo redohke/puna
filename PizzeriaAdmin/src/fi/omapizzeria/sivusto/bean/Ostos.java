@@ -4,18 +4,50 @@ import fi.omapizzeria.sivusto.bean.Tuote;
 public class Ostos {
 	
 
-	private Tuote tuote;
-	private int lkm;
-	private double rivihinta;
+	Tuote tuote;
+	int lkm;
+	double rivihinta;
+	boolean oregano, valkosipuli;
 	
 	
 	
-	public Ostos(Tuote tuote, int lkm, double rivihinta) {
+	public Ostos(Tuote tuote, int lkm, double rivihinta, boolean oregano, boolean valkosipuli) {
 
 		this.tuote = tuote;
 		this.lkm = lkm;
 		this.rivihinta = rivihinta; // lkm * tuote.getHinta()
+		this.oregano = oregano;
+		this.valkosipuli = valkosipuli;
 	}
+
+
+	
+	
+	public boolean isOregano() {
+		return oregano;
+	}
+
+
+
+
+	public void setOregano(boolean oregano) {
+		this.oregano = oregano;
+	}
+
+
+
+
+	public boolean isValkosipuli() {
+		return valkosipuli;
+	}
+
+
+
+
+	public void setValkosipuli(boolean valkosipuli) {
+		this.valkosipuli = valkosipuli;
+	}
+
 
 
 

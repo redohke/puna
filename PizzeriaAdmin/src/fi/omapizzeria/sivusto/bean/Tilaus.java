@@ -5,6 +5,7 @@ public class Tilaus {
 	private Asiakas asiakas;
 	private Ostoskori ostoskori;
 	private double hinta;
+
 	
 
 	public Tilaus(Asiakas asiakas, Ostoskori ostoskori, double hinta) {
@@ -12,7 +13,11 @@ public class Tilaus {
 		this.asiakas = asiakas;
 		this.ostoskori = ostoskori;
 		this.hinta = hinta;
+
 	}
+	
+	
+	
 	
 	public double getHinta() {
 		return hinta;
