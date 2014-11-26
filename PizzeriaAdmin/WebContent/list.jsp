@@ -30,9 +30,51 @@
 		<div class="lisays_col">
 			<h2>Pizzojen lis‰ys</h2>
 			<br />
-			<form name="input" action="controller" method="post">
+			<form name="input" action="admin" method="post">
 				<input type="text" name="pizza" placeholder="Pizzan nimi"> <input
 					type="text" name="hinta" placeholder="Hinta" size="5">
+					<br>
+					<select name="tayte1">
+					<option selected="true" style="display:none;">T‰yte1</option>
+							<c:forEach items="${tayte}" var="t">
+							
+        						<option value="${t.id}"><c:out value="${t.nimi}" />
+        						</option>
+    						</c:forEach>
+					</select>
+					
+					<select name="tayte2">
+					<option selected="true" style="display:none;">T‰yte2</option>
+							<c:forEach items="${tayte}" var="t">
+							
+        						<option value="${t.id}"><c:out value="${t.nimi}" />
+        						</option>
+    						</c:forEach>
+					</select>
+					
+					<select name="tayte3">
+					<option selected="true" style="display:none;">T‰yte3</option>
+							<c:forEach items="${tayte}" var="t">
+							
+        						<option value="${t.id}"><c:out value="${t.nimi}" />
+        						</option>
+    						</c:forEach>
+					</select>
+					
+					<select name="tayte4">
+					<option selected="true" style="display:none;">T‰yte4</option>
+							<c:forEach items="${tayte}" var="t">
+							
+        						<option value="${t.id}"><c:out value="${t.nimi}" />
+        						</option>
+    						</c:forEach>
+					</select>
+					
+					
+					
+										
+				
+					
 				<button class="nappula" type="submit">Lis‰‰</button>
 				<input type="hidden" name="action" value="add">
 			</form>
@@ -63,7 +105,7 @@
 						<td class="c_id"><c:out value="${pl.id}" /></td>
 						<td class="c_nimi"><c:out value="${pl.nimi}" /></td>
 						<td class="c_hinta"><c:out value="${pl.hinta}" /></td>
-						<td class="c_nappula"><form action="controller" method="post">
+						<td class="c_nappula"><form action="admin" method="post">
 								<input class="del_nappi" type="image" src="img/Delete.png">
 								<input type="hidden" name="id" value="${pl.id}"> 
 								<input type="hidden" name="action" value="del">

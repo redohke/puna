@@ -59,6 +59,8 @@ public class ControllerServlet extends HttpServlet {
 
 		// lista requestin attribuutiksi
 		request.setAttribute("plista", pizzat);
+		
+		
 
 		// forwardi .jsp:lle
 		request.getRequestDispatcher("list.jsp").forward(request, response);

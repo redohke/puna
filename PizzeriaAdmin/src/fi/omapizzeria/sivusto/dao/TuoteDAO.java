@@ -53,6 +53,8 @@ public class TuoteDAO extends DAO {
 		// palautetaan saatu tulos
 		return pizzalista;
 	}
+	
+
 
 	public ArrayList<Tayte> haeTaytteetPizzalle(int pizzaId) throws DAOPoikkeus {
 
@@ -84,6 +86,35 @@ public class TuoteDAO extends DAO {
 		return taytteet;
 	}
 
+	public ArrayList<Tayte> haeTaytelista() throws DAOPoikkeus {
+
+		Connection yhteys = null;
+		ArrayList<Tayte> taytteet = new ArrayList<Tayte>();
+			
+		try {
+			// avataan yhteys tietokantaan
+			yhteys = avaaYhteys();
+			
+			// haetaan taytteet tietokannasta statementillä laitetaan haun tulokset ResultSetiksis
+			String sql = "select id, nimi from tayte";
+			PreparedStatement ps = yhteys.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				taytteet.add(new Tayte(rs.getInt("id"), rs.getString("nimi")));
+			}
+		
+		} catch (Exception e) {
+			// heitä virhe jos virhe
+			throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
+		} finally {
+			// yhteys kii
+			suljeYhteys(yhteys);
+		}
+		// palautetaan täytteet
+		return taytteet;
+	}
+	
 	public ArrayList<Juoma> haeJuomat() throws DAOPoikkeus {
 		
 		ArrayList<Juoma> juomalista = new ArrayList<Juoma>();
