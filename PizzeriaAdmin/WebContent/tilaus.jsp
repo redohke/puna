@@ -5,7 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<meta charset="UTF-8"/>
 <title>Pizzeria Tyyni - Tilaus</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
@@ -50,11 +51,11 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="tnimi">Puhelin: <input name="puh" type="text" maxlength="15" required>
+							<td class="tnimi">Puhelin: <input name="puh" type="tel" pattern="(\(?\+?\(?\d*\)?\d*)" maxlength="15" required>
 							</td>
 						</tr>
 						<tr>
-							<td class="tnimi">Sähköposti: <input name="email" type="text" maxlength="50" required>
+							<td class="tnimi">Sähköposti: <input name="email" type="email" maxlength="50" required>
 							</td>
 
 						</tr>
@@ -63,7 +64,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="tnimi">Postinumero: <input name="pnro" type="text" maxlength="5" required>
+							<td class="tnimi">Postinumero: <input name="pnro" type="text" pattern="[\d*]{5}" maxlength="5"required>
 							</td>
 							<td class="tnimi">Kaupunki: <input name="kaup" type="text" maxlength="30" required>
 							</td>
