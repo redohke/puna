@@ -96,7 +96,7 @@ public class MenuServlet extends HttpServlet {
 			
 			Juoma juoma = null;
 
-			// tsekataan että onko oregano/valkosipuli valittu
+			// tsekataan ettï¿½ onko oregano/valkosipuli valittu
 			if (klikattuOregano != null) {
 				oregano = true;
 			}
@@ -106,7 +106,7 @@ public class MenuServlet extends HttpServlet {
 			
 			
 
-			// haetaan pizzaID:llä pizzan tiedot tietokannasta
+			// haetaan pizzaID:llï¿½ pizzan tiedot tietokannasta
 			try {
 				PizzaService pService = new PizzaService();
 				Pizza uusiPizza = pService.tuoPizza(id);
@@ -126,9 +126,6 @@ public class MenuServlet extends HttpServlet {
 			System.out.println(kori.getOstokset());
 
 		}
-
-		
-		
 		
 		
 		if (request.getParameter("action").equals("jadd")) {
@@ -146,7 +143,7 @@ public class MenuServlet extends HttpServlet {
 			
 			
 			
-			// haetaan pizzaID:llä pizzan tiedot tietokannasta
+			// haetaan pizzaID:llï¿½ pizzan tiedot tietokannasta
 			try {
 				PizzaService pService = new PizzaService();
 				Juoma uusiJuoma = pService.tuoJuoma(id);
@@ -192,7 +189,7 @@ public class MenuServlet extends HttpServlet {
 
 			// tallennetaan sessioon
 			request.getSession().setAttribute("kori", kori);
-			// siirrytään takaisin koriin
+			// siirrytï¿½ï¿½n takaisin koriin
 			response.sendRedirect("/PizzeriaTyyni/kori.jsp");
 			System.out.println(kori.getOstokset());
 
@@ -218,7 +215,7 @@ public class MenuServlet extends HttpServlet {
 
 			// tallennetaan sessioon
 			request.getSession().setAttribute("kori", kori);
-			// siirrytään takaisin koriin
+			// siirrytï¿½ï¿½n takaisin koriin
 			response.sendRedirect("menu");
 			System.out.println(kori.getOstokset());
 			
