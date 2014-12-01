@@ -12,22 +12,17 @@ public class AdminService {
 		super();
 	}
 	
+	public Pizza tuoPizza(Pizza p) throws DAOPoikkeus{
+		
+		
+		
+		return p;
+		
+		
+		
+	}
 	
-	public Pizza lisaaTaytteePizzalle() throws DAOPoikkeus{
-		
-		
-		try {
-			AdminService aService = new AdminService();
-			Pizza uusiPizza = aService.tuoPizza(id);
-			
-			
-			uusiPizza.setTayte(tayte);
-			
-			
-			Tuote uusituote = uusiPizza;
-	}
 
-	}
 }
 	
 

@@ -27,7 +27,8 @@ public class Tayte {
 
 	@Override
 	public String toString() {
-		return nimi;
+		return "Tayte [id=" + id + ", nimi=" + nimi + "]";
 	}
 
+	
 }

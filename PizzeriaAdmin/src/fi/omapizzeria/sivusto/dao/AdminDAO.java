@@ -5,9 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import fi.omapizzeria.sivusto.bean.Pizza;
+import fi.omapizzeria.sivusto.bean.Tayte;
 import fi.omapizzeria.sivusto.dao.DAOPoikkeus;
+import fi.omapizzeria.sivusto.service.AdminService;
 
 
 
@@ -55,21 +58,29 @@ public AdminDAO() throws DAOPoikkeus {
 			while (rs.next()){
 				pId = rs.getInt("id");
 			}
+			
+			List taytteet = p.getTaytteet();
+			
+			for(int i = 1; i < taytteet.size(); i++) {
 				
 			
-			
-			
-
+				
 			//tietokantaan uusi pizza täytteillä
 			
 			
 			String sql3 = "insert into pizzatayte(pizza_id, tayte_id) values (?,?)";
+			PreparedStatement lause2 = yhteys.prepareStatement(sql3);
+		
+
 			
 			// täytetään puuttuvat tiedot
-			lause.setInt(1, pId);
-			lause.setString(2, tId);
-		
+			lause2.setInt(1, pId);
+			lause2.setInt(2, taytteet.get(i).getId());
 			
+			//suoritetaan lause
+			lause2.executeQuery();
+		
+			}
 		
 			
 			

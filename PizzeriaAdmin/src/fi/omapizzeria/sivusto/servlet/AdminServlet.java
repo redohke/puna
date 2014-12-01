@@ -115,22 +115,26 @@ public class AdminServlet extends HttpServlet {
 		// hinta stringistä doubleksi
 		double d = Double.parseDouble(syotettyHinta);
 		
-		// infot olioksi
-		Pizza p = new Pizza(id, syotettyNimi, d, false, false);
-		
-		
-		
 		// täytteiden valinta checkboxeista
+		String valitutTaytteet[]= request.getParameterValues("tayte");
+		for(int i = 0; i < valitutTaytteet.length; i++){
+		
+		System.out.println(valitutTaytteet[i]);
 		
 		
-		boolean valitutTaytteet = request.getParameter( "tayte" ) != null;
-		request.getSession().setAttribute("tayte", valitutTaytteet);
+	}
 		
-	
 		
+		//for looppi joka lisää täytteet lomakkeesta IDn perusteella
+		for (int i = 0; i < listankoko; i++) {
+			int tayte = jotain;
+			taytteet.add(tayte);
+		}
+		
+		// infot olioksi
+		Pizza p = new Pizza(id, syotettyNimi, d, false, false, taytteet);
 		
 
-	
 		
 		try {
 			// uus pizzadao

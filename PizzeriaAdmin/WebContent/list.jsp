@@ -39,7 +39,7 @@
 				
 					
 							<c:forEach items="${tayte}" var="t">
-							<td class="pmauste"><input type="checkbox" name="tayte" value="1"> 
+							<td class="pmauste"><input type="checkbox" name="tayte" value="${t.id}"> 
 									<c:out value="${t.nimi}" /> </td>
         						
         						
