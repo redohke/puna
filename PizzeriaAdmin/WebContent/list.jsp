@@ -22,8 +22,7 @@
 			<h1>Pizzojen Hallinta</h1>
 			<br/>
 			<p>
-				Session alku:
-				<fmt:formatDate pattern="HH:mm:ss" value="${aaika}" />
+				
 			</p>
 		</div>
 
@@ -33,51 +32,25 @@
 			<form name="input" action="admin" method="post">
 				<input type="text" name="pizza" placeholder="Pizzan nimi"> <input
 					type="text" name="hinta" placeholder="Hinta" size="5">
+					
+					
 					<br>
-					<select name="tayte1">
-					<option selected="true" style="display:none;">T‰yte1</option>
-							<c:forEach items="${tayte}" var="t">
-							
-        						<option value="${t.id}"><c:out value="${t.nimi}" />
-        						</option>
-    						</c:forEach>
-					</select>
-					
-					<select name="tayte2">
-					<option selected="true" style="display:none;">T‰yte2</option>
-							<c:forEach items="${tayte}" var="t">
-							
-        						<option value="${t.id}"><c:out value="${t.nimi}" />
-        						</option>
-    						</c:forEach>
-					</select>
-					
-					<select name="tayte3">
-					<option selected="true" style="display:none;">T‰yte3</option>
-							<c:forEach items="${tayte}" var="t">
-							
-        						<option value="${t.id}"><c:out value="${t.nimi}" />
-        						</option>
-    						</c:forEach>
-					</select>
-					
-					<select name="tayte4">
-					<option selected="true" style="display:none;">T‰yte4</option>
-							<c:forEach items="${tayte}" var="t">
-							
-        						<option value="${t.id}"><c:out value="${t.nimi}" />
-        						</option>
-    						</c:forEach>
-					</select>
-					
-					
-					
-										
 				
+				
+					
+							<c:forEach items="${tayte}" var="t">
+							<td class="pmauste"><input type="checkbox" name="tayte" value="1"> 
+									<c:out value="${t.nimi}" /> </td>
+        						
+        						
+    						</c:forEach><br/>
+    						
+
+    					
 					
 				<button class="nappula" type="submit">Lis‰‰</button>
 				<input type="hidden" name="action" value="add">
-			</form>
+			</form>Pizzoihin vain 2-4 t‰ytett‰.
 		</div>
 
 		<c:if test="${not empty param.added}">

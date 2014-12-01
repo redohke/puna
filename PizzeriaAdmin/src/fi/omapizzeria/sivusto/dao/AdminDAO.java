@@ -41,24 +41,38 @@ public AdminDAO() throws DAOPoikkeus {
 			// t‰ytet‰‰n puuttuvat tiedot
 			lause.setString(1, p.getNimi());
 			lause.setDouble(2, p.getHinta());
+			
 
 			// suoritetaan lause
 			lause.executeUpdate();
 			
+			//haetaan uuden pizzan id
 			String sql2 = "SELECT id from pizza ORDER BY id DESC LIMIT 1";
 			Statement haku = yhteys.createStatement();
 			ResultSet rs = haku.executeQuery(sql2);
+			int pId = 0;
 			
-			
-			new pizzatayte(rs.getString(1), )
-			
-			
-			while (rs.next()) {
-				pizzalista.add(new Pizza(rs.getInt("id"), rs.getString("nimi"),
-						rs.getDouble("hinta"), false, false));
+			while (rs.next()){
+				pId = rs.getInt("id");
 			}
+				
+			
+			
 			
 
+			//tietokantaan uusi pizza t‰ytteill‰
+			
+			
+			String sql3 = "insert into pizzatayte(pizza_id, tayte_id) values (?,?)";
+			
+			// t‰ytet‰‰n puuttuvat tiedot
+			lause.setInt(1, pId);
+			lause.setString(2, tId);
+		
+			
+		
+			
+			
 
 
 			// consoleen pitsan lis‰ys

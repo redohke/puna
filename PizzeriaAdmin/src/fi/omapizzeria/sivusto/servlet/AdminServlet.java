@@ -2,6 +2,7 @@ package fi.omapizzeria.sivusto.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,10 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fi.omapizzeria.sivusto.bean.Pizza;
+import fi.omapizzeria.sivusto.bean.PizzaTayte;
 import fi.omapizzeria.sivusto.bean.Tayte;
 import fi.omapizzeria.sivusto.dao.DAOPoikkeus;
 import fi.omapizzeria.sivusto.dao.TuoteDAO;
 import fi.omapizzeria.sivusto.dao.AdminDAO;
+import fi.omapizzeria.sivusto.service.AdminService;
+import fi.omapizzeria.sivusto.service.PizzaService;
 
 /**
  * Servlet implementation class AdminServlet
@@ -114,17 +118,19 @@ public class AdminServlet extends HttpServlet {
 		// infot olioksi
 		Pizza p = new Pizza(id, syotettyNimi, d, false, false);
 		
-		//täytteet formista
-		String syotettyTayte = request.getParameter("tayte1");
-		String syotettyTayte2 = request.getParameter("tayte2");
-		String syotettyTayte3 = request.getParameter("tayte3");		
-		String syotettyTayte4 = request.getParameter("tayte4");
 		
-		//taytteet olioksi
-		Tayte t = new Tayte(id, syotettyTayte);
-		Tayte t2 = new Tayte(id, syotettyTayte2);
-		Tayte t3 = new Tayte(id, syotettyTayte3);
-		Tayte t4 = new Tayte(id, syotettyTayte4);
+		
+		// täytteiden valinta checkboxeista
+		
+		
+		boolean valitutTaytteet = request.getParameter( "tayte" ) != null;
+		request.getSession().setAttribute("tayte", valitutTaytteet);
+		
+	
+		
+		
+
+	
 		
 		try {
 			// uus pizzadao
@@ -139,9 +145,11 @@ public class AdminServlet extends HttpServlet {
 		response.sendRedirect("admin?added=true");
 		
 		}
-		
-		
-	
-	}
+		 
 
-}
+					
+					
+					
+
+	}
+}	
