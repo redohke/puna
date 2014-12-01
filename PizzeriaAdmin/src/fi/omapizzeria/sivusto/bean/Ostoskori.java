@@ -22,22 +22,27 @@ public class Ostoskori {
 		return ostokset;
 	}
 	
+	
+	
+	
+	
+	
 
 	public void tyhjenna() {
 		ostokset.clear();
 	}
 
 	
-	public void lisaaOstoskoriin(Tuote tuote, int lkm, double rivihinta) {
+	public void lisaaOstoskoriin(Ostos ostos) {
 		
-		Ostos ostos = new Ostos(tuote, lkm, rivihinta);
 		ostokset.add(ostos);
-		
 	}
+	
 	
 	public void poistaOstoskorista(int poistettava) {
 		ostokset.remove(poistettava);
 	}
+	
 	
 	public double getTilauksenHinta() {
 		double tilausHinta = 0;
@@ -48,6 +53,7 @@ public class Ostoskori {
 		return tilausHinta;
 	}
 
+	
 	
 	@Override
 	public String toString() {

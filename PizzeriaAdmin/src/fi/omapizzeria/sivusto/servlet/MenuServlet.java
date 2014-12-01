@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import fi.omapizzeria.sivusto.bean.Juoma;
+import fi.omapizzeria.sivusto.bean.Ostos;
 import fi.omapizzeria.sivusto.bean.Ostoskori;
 import fi.omapizzeria.sivusto.bean.Pizza;
 import fi.omapizzeria.sivusto.bean.Tuote;
@@ -113,16 +114,16 @@ public class MenuServlet extends HttpServlet {
 				Pizza uusiPizza = pService.tuoPizza(id);
 				
 				double rivihinta = lkm * uusiPizza.getHinta();
-				
-					//asetetaan mausteet pizzaolioon
-				uusiPizza.setOregano(oregano);
-				uusiPizza.setValkosipuli(valkosipuli);
+		
 				
 				
 				Tuote uusituote = uusiPizza;
 				
-				kori.lisaaOstoskoriin(uusituote, lkm, rivihinta);
+	
+				Ostos ostos = new Ostos(uusituote,lkm, rivihinta, oregano, valkosipuli);
+				kori.lisaaOstoskoriin(ostos);
 				
+			
 				System.out.println(uusituote);
 				
 				//Hinnat sessioon
@@ -167,7 +168,11 @@ public class MenuServlet extends HttpServlet {
 				
 				Tuote uusiTuote = uusiJuoma;
 				
-				kori.lisaaOstoskoriin(uusiTuote, lkm, rivihinta);
+				
+
+				Ostos ostos = new Ostos(uusiTuote, lkm, rivihinta, false, false);
+				
+				kori.lisaaOstoskoriin(ostos);
 				
 				double hinta = kori.getTilauksenHinta();
 				request.getSession().setAttribute("hinta", hinta);

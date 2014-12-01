@@ -4,50 +4,21 @@ import java.util.List;
 
 public class Pizza extends Tuote {
 
-	private int id;
-	private String nimi;
-	private double hinta;
-	boolean oregano;
-	boolean valkosipuli;
+	
 	private List<Tayte> taytteet;
 		
 	
 	
 	
-	public Pizza(int id, String nimi, double hinta, boolean oregano,
-			boolean valkosipuli) {
+	public Pizza(int id, String nimi, double hinta) {
 		super();
 		this.id = id;
 		this.nimi = nimi;
 		this.hinta = hinta;
-		this.oregano = oregano;
-		this.valkosipuli = valkosipuli;
+		
 	}
 	
 	
-
-	public boolean isOregano() {
-		return oregano;
-	}
-
-
-
-	public void setOregano(boolean oregano) {
-		this.oregano = oregano;
-	}
-
-
-
-	public boolean isValkosipuli() {
-		return valkosipuli;
-	}
-
-
-
-	public void setValkosipuli(boolean valkosipuli) {
-		this.valkosipuli = valkosipuli;
-	}
-
 
 
 	public int getId() {

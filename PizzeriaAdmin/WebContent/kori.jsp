@@ -76,13 +76,13 @@
 							<tr>
 								<td class="mnimi"><c:if
 										test="${k.tuote.getClass().simpleName == 'Pizza'}">
-										<c:if test="${k.tuote.valkosipuli == true}">							
+										<c:if test="${k.valkosipuli == true}">							
 							valkosipuli<c:if
-												test="${k.tuote.valkosipuli == true && k.tuote.oregano == true}">, 
+												test="${k.valkosipuli == true && k.oregano == true}">, 
 							</c:if>
 
 										</c:if>
-										<c:if test="${k.tuote.oregano == true}">
+										<c:if test="${k.oregano == true}">
 							oregano
 							</c:if>
 									</c:if></td>
