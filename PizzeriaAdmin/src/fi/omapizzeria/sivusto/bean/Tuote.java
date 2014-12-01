@@ -6,8 +6,6 @@ public class Tuote {
 	int id;
 	String nimi;
 	double hinta;
-	boolean oregano;
-	boolean valkosipuli;
 
 	
 	
@@ -55,21 +53,7 @@ public class Tuote {
 		this.hinta = hinta;
 	}
 
-	public boolean isOregano() {
-		return oregano;
-	}
 
-	public void setOregano(boolean oregano) {
-		this.oregano = oregano;
-	}
-
-	public boolean isValkosipuli() {
-		return valkosipuli;
-	}
-
-	public void setValkosipuli(boolean valkosipuli) {
-		this.valkosipuli = valkosipuli;
-	}
 
 	@Override
 	public String toString() {

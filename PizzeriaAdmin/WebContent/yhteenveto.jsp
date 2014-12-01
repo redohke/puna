@@ -121,9 +121,9 @@
 											</c:forEach></c:if></td>
 									</tr>
 									<tr>
-										<td><c:if test="${to.tuote.getClass().simpleName == 'Pizza'}"><c:if test="${to.tuote.valkosipuli == true}">
-							valkosipuli</c:if><c:if test="${to.tuote.valkosipuli == true && to.tuote.oregano == true}">, 
-							</c:if> <c:if test="${to.tuote.oregano == true}">
+										<td><c:if test="${to.tuote.getClass().simpleName == 'Pizza'}"><c:if test="${to.valkosipuli == true}">
+							valkosipuli</c:if><c:if test="${to.valkosipuli == true && to.oregano == true}">, 
+							</c:if> <c:if test="${to.oregano == true}">
 							oregano
 							</c:if></c:if></td>
 									</tr>
@@ -165,6 +165,16 @@
 								<td><input class="tnappula" type="button"
 									onclick="history.back(-1)" value="Takaisin"></td>
 								<td><input type="hidden" name="action" value="valmis">
+									<input type="hidden" name="enimi" value="${ta.etunimi}">
+									<input type="hidden" name="snimi" value="${ta.sukunimi}">
+									<input type="hidden" name="yr" value="${ta.yritys}">
+									<input type="hidden" name="puh" value="${ta.puh}">
+									<input type="hidden" name="email" value="${ta.email}">
+									<input type="hidden" name="os" value="${ta.osoite}">
+									<input type="hidden" name="pnro" value="${ta.postnro}">
+									<input type="hidden" name="kaup" value="${ta.kaupunki}">
+									
+									
 									<input class="tnappular" type="submit" value="Vahvista tilaus">
 								</td>
 							</tr>

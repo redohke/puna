@@ -40,7 +40,7 @@ public class Tilaus {
 
 	@Override
 	public String toString() {
-		return "Tilausrivi [asiakas=" + asiakas + ", ostoskori=" + ostoskori
+		return "Tilaus [asiakas=" + asiakas + ", ostoskori=" + ostoskori
 				+ ", hinta=" + hinta + "]";
 	}
 

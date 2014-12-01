@@ -66,7 +66,7 @@ public class TilausServlet extends HttpServlet {
 						email, osoite, pnro, kaupunki);
 		
 		
-		
+		System.out.println("asiakas on: " + asiakas);
 		tilaus = new Tilaus(asiakas, kori, kokohinta);
 		
 
@@ -89,6 +89,8 @@ public class TilausServlet extends HttpServlet {
 			
 			try {
 				//uusi tilausdao
+				
+				
 				TilausDAO tDAO = new TilausDAO();
 				
 				tDAO.lisaaTilaus(tilaus);
@@ -101,11 +103,11 @@ public class TilausServlet extends HttpServlet {
 			
 			
 			//tilaus on lisätty -->
-			response.sendRedirect("tilausvahvistus.jsp?added=true");
 			
 			
 			
-			session.invalidate();
+			
+		//joonan mieliksi	session.invalidate();
 				
 
 			response.sendRedirect("tilausvahvistus.jsp");
