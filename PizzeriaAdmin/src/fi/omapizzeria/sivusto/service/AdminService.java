@@ -1,5 +1,9 @@
 package fi.omapizzeria.sivusto.service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import fi.omapizzeria.sivusto.bean.Pizza;
 import fi.omapizzeria.sivusto.bean.Tuote;
 import fi.omapizzeria.sivusto.bean.Tayte;
@@ -12,12 +16,25 @@ public class AdminService {
 		super();
 	}
 	
-	public Pizza tuoPizza(Pizza p) throws DAOPoikkeus{
+	public void viePizza(Pizza p, String[] taytteet) throws DAOPoikkeus{
+			
+		AdminDAO dao = new AdminDAO();
+		
+		ArrayList taytelista = new ArrayList(taytteet);
+		
+		Iterator iterator = taytelista.iterator();
 		
 		
+		while (iterator.hasNext()) {
+			
+			
+			String str = (String) iterator.next();
 		
-		return p;
 		
+		}
+		
+		
+	
 		
 		
 	}

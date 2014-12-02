@@ -15,6 +15,7 @@ public class Pizza extends Tuote {
 		this.id = id;
 		this.nimi = nimi;
 		this.hinta = hinta;
+
 		
 	}
 	
@@ -52,6 +53,7 @@ public class Pizza extends Tuote {
 	public void setTaytteet(List<Tayte> taytteet) {
 		this.taytteet = taytteet;
 	}
+	
 		
 	@Override
 	public String toString() {

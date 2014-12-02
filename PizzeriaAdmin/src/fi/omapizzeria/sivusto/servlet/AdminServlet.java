@@ -89,7 +89,7 @@ public class AdminServlet extends HttpServlet {
 			int id = Integer.parseInt(syotettyId);
 						
 			// infot olioksi
-			Pizza p = new Pizza(id, nimi, d, false, false );
+			Pizza p = new Pizza(id, nimi, d, null);
 			
 			try {
 				// uus pizzadao
@@ -108,39 +108,24 @@ public class AdminServlet extends HttpServlet {
 		
 		// infot formista
 		String syotettyNimi = request.getParameter("pizza");
-
 		String syotettyHinta = request.getParameter("hinta");
 		int id = 0;
+		String valitutTaytteet[];
 		
 		// hinta stringistä doubleksi
 		double d = Double.parseDouble(syotettyHinta);
 		
-		// täytteiden valinta checkboxeista
-		String valitutTaytteet[]= request.getParameterValues("tayte");
-		for(int i = 0; i < valitutTaytteet.length; i++){
+		// html:stä tulleet infot pitsaksi
+		Pizza p = new Pizza(id, syotettyNimi, d);
 		
-		System.out.println(valitutTaytteet[i]);
+		// Checkboxeista tulleet täytteet listaksi
+		valitutTaytteet = request.getParameterValues("tayte");
 		
-		
-	}
-		
-		
-		//for looppi joka lisää täytteet lomakkeesta IDn perusteella
-		for (int i = 0; i < listankoko; i++) {
-			int tayte = jotain;
-			taytteet.add(tayte);
-		}
-		
-		// infot olioksi
-		Pizza p = new Pizza(id, syotettyNimi, d, false, false, taytteet);
-		
-
 		
 		try {
-			// uus pizzadao
-			AdminDAO dao = new AdminDAO();
+			AdminService aService = new AdminService();
 			// olio lisaysmetodiin
-			dao.lisaaPizza(p);
+			aService.viePizza(p, valitutTaytteet);
 		} catch (DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
