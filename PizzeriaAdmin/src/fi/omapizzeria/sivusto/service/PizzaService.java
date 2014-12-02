@@ -20,6 +20,8 @@ public class PizzaService {
 		TuoteDAO dao = new TuoteDAO();
 
 		ArrayList<Pizza> pizzalista = dao.haePizzat();
+		
+		//suorittaan t‰ytehaun tietokannasta ja yhdist‰‰ ne pizzaolioon
 		for(Pizza p : pizzalista) {
 			p.setTaytteet(dao.haeTaytteetPizzalle(p.getId()));
 		}

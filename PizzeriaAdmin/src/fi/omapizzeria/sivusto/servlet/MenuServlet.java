@@ -108,18 +108,22 @@ public class MenuServlet extends HttpServlet {
 
 			// haetaan pizzaID:ll‰ pizzan tiedot tietokannasta
 			try {
-				PizzaService pService = new PizzaService();
-				Pizza uusiPizza = pService.tuoPizza(id);
-				double rivihinta = lkm * uusiPizza.getHinta();
 				
-				uusiPizza.setOregano(oregano);
-				uusiPizza.setValkosipuli(valkosipuli);
+				PizzaService pService = new PizzaService();
+				
+				Pizza uusiPizza = pService.tuoPizza(id);
+				
+				double rivihinta = lkm * uusiPizza.getHinta();
+		
 				
 				
 				Tuote uusituote = uusiPizza;
 				
-				kori.lisaaOstoskoriin(uusituote, lkm, rivihinta);
+	
+				Ostos ostos = new Ostos(uusituote,lkm, rivihinta, oregano, valkosipuli);
+				kori.lisaaOstoskoriin(ostos);
 				
+			
 				System.out.println(uusituote);
 				
 				//Hinnat sessioon
@@ -164,7 +168,11 @@ public class MenuServlet extends HttpServlet {
 				
 				Tuote uusiTuote = uusiJuoma;
 				
-				kori.lisaaOstoskoriin(uusiTuote, lkm, rivihinta);
+				
+
+				Ostos ostos = new Ostos(uusiTuote, lkm, rivihinta, false, false);
+				
+				kori.lisaaOstoskoriin(ostos);
 				
 				double hinta = kori.getTilauksenHinta();
 				request.getSession().setAttribute("hinta", hinta);
@@ -183,26 +191,21 @@ public class MenuServlet extends HttpServlet {
 	
 	
 		
-	/*	
+		
 		// ostoskorista tuotteen poistaminen
 		if (request.getParameter("action").equals("del")) {
 
 			// haetaan oId ostoskorista
-			String oId = request.getParameter("oId");
-			int poistettavaOid = Integer.parseInt(oId);
+			
+			String poistettavaRivi = request.getParameter("rivinumero");
+			int poistettava = Integer.parseInt(poistettavaRivi);
 
-			Ostos x = new Ostos(poistettavaOid, null, null, 0, false, false, 0);
+			kori.poistaOstoskorista(poistettava);
 
-			try {
-				kori.poista(x);
-				
-				double hinta = kori.getTilauksenHinta();
-				request.getSession().setAttribute("hinta", hinta);
-				request.getSession().setAttribute("ohinta", hinta*0.9);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
+			double hinta = kori.getTilauksenHinta();
+			request.getSession().setAttribute("hinta", hinta);
+			request.getSession().setAttribute("ohinta", hinta*0.9);
+		
 			// tallennetaan sessioon
 			request.getSession().setAttribute("kori", kori);
 			// siirryt‰‰n takaisin koriin
@@ -214,21 +217,16 @@ public class MenuServlet extends HttpServlet {
 		if (request.getParameter("action").equals("userDel")) {
 
 			// haetaan oId ostoskorista
-			String oId = request.getParameter("oId");
-			int poistettavaOid = Integer.parseInt(oId);
+			String poistettavaRivi = request.getParameter("rivinumero");
+			int x = Integer.parseInt(poistettavaRivi);
 
-			Ostos x = new Ostos(poistettavaOid, null, null, 0, false, false, 0);
-
-			try {
-				kori.poista(x);
+			
+			kori.poistaOstoskorista(x);
 				
 				double hinta = kori.getTilauksenHinta();
 				request.getSession().setAttribute("hinta", hinta);
 				request.getSession().setAttribute("ohinta", hinta*0.9);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
+			
 			// tallennetaan sessioon
 			request.getSession().setAttribute("kori", kori);
 			// siirryt‰‰n takaisin koriin
@@ -236,7 +234,9 @@ public class MenuServlet extends HttpServlet {
 			System.out.println(kori.getOstokset());
 			
 		}
-		*/
+		
+		
+		
 		if (request.getParameter("action").equals("clear")) {
 			
 			try {
@@ -247,6 +247,7 @@ public class MenuServlet extends HttpServlet {
 			}
 			response.sendRedirect("menu");
 		}
+		
 		if (request.getParameter("action").equals("tyhjkori")) {
 			
 			try {

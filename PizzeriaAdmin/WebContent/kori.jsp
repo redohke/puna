@@ -30,8 +30,22 @@
 
 			<div id="pizzalista">
 				<div id="pizzablock">
+
+
+					<div>
+						<ul id="muru_step" class="muru">
+
+							<li class="muru_current"><span class="muru_text_current">Kori</span></li>
+							<li class="muru_todo"><span class="muru_text_todo">Tilaus</span></li>
+							<li class="muru_todo"><span class="muru_text_todo">Yhteenveto</span></li>
+							<li id="muru_end" class="muru_loppu"><span
+								class="muru_text_todo">Vahvistus</span></li>
+
+						</ul>
+					</div>
 					<p class="otsikko">Ostoskori:</p>
-									<hr class="pviiva" />
+
+					<hr class="pviiva" />
 					<c:if test="${empty kori.ostokset}">
 						<p>
 							<i>Kori on tyhjä.</i>
@@ -40,47 +54,52 @@
 					<c:forEach items="${kori.ostokset}" var="k" varStatus="looppi">
 
 						<table class="ktaulu">
-								<tr>
+							<tr>
 								<td class="pnimi"><c:out value="${k.tuote.id}. " /> <c:out
-										value="${k.tuote.nimi}" />
-									<c:out value=" x${k.lkm}" /></td>
+										value="${k.tuote.nimi}" /> <c:out value=" x${k.lkm}" /></td>
 								<td></td>
 								<td class="phinta"><fmt:formatNumber type="number"
 										minFractionDigits="2" maxFractionDigits="2"
 										value="${k.rivihinta}" /> &#x20ac;</td>
 							</tr>
-							
+
 							<tr>
 
-							<td>
-							<c:if test="${k.tuote.getClass().simpleName == 'Pizza'}">
-							<c:forEach items="${k.tuote.taytteet}" var="tayte" varStatus="status">
+								<td><c:if
+										test="${k.tuote.getClass().simpleName == 'Pizza'}">
+										<c:forEach items="${k.tuote.taytteet}" var="tayte"
+											varStatus="status">
     								${tayte}<c:if test="${!status.last}">,</c:if>
-									</c:forEach>							</c:if>								
-							</td>
+										</c:forEach>
+									</c:if></td>
 							</tr>
 							<tr>
-								<td><c:if test="${k.tuote.getClass().simpleName == 'Pizza'}"><c:if test="${k.tuote.valkosipuli == true}">							
-							valkosipuli<c:if test="${k.tuote.valkosipuli == true && k.tuote.oregano == true}">, 
+								<td class="mnimi"><c:if
+										test="${k.tuote.getClass().simpleName == 'Pizza'}">
+										<c:if test="${k.valkosipuli == true}">							
+							valkosipuli<c:if
+												test="${k.valkosipuli == true && k.oregano == true}">, 
 							</c:if>
 
-							</c:if> <c:if test="${k.tuote.oregano == true}">
+										</c:if>
+										<c:if test="${k.oregano == true}">
 							oregano
 							</c:if>
-							</c:if>
-							
-							</td>
+									</c:if></td>
 
 								<td></td>
 
 								<td class="c_nappula">
-									<form action="menu" method="post">										
-										<input type="hidden" name="rivinumero" value="<c:out value="${luuppi.index}"/>">
+									<form action="menu" method="post">
+									<input type="hidden" name="action" value="del">
+										<input type="hidden" name="rivinumero"
+											value="<c:out value="${looppi.index}"/>"> 
 										<button class="pnappula" type="submit" value="del">Poista</button>
 									</form>
 								</td>
 							</tr>
 						</table>
+						<br />
 
 					</c:forEach>
 					<br />
@@ -89,10 +108,11 @@
 						<table>
 							<tr>
 								<td>
-								<form action="menu" method="post">
-								<input type="hidden" name="action" value="tyhjkori">
-								<button class="tnappula" type="submit" value="tyhjkori">Tyhjennä kori</button>
-								</form>
+									<form action="menu" method="post">
+										<input type="hidden" name="action" value="tyhjkori">
+										<button class="tnappula" type="submit" value="tyhjkori">Tyhjennä
+											kori</button>
+									</form>
 									<p class="knimi">
 										Yhteensä:
 										<fmt:formatNumber type="number" minFractionDigits="2"
