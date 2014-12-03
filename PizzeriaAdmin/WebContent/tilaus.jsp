@@ -39,11 +39,11 @@
 							<th>Tilaajan tiedot:</th>
 						</tr>
 						<tr>
-							<td class="tnimi">Etunimi: <input name="enimi" type="text" pattern="^[A-Za-z]+$" maxlength="30" required>
+							<td class="tnimi">Etunimi: <input name="enimi" type="text" pattern="^[A-Za-zäöåÄÅÖàáÀÁéèÈÉíìÍÌïÏóòÓÒúùÚÙüÜñçÑ]+$" maxlength="30" required>
 							</td>
 						</tr>
 						<tr>
-							<td class="tnimi">Sukunimi: <input name="snimi" type="text" pattern="^[A-Za-z]+$" maxlength="30" required>
+							<td class="tnimi">Sukunimi: <input name="snimi" type="text" pattern="^[A-Za-zäöåÄÅÖàáÀÁéèÈÉíìÍÌïÏóòÓÒúùÚÙüÜñçÑ]+$" maxlength="30" required>
 							</td>
 						</tr>
 						<tr>

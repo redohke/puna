@@ -69,10 +69,10 @@ public class TilausServlet extends HttpServlet {
 				String kaupunki = request.getParameter("kaup");
 				
 				//Haetut tiedot verrataan validointi ehtojen kanssa ja muuttujat muutetaan trueksi, jos ehto täyttyy.
-				if (etunimi.matches("\\w+\\.?") && etunimi.length()<30){
+				if (etunimi.length()>0 && etunimi.length()<30){
 					etuValidointi = true;
 				}
-				if (sukunimi.matches("\\w+\\.?") && sukunimi.length()<30){
+				if (sukunimi.length()>0 && sukunimi.length()<30){
 					sukuValidointi = true;
 				}
 				if (yritys.length()<30){
@@ -93,6 +93,25 @@ public class TilausServlet extends HttpServlet {
 				if (kaupunki.length()>0 && kaupunki.length()<50){
 					kaValidointi = true;
 				}
+				
+				if (etuValidointi == false ||
+						sukuValidointi == false ||
+						yrValidointi == false ||
+						puhValidointi == false ||
+						emValidointi == false ||
+						osValidointi == false ||
+						pnValidointi == false ||
+						kaValidointi == false){
+						
+						//Kaataa ohjelman, jos formi ei täsmää java ehtojen kanssa.
+						try {
+							session.invalidate();
+							
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						response.sendRedirect("menu");
+				}
 							
 				Asiakas asiakas = new Asiakas(etunimi, sukunimi, yritys, puh, 
 						email, osoite, pnro, kaupunki);
@@ -111,16 +130,6 @@ public class TilausServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-			if (etuValidointi == false ||
-					sukuValidointi == false ||
-					yrValidointi == false ||
-					puhValidointi == false ||
-					emValidointi == false ||
-					osValidointi == false ||
-					pnValidointi == false ||
-					kaValidointi == false) {
-					System.out.println(etuValidointi + " " + sukuValidointi  + " " + yrValidointi + " " + puhValidointi + " " + emValidointi + " " + osValidointi + " " + pnValidointi + " " + kaValidointi);}
-					//response.sendRedirect("menu.jsp");}
 			
 
 			request.getSession().setAttribute("tilaus", tilaus);
