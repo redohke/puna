@@ -202,7 +202,7 @@
 							<table>
 								<tr>
 								<td>
-									<img id="lLogo" class="floatLogo" src=images/charLogo.png
+									<img id="lLogo" class="floatLogo" src=img/charLogo.png
 										width="200" height="150"></img></td>
 									<td id="TyhOst">
 										<div>
