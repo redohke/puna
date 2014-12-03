@@ -31,11 +31,11 @@
 			<div id="main_col">
 				<div id="sliderFrame">
 					<div id="slider">
-						<img src="images/Pizza.png" alt="" /> <img
-							src="images/Limukka.png" alt="" /> <img
-							src="images/kotiinkuljetus.png" alt="" /> <img
-							src="images/Pizza 2.png" alt="" /> <img
-							src="images/VikaPizza.png" alt="" />
+						<img src="img/Pizza.png" alt="" /> <img
+							src="img/Limukka.png" alt="" /> <img
+							src="img/kotiinkuljetus.png" alt="" /> <img
+							src="img/Pizza 2.png" alt="" /> <img
+							src="img/VikaPizza.png" alt="" />
 					</div>
 
 				</div>
