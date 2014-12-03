@@ -49,6 +49,16 @@ public class TilausServlet extends HttpServlet {
 		Ostoskori kori = (Ostoskori) session.getAttribute("kori");
 		Tilaus tilaus = (Tilaus) session.getAttribute("tilaus");
 		
+        //Validointi muuttujat
+        boolean etuValidointi = false;
+        boolean sukuValidointi = false;
+        boolean yrValidointi = false;
+        boolean puhValidointi = false;
+        boolean emValidointi = false;
+        boolean osValidointi = false;
+        boolean pnValidointi = false;
+        boolean kaValidointi = false;
+		
 		
 		String etunimi = request.getParameter("enimi");
 		String sukunimi = request.getParameter("snimi");
@@ -61,6 +71,8 @@ public class TilausServlet extends HttpServlet {
 		String toimitus = request.getParameter("toimitus");
 		String maksu = request.getParameter("maksu");
 		double kokohinta = kori.getTilauksenHinta();
+		
+		
 
 		Asiakas asiakas = new Asiakas(etunimi, sukunimi, yritys, puh, 
 						email, osoite, pnro, kaupunki);
@@ -78,6 +90,54 @@ public class TilausServlet extends HttpServlet {
 		request.getSession().setAttribute("tilaus", tilaus);
 		
 		if (request.getParameter("action").equals("summary")) {
+			
+            //Haetut tiedot verrataan validointi ehtojen kanssa ja muuttujat muutetaan trueksi, jos ehto täyttyy.
+            if (etunimi.length()>0 && etunimi.length()<30){
+                    etuValidointi = true;
+            }
+            if (sukunimi.length()>0 && sukunimi.length()<30){
+                    sukuValidointi = true;
+            }
+            if (yritys.length()<30){
+                    yrValidointi = true;
+            }
+            if (puh.length()>0 && puh.length()<15){
+                    puhValidointi = true;
+            }
+            if (email.length()>0 && email.length()<50){
+                    emValidointi = true;
+            }
+            if (osoite.length()>0 && osoite.length()<50){
+                    osValidointi = true;
+            }
+            if (pnro.matches("\\d*") && pnro.length()>0 && pnro.length()==5){
+                    pnValidointi = true;
+            }
+            if (kaupunki.length()>0 && kaupunki.length()<50){
+                    kaValidointi = true;
+            }
+           
+            if (etuValidointi == false ||
+                            sukuValidointi == false ||
+                            yrValidointi == false ||
+                            puhValidointi == false ||
+                            emValidointi == false ||
+                            osValidointi == false ||
+                            pnValidointi == false ||
+                            kaValidointi == false){
+                           
+                            //Kaataa ohjelman ennen kuin tietoja lisätään olioon,
+                            //  jos formi ei täsmää java ehtojen kanssa.
+                            try {
+                                    session.invalidate();
+                                   
+                                    } catch (Exception e) {
+                                            e.printStackTrace();
+                                    }
+                            response.sendRedirect("menu");
+            }
+			
+			
 								
 			response.sendRedirect("/PizzeriaTyyni/yhteenveto.jsp");
 			System.out.println(tilaus);
@@ -88,15 +148,9 @@ public class TilausServlet extends HttpServlet {
 
 			
 			try {
-				//uusi tilausdao
-				
-				
-				TilausDAO tDAO = new TilausDAO();
-				
-				tDAO.lisaaTilaus(tilaus);
-				
-				
-				
+				//uusi tilausdao			
+				TilausDAO tDAO = new TilausDAO();			
+				tDAO.lisaaTilaus(tilaus);				
 			} catch (DAOPoikkeus e) {
 				throw new ServletException(e);
 			}
@@ -107,7 +161,7 @@ public class TilausServlet extends HttpServlet {
 			
 			
 			
-		//joonan mieliksi	session.invalidate();
+			session.invalidate();
 				
 
 			response.sendRedirect("tilausvahvistus.jsp");

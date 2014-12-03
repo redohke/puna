@@ -14,7 +14,7 @@
 }
 
 html {
-	background: url("img/woody.jpg") no-repeat center center fixed;
+	background: url("../img/woody.jpg") no-repeat center center fixed;
 	background-color: #605951;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -23,7 +23,7 @@ html {
 }
 
 body {
-
+	
 }
 
 nav {
@@ -45,7 +45,7 @@ nav ul li {
 }
 
 nav ul li a {
-	display:block;
+	display: block;
 	text-decoration: none;
 	color: black;
 	line-height: 40px;
@@ -59,11 +59,11 @@ nav ul li a:hover {
 th {
 	font-size: 14px;
 	font-weight: normal;
-	text-align: left;	
+	text-align: left;
 }
 
 input {
-		vertical-align:;
+	vertical-align:;
 }
 
 #wrapper {
@@ -136,33 +136,9 @@ input {
 	width: 890px;
 	height: 40px;
 	background: #f1efd8;
-	box-shadow:0  1px 1px 2px rgba(0, 0, 0, .1);
-	-moz-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
-	-webkit-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
-}
-
-#leijuvaKori {
-	font-size: 13px;
-	width: 300px;
-	height: 100%;
-	padding: 10px;
-	background: #f1efd8;
-	box-shadow:0  1px 1px 2px rgba(0, 0, 0, .1);
-	-moz-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
-	-webkit-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
-}
-
-
-.cart {
-	position: fixed;
-    top: 260px;
-    right: 5px;
-	vertical-align: middle;
-	margin-left: 100px;
-	margin-right: 100px;
-	box-shadow: 0px 10px 10px 3px #151515;
-	background-color: #f1efd8;;
-	float: right;
+	box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
+	-webkit-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
 }
 
 .logo {
@@ -185,6 +161,7 @@ input {
 }
 
 .nav-bar2 {
+	
 }
 
 #main_col {
@@ -193,21 +170,21 @@ input {
 	padding: 5px;
 	margin-bottom: 5px;
 	background: #f1efd8;
-	box-shadow:0  1px 1px 2px rgba(0, 0, 0, .1);
-	-moz-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
-	-webkit-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
+	box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
+	-webkit-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
 }
 
 #left_col {
-	float:left;
+	float: left;
 	font-size: 13px;
 	width: 442px;
 	height: 275px;
 	padding: 10px;
 	background: #f1efd8;
-	box-shadow:0  1px 1px 2px rgba(0, 0, 0, .1);
-	-moz-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
-	-webkit-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
+	box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
+	-webkit-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
 }
 
 #right_col {
@@ -217,9 +194,9 @@ input {
 	height: 275px;
 	padding: 5px;
 	background: #f1efd8;
-	box-shadow:0  1px 1px 2px rgba(0, 0, 0, .1);
-	-moz-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
-	-webkit-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
+	box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
+	-webkit-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
 }
 
 #content {
@@ -228,9 +205,9 @@ input {
 	height: 100%;
 	padding: 10px;
 	background: #f1efd8;
-	box-shadow:0  1px 1px 2px rgba(0, 0, 0, .1);
-	-moz-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
-	-webkit-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
+	box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
+	-webkit-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
 }
 
 #pizzalista {
@@ -239,15 +216,15 @@ input {
 	padding-bottom: 10px;
 	background: #f1efd8;
 	margin-bottom: 5px;
-	box-shadow:0  1px 1px 2px rgba(0, 0, 0, .1);
-	-moz-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
-	-webkit-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
+	box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
+	-webkit-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
 }
 
 #pizzablock {
 	margin: 0 auto;
 	display: block;
-	width: 65%;	
+	width: 65%;
 }
 
 #juomalista {
@@ -255,9 +232,9 @@ input {
 	padding-top: 10px;
 	padding-bottom: 10px;
 	background: #f1efd8;
-	box-shadow:0  1px 1px 2px rgba(0, 0, 0, .1);
-	-moz-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
-	-webkit-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
+	box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
+	-webkit-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
 }
 
 #me {
@@ -266,13 +243,13 @@ input {
 	height: 100%;
 	padding: 5px;
 	background: #f1efd8;
-	box-shadow:0  1px 1px 2px rgba(0, 0, 0, .1);
-	-moz-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
-	-webkit-box-shadow:0 1px 1px 2px rgba(0, 0, 0, .1);
+	box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
+	-webkit-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
 }
 
 .clear {
-    clear: both;
+	clear: both;
 }
 
 .block {
@@ -320,6 +297,7 @@ input {
 }
 
 .infotaulu {
+	
 }
 
 .otsikko {
@@ -336,6 +314,7 @@ input {
 .kuva {
 	width: 35px;
 }
+
 .kentta {
 	text-align: center;
 	width: 25px;
@@ -361,7 +340,6 @@ input {
 
 .tosoite {
 	width: 300px;
-	
 }
 
 .tnappula {
@@ -397,7 +375,7 @@ input {
 .knimi {
 	font-size: 15px;
 	width: 410px;
-	text-align:right;
+	text-align: right;
 }
 
 .phinta {
@@ -410,6 +388,7 @@ input {
 }
 
 .pmauste {
+	
 }
 
 .pmauste input {
@@ -428,7 +407,7 @@ input {
 .del_nappi {
 	height: 20px;
 	width: 20px;
-	vertical-align:middle;
+	vertical-align: middle;
 }
 
 .taulukko {
@@ -471,39 +450,44 @@ input {
 }
 
 ul.muru li {
-    height: 35px;
-    float: left;
-    width: 90px;
-    text-align: center;
+	height: 35px;
+	float: left;
+	width: 90px;
+	text-align: center;
 }
 
 .muru_text_todo {
-	    font-style: italic;
+	font-style: italic;
 }
 
 .muru_text_current {
-    color: #788f49;
-    font-weight: bold;
+	color: #788f49;
+	font-weight: bold;
 }
 
 ul.muru li.muru_current {
-	background: url('../img/alkupallo.png') no-repeat scroll left bottom transparent;
+	background: url('../img/alkupallo.png') no-repeat scroll left bottom
+		transparent;
 }
 
 ul.muru li.muru_alkudone {
-	background: url('../img/taytalkupallo.png') no-repeat scroll left bottom transparent;
+	background: url('../img/taytalkupallo.png') no-repeat scroll left bottom
+		transparent;
 }
 
 ul.muru li.muru_keskipuoldone {
-	background: url('../img/puoltaytkeskpallo.png') no-repeat scroll left bottom transparent;
+	background: url('../img/puoltaytkeskpallo.png') no-repeat scroll left
+		bottom transparent;
 }
 
 ul.muru li.muru_keskidone {
-	background: url('../img/keskdonepallo.png') no-repeat scroll left bottom transparent;
+	background: url('../img/keskdonepallo.png') no-repeat scroll left bottom
+		transparent;
 }
 
 ul.muru li.muru_loppudone {
-	background: url('../img/loppudonepallo.png') no-repeat scroll left bottom transparent;
+	background: url('../img/loppudonepallo.png') no-repeat scroll left
+		bottom transparent;
 }
 
 ul.muru {
@@ -511,29 +495,167 @@ ul.muru {
 }
 
 ul.muru li.muru_todo {
-	background: url('../img/kesktyhjpallo.png') no-repeat scroll left bottom transparent;
-
+	background: url('../img/kesktyhjpallo.png') no-repeat scroll left bottom
+		transparent;
 }
 
 ul.muru li.muru_loppu {
-	background: url('../img/loptyhjpallo.png') no-repeat scroll left bottom transparent;
-}
-
-
-ul.muru li#muru_end {
-   
+	background: url('../img/loptyhjpallo.png') no-repeat scroll left bottom
+		transparent;
 }
 
 ul.muru li#muru_end {
-    width: 80px;
+	
 }
 
+ul.muru li#muru_end {
+	width: 80px;
+}
 
 .muru {
-	
-    list-style: outside none none;
-    margin: 0.8em auto 2em;
-    padding-left: 40px;
-    height: 35px;
-    width: 465px;
+	list-style: outside none none;
+	margin: 0.8em auto 2em;
+	padding-left: 40px;
+	height: 35px;
+	width: 465px;
+}
+
+#leijuvaKori {
+	font-size: 13px;
+	width: 300px;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	padding: 10px;
+	background: #f1efd8;
+	box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
+	-webkit-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, .1);
+}
+
+#greenKori {
+	position: fixed;
+	top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	-webkit-box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, .1);
+	box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, .1);
+	background-color: #ffffff;
+	float: right;
+	font-size: 50px;
+	background: #91ce5a;
+	color: #ffffff;
+	text-align: center;
+	height: 80px;
+	width: 900px;
+	overflow: hidden;
+	z-index: 3;
+}
+
+#greenKori:hover {
+	position: fixed;
+	top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	-webkit-box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, .1);
+	box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, .1);
+	background-color: #ffffff;
+	float: right;
+	font-size: 50px;
+	background: #7EB54E;
+	color: #ffffff;
+	text-align: center;
+	height: 80px;
+	width: 900px;
+	overflow: hidden;
+	cursor: pointer;
+	cursor: hand;
+	z-index: 3;
+}
+
+.cart {
+	position: fixed;
+	top: 260px;
+	right: 5px;
+	vertical-align: middle;
+	margin-left: 100px;
+	margin-right: 100px;
+	-webkit-box-shadow: 0px 0px 0px 5px #c1b398;
+	-moz-box-shadow: 0px 0px 0px 5px #c1b398;
+	box-shadow: 0px 0px 0px 5px #c1b398;
+	background-color: #f1efd8;
+	float: right;
+	height: 395px;
+	width: 15%;
+	overflow: hidden;
+}
+
+.scart {
+	position: fixed;
+	top: 75px;
+	margin-left: auto;
+	margin-right: auto;
+	-webkit-box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, .1);
+	box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, .1);
+	background-color: #ffffff;
+	float: right;
+	font-size: 13px;
+	background: #f1efd8;
+	height: 180px;
+	width: 900px;
+	overflow: hidden;
+	display: none;
+}
+
+#nappi {
+	background-color: #d46148;
+	color: #000;
+}
+
+#TyhOst {
+	position: absolute;
+	right: 25px;
+	top: 15px;
+	float: right;
+	font-size: 50;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#TyhOstSmall {
+	position: fixed;
+	right: 105px;
+	top: 660px;
+	float: right;
+	font-size: 50;
+	padding-left: 10px;
+	padding-right: 10px;
+	background: #f1efd8;
+	width: 300px;
+	width: 15%;
+	padding: 5px;
+	-webkit-box-shadow: 0px 0px 0px 5px #c1b398;
+	-moz-box-shadow: 0px 0px 0px 5px #c1b398;
+	box-shadow: 0px 0px 0px 5px #c1b398;
+}
+
+.floatLogo {
+	position: absolute;
+	right: 150px;
+	top: 15px;
+	float: right;
+	opacity: 0.9;
+}
+
+.isoNappula {
+	height: 40px;
+	width: 80px;
+	background-color: #c3d95d;
+	border: 1px solid #666;
+	color: #000;
+	font-size: 15px;
+	text-decoration: none;
 }

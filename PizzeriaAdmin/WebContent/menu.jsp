@@ -6,8 +6,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="Javascript/js.js"></script>
 <title>Pizzeria Tyyni - Menu</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/Animate.css">
 </head>
 <body>
 	<div id="wrapper">
@@ -28,181 +31,216 @@
 
 		<div id="main">
 			<div id="pizzalista">
-			<div id="pizzablock">
-				<p class="otsikko">Pizzalista:</p>
-
-				<c:forEach items="${plista}" var="pl">
-					<hr class="pviiva" />
-					<form action="menu" method="post">
-						<table class="ptaulu">
-							<tr>
-								<td class="pnimi"><c:out value="${pl.id}. " /> <c:out
-										value="${pl.nimi}" /></td>
-								<td class="phinta"><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="2" value="${pl.hinta}"/> &#x20ac;</td>
-							</tr>
-							<tr>
-								<td class="ptayte">							<c:forEach items="${pl.taytteet}" var="tayte" varStatus="status">
-    								${tayte}<c:if test="${!status.last}">,</c:if>
-									</c:forEach></td>
-							</tr>
-							<tr>
-								<td class="pmauste"><input type="checkbox" name="oregano"
-									value="1"> oregano <input type="checkbox"
-									name="valkosipuli" value="1"> valkosipuli</td>
-								<td>Määrä: <select name="lkm">
-										<option value="1">1 kpl</option>
-										<option value="2">2 kpl</option>
-										<option value="3">3 kpl</option>
-										<option value="4">4 kpl</option>
-										<option value="5">5 kpl</option>
-										<option value="6">6 kpl</option>
-										<option value="7">7 kpl</option>
-										<option value="8">8 kpl</option>
-										<option value="9">9 kpl</option>
-								</select>
-									<input type="hidden" name="action" value="add"> 
-									<input type="hidden" name="id" value="${pl.id}">
-								<button class="nappula" type="submit" value="add">Tilaa</button>
-								</td>
-							</tr>
-						</table>
-					</form>
-				</c:forEach>
-				<hr class="pviiva" />
-				</div>
-				</div>
-				<div id="juomalista">
 				<div id="pizzablock">
-				<p class="otsikko">Juomalista:</p>
+					<p class="otsikko">Pizzalista:</p>
 
-				<c:forEach items="${jlista}" var="jl">
+					<c:forEach items="${plista}" var="pl">
+						<hr class="pviiva" />
+						<form action="menu" method="post">
+							<table class="ptaulu">
+								<tr>
+									<td class="pnimi"><c:out value="${pl.id}. " /> <c:out
+											value="${pl.nimi}" /></td>
+									<td class="phinta"><fmt:formatNumber type="number"
+											minFractionDigits="2" maxFractionDigits="2"
+											value="${pl.hinta}" /> &#x20ac;</td>
+								</tr>
+								<tr>
+									<td class="ptayte"><c:forEach items="${pl.taytteet}"
+											var="tayte" varStatus="status">
+    								${tayte}<c:if test="${!status.last}">,</c:if>
+										</c:forEach></td>
+								</tr>
+								<tr>
+									<td class="pmauste"><input type="checkbox" name="oregano"
+										value="1"> oregano <input type="checkbox"
+										name="valkosipuli" value="1"> valkosipuli</td>
+									<td>Määrä: <select name="lkm">
+											<option value="1">1 kpl</option>
+											<option value="2">2 kpl</option>
+											<option value="3">3 kpl</option>
+											<option value="4">4 kpl</option>
+											<option value="5">5 kpl</option>
+											<option value="6">6 kpl</option>
+											<option value="7">7 kpl</option>
+											<option value="8">8 kpl</option>
+											<option value="9">9 kpl</option>
+									</select> <input type="hidden" name="action" value="add"> <input
+										type="hidden" name="id" value="${pl.id}">
+										<button class="nappula" type="submit" value="add">Tilaa</button>
+									</td>
+								</tr>
+							</table>
+						</form>
+					</c:forEach>
 					<hr class="pviiva" />
-					<form action=menu method="post">
-						<table class="ptaulu">
-							<tr>
-								<td class="pnimi"><c:out value="${jl.id}. " /> <c:out
-										value="${jl.nimi}" /></td>
-								<td class="phinta"><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="2" value="${jl.hinta}"/> &#x20ac;</td>
-							<tr>
-							</tr>
-							<tr>
-								<td class="pmauste"></td>
-								<td>Määrä: <select name="lkm">
-										<option value="1">1 kpl</option>
-										<option value="2">2 kpl</option>
-										<option value="3">3 kpl</option>
-										<option value="4">4 kpl</option>
-										<option value="5">5 kpl</option>
-										<option value="6">6 kpl</option>
-										<option value="7">7 kpl</option>
-										<option value="8">8 kpl</option>
-										<option value="9">9 kpl</option></select>
-										
-										<input type="hidden" name="action" value="jadd"> 
-										<input type="hidden" name="id" value="${jl.id}">
-										<button class="nappula" type="submit" value="jadd">Tilaa</button>
-										
-									
-								</td>
-							</tr>
-						</table>
-					</form>
-				</c:forEach>
-				<hr class="pviiva" />
+				</div>
 			</div>
+			<div id="juomalista">
+				<div id="pizzablock">
+					<p class="otsikko">Juomalista:</p>
+
+					<c:forEach items="${jlista}" var="jl">
+						<hr class="pviiva" />
+						<form action=menu method="post">
+							<table class="ptaulu">
+								<tr>
+									<td class="pnimi"><c:out value="${jl.id}. " /> <c:out
+											value="${jl.nimi}" /></td>
+									<td class="phinta"><fmt:formatNumber type="number"
+											minFractionDigits="2" maxFractionDigits="2"
+											value="${jl.hinta}" /> &#x20ac;</td>
+								<tr>
+								</tr>
+								<tr>
+									<td class="pmauste"></td>
+									<td>Määrä: <select name="lkm">
+											<option value="1">1 kpl</option>
+											<option value="2">2 kpl</option>
+											<option value="3">3 kpl</option>
+											<option value="4">4 kpl</option>
+											<option value="5">5 kpl</option>
+											<option value="6">6 kpl</option>
+											<option value="7">7 kpl</option>
+											<option value="8">8 kpl</option>
+											<option value="9">9 kpl</option>
+									</select> <input type="hidden" name="action" value="jadd"> <input
+										type="hidden" name="id" value="${jl.id}">
+										<button class="nappula" type="submit" value="jadd">Tilaa</button>
+
+
+									</td>
+								</tr>
+							</table>
+						</form>
+					</c:forEach>
+					<hr class="pviiva" />
+				</div>
 			</div>
 		</div>
 
 		<div id="footer">Copyright © 2014 Pizzeria Tyyni</div>
-<%-- TÄSTÄ ALKAA LEIJUVA OSTOSKORI 
-		
+		<%-- TÄSTÄ ALKAA LEIJUVA OSTOSKORI --%>
+
 		<c:if test="${not empty kori.ostokset}">
-<div id="openCart" class="cart">
-<div id="leijuvaKori" >
-   
-          <div id="pizzalista">
-				<div id="pizzablock">
-					<p class="otsikko">Ostoskori:</p>
-									
-					<c:if test="${empty kori.ostokset}">
-						<p>
-							<i>Kori on tyhjä.</i>
-						</p>
-					</c:if>
-					<c:forEach items="${kori.ostokset}" var="k">
+			<%-- Tästä alkaa vihreä nappi --%>
 
-						<table class="ktaulu">
+			<p id="greenKori">
+				TUOTTEITA OSTOSKORISSA <img src="img/koriv.png" width="52px"
+					height="40px"></img>
+			</p>
+
+
+			<%-- Tähän loppuu vihreä nappi --%>
+			<div>
+				<div id="openCart" class="cart animated bounce">
+					<div id="leijuvaKori">
+
+						<p class="otsikko">Ostoskori:</p>
+
+						<hr class="viiva" />
+						<c:if test="${empty kori.ostokset}">
+							<p>
+								<i>Kori on tyhjä.</i>
+							</p>
+						</c:if>
+						<c:forEach items="${kori.ostokset}" var="k" varStatus="looppi">
+
+							<table class="ktaulu">
 								<tr>
-								<td class="pnimi"><c:out value="${k.pizza.id} " /> <c:out value="${k.juoma.id}. " /><c:out
-										value="${k.pizza.nimi}" /><c:out
-										value="${k.juoma.nimi}" />
-									<c:out value=" x${k.lkm}" /></td>
-								<td></td>
-								<td class="phinta"><fmt:formatNumber type="number"
-										minFractionDigits="2" maxFractionDigits="2"
-										value="${k.rivihinta}" /> &#x20ac;</td>
-							</tr>
-							<tr>
-							<td>
-							<c:forEach items="${k.pizza.taytteet}" var="tayte" varStatus="status">
-    								${tayte}<c:if test="${!status.last}">,</c:if>
-									</c:forEach>
-							</td>
-							</tr>
-							<tr>
-								<td><c:if test="${k.valkosipuli == true}">							
-							valkosipuli<c:if test="${k.valkosipuli == true && k.oregano == true}">, 
-							</c:if>
+									<td class="pnimi"><c:out value="${k.tuote.id}. " /> <c:out
+											value="${k.tuote.nimi}" /> <c:out value=" x${k.lkm}" /></td>
+									<td></td>
+									<td class="phinta"><fmt:formatNumber type="number"
+											minFractionDigits="2" maxFractionDigits="2"
+											value="${k.rivihinta}" /> &#x20ac;</td>
+								</tr>
 
-							</c:if> <c:if test="${k.oregano == true}">
-							oregano
-							</c:if></td>
-								<td></td>
+								<tr>
 
-								<td class="c_nappula">
-									<form action="menu" method="post">
-										<button class="pnappula" type="submit" value="userDel">Poista</button>
-										<input type="hidden" name="oId" value="${k.oId}"> <input
-											type="hidden" name="action" value="userDel">
-									</form>
-								</td>
-							</tr>
-						</table>
-						<hr class="viiva">
-						
-					</c:forEach>
-					<br />
-					
-					<c:if test="${not empty kori.ostokset}">
-						<table>
-							<tr>
-								
-							</tr>
-							<tr>
-							<td>
-							<form action="menu" method="post">
-										<div align="right"> <button class="pnappula" type="submit" value="clear">Clear</button> </div>
-										<input type="hidden" name="action" value="clear">
-									</form>		
-						<form action="tilaus.jsp">
-						<div align="right">
-							<input class="nappula" type="submit" value="Osta" >
-							</div>
-						</form>
-						</td>
-							</tr>
-						</table>
-					</c:if>
+									<td><c:if
+											test="${k.tuote.getClass().simpleName == 'Pizza'}">
+											<c:forEach items="${k.tuote.taytteet}" var="tayte"
+												varStatus="status">
+                                                                ${tayte}<c:if
+													test="${!status.last}">,</c:if>
+											</c:forEach>
+										</c:if></td>
+								</tr>
+								<tr>
+									<td class="mnimi"><c:if
+											test="${k.tuote.getClass().simpleName == 'Pizza'}">
+											<c:if test="${k.valkosipuli == true}">                                                   
+                                                        valkosipuli<c:if
+													test="${k.valkosipuli == true && k.oregano == true}">,
+                                                        </c:if>
+
+											</c:if>
+											<c:if test="${k.oregano == true}">
+                                                        oregano
+                                                        </c:if>
+										</c:if></td>
+
+									<td></td>
+
+									<td class="c_nappula">
+										<form action="menu" method="post">
+										<input type="hidden" name="action" value="userDel">
+											<input type="hidden" name="rivinumero"
+												value="<c:out value="${looppi.index}"/>">
+											<button class="pnappula" type="submit" value="userDel">Poista</button>
+										</form>
+									</td>
+								</tr>
+							</table>
+							<br />
+
+						</c:forEach>
+						<br />
+						<hr class="viiva" />
+						<c:if test="${not empty kori.ostokset}">
+							<table>
+								<tr>
+								<td>
+									<img id="lLogo" class="floatLogo" src=images/charLogo.png
+										width="200" height="150"></img></td>
+									<td id="TyhOst">
+										<div>
+											<form action="menu" method="post">
+												<input type="hidden" name="action" value="clear">
+												<button id="nappi" type="submit" value="clear">Tyhjennä</button>
+											</form>
+											<form action="tilaus.jsp">
+												<input id="nappi2" type="submit" value="Osta">
+											</form>
+										</div>
+
+									</td>
+
+								</tr>
+							</table>
+						</c:if>
+
+					</div>
+
 				</div>
 			</div>
-</div>
-</div>
-</c:if><c:if test="${not empty kori.ostokset}">
-					
-					</c:if>
-						 TÄHÄN LOPPUU LEIJUVA OSTOSKORI --%>
-					
-</div>	
+		</c:if>
+
+		<c:if test="${not empty kori.ostokset}">
+			<div id="TyhOstSmall" class="animated bounce">
+				<form action="menu" method="post">
+					<input type="hidden" name="action" value="clear">
+					<button id="nappi" style="float: left;" type="submit" value="clear">Tyhjennä</button>
+				</form>
+				<form action="tilaus.jsp">
+					<input id="nappi2" style="float: left;" type="submit" value="Osta">
+				</form>
+			</div>
+		</c:if>
+		<%-- TÄHÄN LOPPUU LEIJUVA OSTOSKORI --%>
+
+	</div>
 
 
 </body>
