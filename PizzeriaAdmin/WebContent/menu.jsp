@@ -148,7 +148,7 @@
 
 							<table class="ktaulu">
 								<tr>
-									<td class="pnimi"><c:out value="${k.tuote.id}. " /> <c:out
+									<td class="pnimi"><c:out value="${looppi.count}. " /> <c:out
 											value="${k.tuote.nimi}" /> <c:out value=" x${k.lkm}" /></td>
 									<td></td>
 									<td class="phinta"><fmt:formatNumber type="number"
