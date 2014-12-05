@@ -76,9 +76,6 @@ public AdminDAO() throws DAOPoikkeus {
                
                         }
                
-                       
-                       
- 
  
                         // consoleen pitsan lisäys
                         System.out.println("lisättiin seuraavat pizzat: " + p);
@@ -99,9 +96,30 @@ public AdminDAO() throws DAOPoikkeus {
                 Connection yhteys = avaaYhteys();
  
                 try {
+                	
+                		int pId = p.getId();
+                		
+                		System.out.println("pizzaid = " + pId);
+                	
+                		String sql = "select id from pizzatayte where pizza_id=?";   
+                		PreparedStatement haku = yhteys.prepareStatement(sql);
+                		haku.setInt(1, pId);
+                		ResultSet rs = haku.executeQuery();
+                		
+                		
+                		while (rs.next()) {
+                		
+                			String poisto = "delete from pizzatayte where id=?";
+                			PreparedStatement poistoStatement = yhteys.prepareStatement(poisto);
+                			
+                			poistoStatement.setInt(1, rs.getInt("id"));
+                			
+                			poistoStatement.executeUpdate();
+                		}
+                	           	
                         // sql alustus
-                        String sql = "delete from pizza where id=?";
-                        PreparedStatement lause = yhteys.prepareStatement(sql);
+                        String sql2 = "delete from pizza where id=?";
+                        PreparedStatement lause = yhteys.prepareStatement(sql2);
  
                         // laitetaan pizzan id sql stringiin
                         lause.setInt(1, p.getId());
@@ -114,12 +132,21 @@ public AdminDAO() throws DAOPoikkeus {
  
                 } catch (Exception e) {
                         // ehkä virhe
-                        throw new DAOPoikkeus("Pizzan lisäyksestä virhe", e);
+                		e.printStackTrace();
+                        throw new DAOPoikkeus("Pizzan poistamisessa virhe", e);
                 } finally {
                         // yhteys kii
                         suljeYhteys(yhteys);
                 }
         }
+        
+        
+        
+        
+        
+        
+        
+        
         public ArrayList<Pizza> haePizzatAdmin() throws DAOPoikkeus {
  
                 Connection yhteys = null;
@@ -149,6 +176,10 @@ public AdminDAO() throws DAOPoikkeus {
                 // palautetaan saatu tulos
                 return pizzalista;
         }
+        
+        
+        
+        
         
         public ArrayList<Tayte> haeTaytelista() throws DAOPoikkeus {
 

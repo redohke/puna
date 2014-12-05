@@ -73,34 +73,11 @@ public class AdminServlet extends HttpServlet {
  
                 // jos tuleva parametri action on del ajetaan poisto else lisäys
                
-                 if (request.getParameter("action").equals("del")){
-                       
-                        // id formista                 
-                        String syotettyId = request.getParameter("id");
-                        String nimi = null;
-                        double d = 0;
-                       
-                        // int stringistä intiksi
-                        int id = Integer.parseInt(syotettyId);
-                                               
-                        // infot olioksi
-                        Pizza p = new Pizza(id, nimi, d);
-                       
-                        try {
-                                // uus pizzadao
-                                AdminDAO dao = new AdminDAO();
-                                // olio poistometodiin
-                                dao.poistaPizza(p);
-                        } catch (DAOPoikkeus e) {
-                                throw new ServletException(e);
-                        }
-                       
-                        // pitsa poistettu -> redirect removed parameterillä
-                        response.sendRedirect("admin?removed=true");
-                       
-                }else{
-               
-               
+             	
+                	
+                if (request.getParameter("action").equals("add")) {
+                		
+                	
                 // infot formista
                 String syotettyNimi = request.getParameter("pizza");
                 String syotettyHinta = request.getParameter("hinta");
@@ -133,7 +110,34 @@ public class AdminServlet extends HttpServlet {
                 }
                  
  
-                                       
+                if (request.getParameter("action").equals("del")){
+                    
+                    // id formista                 
+                    String syotettyId = request.getParameter("id");
+                    String nimi = null;
+                    double d = 0;
+             
+                   
+                    // int stringistä intiksi
+                    int id = Integer.parseInt(syotettyId);
+                                           
+                    // infot olioksi
+                    Pizza p = new Pizza(id, nimi, d);
+                   System.out.println(p);
+                    
+                    try {
+                            // uus pizzadao
+                            AdminDAO dao = new AdminDAO();
+                            // olio poistometodiin
+                            dao.poistaPizza(p);
+                    } catch (DAOPoikkeus e) {
+                            throw new ServletException(e);
+                    }
+                   
+                    // pitsa poistettu -> redirect removed parameterillä
+                    response.sendRedirect("admin?removed=true");
+                   
+            }              
                                        
                                        
  
