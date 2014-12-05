@@ -5,10 +5,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Pizzeria Tyyni - Tilaus Vastaanotettu</title>
-<link href="css/Slider.css" rel="stylesheet" type="text/css" />
-<script src="Javascript/Slider.js" type="text/javascript"></script>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<meta charset="UTF-8"/>
+<title>Pizzeria Tyyni - Yhteenveto</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
