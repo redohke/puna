@@ -125,7 +125,9 @@ public class AdminServlet extends HttpServlet {
 			// pitsa poistettu -> redirect removed parameterillä
 			response.sendRedirect("admin?removed=true");
 			
-		}else{
+		}
+		 
+		 if (request.getParameter("action").equals("add")){
 		
 		
 		// infot formista
@@ -137,22 +139,10 @@ public class AdminServlet extends HttpServlet {
 		// hinta stringistä doubleksi
 		double d = Double.parseDouble(syotettyHinta);
 		
-		/* täytteiden valinta checkboxeista
-		String valitutTaytteet[]= request.getParameterValues("tayte");
-		for(int i = 0; i < valitutTaytteet.length; i++){
+	
+	
 		
-		System.out.println(valitutTaytteet[i]);
-		*/
-		
-	}
-		
-		
-		/*for looppi joka lisää täytteet lomakkeesta IDn perusteella
-		for (int i = 0; i < listankoko; i++) {
-			int tayte = jotain;
-			taytteet.add(tayte);
-		}
-		*/
+	
 		// infot olioksi
 		Pizza p = new Pizza(id, syotettyNimi, d, false, false);
 		
@@ -166,15 +156,16 @@ public class AdminServlet extends HttpServlet {
 		} catch (DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
-		
+
+		 
 		// pitsa lisätty -> redirect added parameterillä
 		response.sendRedirect("admin?added=true");
+		 }
 		
-		}
 		 
 		 //juomien poistaminen ja lisääminen
 		 
-		 if (request.getParameter("action").equals("del")){
+		 if (request.getParameter("action").equals("del2")){
 				
 			// id formista			
 			String syotettyId = request.getParameter("id");
@@ -199,7 +190,9 @@ public class AdminServlet extends HttpServlet {
 			// pitsa poistettu -> redirect removed parameterillä
 			response.sendRedirect("admin?removed=true");
 			
-		}else{
+		}
+		 
+		 if (request.getParameter("action").equals("add2")){
 		
 		
 		// infot formista
@@ -230,10 +223,6 @@ public class AdminServlet extends HttpServlet {
 				response.sendRedirect("admin?added=true");
 				
 				}
-
-					
-					
-					
 
 	}
 }	

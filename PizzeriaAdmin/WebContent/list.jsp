@@ -36,19 +36,14 @@
 					
 					
 					<br>
-				
-				
-					
+
 							<c:forEach items="${tayte}" var="t">
 							<td class="pmauste"><input type="checkbox" name="tayte" value="${t.id}"> 
 									<c:out value="${t.nimi}" /> </td>
         						
         						
     						</c:forEach><br/>
-    						
-
-    					
-					
+ 
 				<button class="nappula" type="submit">Lis‰‰</button>
 				<input type="hidden" name="action" value="add">
 			</form>Pizzoihin vain 2-4 t‰ytett‰.
@@ -57,7 +52,7 @@
 			<h2>Juomien lis‰ys</h2>
 			<br />
 			<form name="input" action="admin" method="post">
-				<input type="text" name="pizza" placeholder="Juoman nimi"> <input
+				<input type="text" name="juoma" placeholder="Juoman nimi"> <input
 					type="text" name="hinta" placeholder="Hinta" size="5">
 					
 					
@@ -65,7 +60,7 @@
 	
 					
 				<button class="nappula" type="submit">Lis‰‰</button>
-				<input type="hidden" name="action" value="add">
+				<input type="hidden" name="action" value="add2">
 			</form>
 		</div>
 		</div>
@@ -100,10 +95,8 @@
 								<input type="hidden" name="id" value="${pl.id}"> 
 								<input type="hidden" name="action" value="del">
 								<input class="del_nappi" type="image" src="img/Piilota.png">
-								<input type="hidden" name="id" value="${pl.id}"> 
 								<input type="hidden" name="action" value="piilota">
 								<input class="del_nappi" type="image" src="img/Palauta.png">
-								<input type="hidden" name="id" value="${pl.id}"> 
 								<input type="hidden" name="action" value="piilota">
 
 						</form></td>
@@ -124,12 +117,12 @@
 						<td class="c_nappula"><form action="admin" method="post">
 								<input class="del_nappi" type="image" src="img/Delete.png">
 								<input type="hidden" name="id" value="${jl.id}"> 
-								<input type="hidden" name="action" value="del">
+								<input type="hidden" name="action" value="del2">
 								<input class="del_nappi" type="image" src="img/Piilota.png">
-								<input type="hidden" name="id" value="${pl.id}"> 
+
 								<input type="hidden" name="action" value="piilota">
 								<input class="del_nappi" type="image" src="img/Palauta.png">
-								<input type="hidden" name="id" value="${pl.id}"> 
+ 
 								<input type="hidden" name="action" value="piilota">
 
 						</form></td>
