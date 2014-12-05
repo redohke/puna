@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fi.omapizzeria.admin.bean.WebUser;
 import fi.omapizzeria.sivusto.bean.Juoma;
 import fi.omapizzeria.sivusto.bean.Pizza;
 import fi.omapizzeria.sivusto.bean.PizzaTayte;
@@ -24,6 +25,13 @@ import fi.omapizzeria.sivusto.service.PizzaService;
  */
 @WebServlet("/admin")
 public class AdminServlet extends HttpServlet {
+	
+	public static final String FRONT_PAGE = "etusivu.jsp";
+	private static final String INSIDE_PAGE = "list.jsp";
+
+	public static final String SESSION_ATTR_WEBUSER = "kayttajatiedot";
+
+	
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -41,6 +49,15 @@ public class AdminServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 
+
+		//otetaan käyttäjätiedot sessiosta
+		WebUser user = (WebUser) request.getSession().getAttribute(SESSION_ATTR_WEBUSER);
+
+		if (user == null) //jos käyttäjätietoja ei löydy, heitetään etusivulle
+			request.getRequestDispatcher(FRONT_PAGE).forward(request, response);
+		else // mikäli käyttäjätiedot löytyvät, päästetään sisään
+			request.getRequestDispatcher(INSIDE_PAGE).forward(request, response);
+		
 				// pizzat listaan
 				ArrayList<Pizza> pizzat;
 				ArrayList<Tayte> taytteet;

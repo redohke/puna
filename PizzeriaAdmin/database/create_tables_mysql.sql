@@ -70,3 +70,13 @@ create table tilausrivi(
 	foreign key (juoma_id) references juoma(id)
 
 );
+
+CREATE TABLE webuser (
+	id SMALLINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	username VARCHAR(255) NOT NULL UNIQUE KEY,
+	password_hash VARCHAR(255) NOT NULL,
+	salt VARCHAR(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO webuser (id, username, password_hash, salt)
+VALUES ('1','admin','D5AevqWWK3yja6C/2C/BtkpizQwof0XUT3NnytdBzpgGs2O2cPjgda4Wsr5fb10wwVEzsYO+T5M5oadfY7Ggsw==','zJC1+pwT1D0=');

@@ -14,6 +14,10 @@
 <link href='http://fonts.googleapis.com/css?family=Roboto:300italic,900,100italic,400italic,400,500italic,300,700italic,100,700,500,900italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
+<p style="text-align: right;"><c:out value="${kayttajatiedot.username}"/><br/>
+<a href="kirjaudu_ulos">Kirjaudu ulos</a>
+<h1 style="text-align: center;">Olet järjestelmän sisällä</h1>
+
 	<div id="wrapper">
 	
 		<div class="left_col"></div>
