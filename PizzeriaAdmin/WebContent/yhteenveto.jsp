@@ -108,7 +108,7 @@
 								varStatus="looppi">
 								<table>
 									<tr>
-										<td class="tnimi"><c:out value="${looppi.count}" /> <c:out
+										<td class="tnimi"><c:out value="${looppi.count}" />. <c:out
 												value="${to.tuote.nimi}" /> x<c:out
 												value="${ to.lkm}" /></td>
 										<td><fmt:formatNumber type="number" minFractionDigits="2"
