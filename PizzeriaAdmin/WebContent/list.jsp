@@ -32,7 +32,7 @@
 			<br />
 			<form name="input" action="admin" method="post">
 				<input type="text" name="pizza" placeholder="Pizzan nimi"> <input
-					type="text" name="hinta" placeholder="Hinta" size="5">
+					type="text" name="hinta" placeholder="Hinta" size="5"><br>
 					
 					
 					<br>
@@ -94,10 +94,17 @@
 								<input class="del_nappi" type="image" src="img/Delete.png">
 								<input type="hidden" name="id" value="${pl.id}"> 
 								<input type="hidden" name="action" value="del">
+								</form>
+								<form action="admin" method="post">
 								<input class="del_nappi" type="image" src="img/Piilota.png">
-								<input type="hidden" name="action" value="piilota">
+								<input type="hidden" name="id" value="${pl.id}">
+								<input type="hidden" name="action" value="piilota2">
+								</form>
+								<form action="admin" method="post">
 								<input class="del_nappi" type="image" src="img/Palauta.png">
-								<input type="hidden" name="action" value="palauta">
+								<input type="hidden" name="id" value="${pl.id}">
+								<input type="hidden" name="action" value="palauta2">
+								</form>
 
 						</form></td>
 					</tr>

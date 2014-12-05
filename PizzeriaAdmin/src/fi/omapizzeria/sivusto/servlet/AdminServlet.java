@@ -230,7 +230,9 @@ public class AdminServlet extends HttpServlet {
         						response.sendRedirect("admin?piilotettu=true");
         	} 
         		 
-        		 if (request.getParameter("action").equals("palauta")){
+        		
+        		 
+        		 if (request.getParameter("action").equals("piilota2")){
 					 
  					// id formista			
  						String syotettyId = request.getParameter("id");
@@ -241,20 +243,73 @@ public class AdminServlet extends HttpServlet {
  						int id = Integer.parseInt(syotettyId);
  									
  						// infot olioksi
- 						Juoma j = new Juoma(id, nimi, d);
+ 						Pizza p = new Pizza(id, nimi, d);
  						
  						try {
  							// uus pizzadao
  							AdminDAO dao = new AdminDAO();
  							// olio poistometodiin
- 							dao.palautaJuoma(j);
+ 							dao.piilotaPizza(p);
  						} catch (DAOPoikkeus e) {
  							throw new ServletException(e);
  						}
  						
  						// pitsa piilotettu -> redirect removed parameterillä
- 						response.sendRedirect("admin?palautettu=true");
+ 						response.sendRedirect("admin?piilotettu=true");
  	} 
+        		 
+        		 if (request.getParameter("action").equals("palauta")){
+					 
+  					// id formista			
+  						String syotettyId = request.getParameter("id");
+  						String nimi = null;
+  						double d = 0;
+  						
+  						// int stringistä intiksi
+  						int id = Integer.parseInt(syotettyId);
+  									
+  						// infot olioksi
+  						Juoma j = new Juoma(id, nimi, d);
+  						
+  						try {
+  							// uus pizzadao
+  							AdminDAO dao = new AdminDAO();
+  							// olio poistometodiin
+  							dao.palautaJuoma(j);
+  						} catch (DAOPoikkeus e) {
+  							throw new ServletException(e);
+  						}
+  						
+  						// pitsa piilotettu -> redirect removed parameterillä
+  						response.sendRedirect("admin?palautettu=true");
+  	} 
+ 		 
+ 		 if (request.getParameter("action").equals("palauta2")){
+				 
+				// id formista			
+					String syotettyId = request.getParameter("id");
+					String nimi = null;
+					double d = 0;
+					
+					// int stringistä intiksi
+					int id = Integer.parseInt(syotettyId);
+								
+					// infot olioksi
+					Pizza p = new Pizza(id, nimi, d);
+					
+					try {
+						// uus pizzadao
+						AdminDAO dao = new AdminDAO();
+						// olio poistometodiin
+						dao.palautaPizza(p);
+					} catch (DAOPoikkeus e) {
+						throw new ServletException(e);
+					}
+					
+					// pitsa piilotettu -> redirect removed parameterillä
+					response.sendRedirect("admin?palautettu=true");
+} 
+        		 
         }
                 
  
