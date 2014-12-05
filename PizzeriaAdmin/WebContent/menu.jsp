@@ -34,12 +34,12 @@
 				<div id="pizzablock">
 					<p class="otsikko">Pizzalista:</p>
 
-					<c:forEach items="${plista}" var="pl">
+					<c:forEach items="${plista}" var="pl" varStatus="looppi">
 						<hr class="pviiva" />
 						<form action="menu" method="post">
 							<table class="ptaulu">
 								<tr>
-									<td class="pnimi"><c:out value="${pl.id}. " /> <c:out
+									<td class="pnimi"><c:out value="${looppi.count}. " /> <c:out
 											value="${pl.nimi}" /></td>
 									<td class="phinta"><fmt:formatNumber type="number"
 											minFractionDigits="2" maxFractionDigits="2"
@@ -80,12 +80,12 @@
 				<div id="pizzablock">
 					<p class="otsikko">Juomalista:</p>
 
-					<c:forEach items="${jlista}" var="jl">
+					<c:forEach items="${jlista}" var="jl" varStatus="looppi">
 						<hr class="pviiva" />
 						<form action=menu method="post">
 							<table class="ptaulu">
 								<tr>
-									<td class="pnimi"><c:out value="${jl.id}. " /> <c:out
+									<td class="pnimi"><c:out value="${looppi.count}. " /> <c:out
 											value="${jl.nimi}" /></td>
 									<td class="phinta"><fmt:formatNumber type="number"
 											minFractionDigits="2" maxFractionDigits="2"
