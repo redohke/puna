@@ -92,28 +92,28 @@ public class TilausServlet extends HttpServlet {
 		if (request.getParameter("action").equals("summary")) {
 			
             //Haetut tiedot verrataan validointi ehtojen kanssa ja muuttujat muutetaan trueksi, jos ehto täyttyy.
-            if (etunimi.length()>0 && etunimi.length()<30){
+            if (etunimi.length()>0 && etunimi.length()<=30){
                     etuValidointi = true;
             }
-            if (sukunimi.length()>0 && sukunimi.length()<30){
+            if (sukunimi.length()>0 && sukunimi.length()<=30){
                     sukuValidointi = true;
             }
-            if (yritys.length()<30){
+            if (yritys.length()<=30){
                     yrValidointi = true;
             }
-            if (puh.length()>0 && puh.length()<15){
+            if (puh.length()>0 && puh.length()<=15){
                     puhValidointi = true;
             }
-            if (email.length()>0 && email.length()<50){
+            if (email.length()>0 && email.length()<=50){
                     emValidointi = true;
             }
-            if (osoite.length()>0 && osoite.length()<50){
+            if (osoite.length()>0 && osoite.length()<=50){
                     osValidointi = true;
             }
             if (pnro.matches("\\d*") && pnro.length()>0 && pnro.length()==5){
                     pnValidointi = true;
             }
-            if (kaupunki.length()>0 && kaupunki.length()<50){
+            if (kaupunki.length()>0 && kaupunki.length()<=50){
                     kaValidointi = true;
             }
            
