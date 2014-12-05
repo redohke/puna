@@ -7,6 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
  
+
+import fi.omapizzeria.sivusto.bean.Juoma;
 import fi.omapizzeria.sivusto.bean.Pizza;
 import fi.omapizzeria.sivusto.bean.Tayte;
 import fi.omapizzeria.sivusto.dao.DAOPoikkeus;
@@ -76,9 +78,6 @@ public AdminDAO() throws DAOPoikkeus {
                
                         }
                
-                       
-                       
- 
  
                         // consoleen pitsan lis‰ys
                         System.out.println("lis‰ttiin seuraavat pizzat: " + p);
@@ -99,9 +98,30 @@ public AdminDAO() throws DAOPoikkeus {
                 Connection yhteys = avaaYhteys();
  
                 try {
+                	
+                		int pId = p.getId();
+                		
+                		System.out.println("pizzaid = " + pId);
+                	
+                		String sql = "select id from pizzatayte where pizza_id=?";   
+                		PreparedStatement haku = yhteys.prepareStatement(sql);
+                		haku.setInt(1, pId);
+                		ResultSet rs = haku.executeQuery();
+                		
+                		
+                		while (rs.next()) {
+                		
+                			String poisto = "delete from pizzatayte where id=?";
+                			PreparedStatement poistoStatement = yhteys.prepareStatement(poisto);
+                			
+                			poistoStatement.setInt(1, rs.getInt("id"));
+                			
+                			poistoStatement.executeUpdate();
+                		}
+                	           	
                         // sql alustus
-                        String sql = "delete from pizza where id=?";
-                        PreparedStatement lause = yhteys.prepareStatement(sql);
+                        String sql2 = "delete from pizza where id=?";
+                        PreparedStatement lause = yhteys.prepareStatement(sql2);
  
                         // laitetaan pizzan id sql stringiin
                         lause.setInt(1, p.getId());
@@ -114,12 +134,21 @@ public AdminDAO() throws DAOPoikkeus {
  
                 } catch (Exception e) {
                         // ehk‰ virhe
-                        throw new DAOPoikkeus("Pizzan lis‰yksest‰ virhe", e);
+                		e.printStackTrace();
+                        throw new DAOPoikkeus("Pizzan poistamisessa virhe", e);
                 } finally {
                         // yhteys kii
                         suljeYhteys(yhteys);
                 }
         }
+        
+        
+        
+        
+        
+        
+        
+        
         public ArrayList<Pizza> haePizzatAdmin() throws DAOPoikkeus {
  
                 Connection yhteys = null;
@@ -149,6 +178,103 @@ public AdminDAO() throws DAOPoikkeus {
                 // palautetaan saatu tulos
                 return pizzalista;
         }
+        
+        
+        
+        public void lisaaJuoma(Juoma j) throws DAOPoikkeus {
+
+    		// avataan yhteys
+    		Connection yhteys = avaaYhteys();
+
+    		// pizzojen haku
+    		try {
+    			// sql-lause pohja
+    			String sql = "insert into juoma(nimi, hinta) values(?,?)";
+    					
+    			PreparedStatement lause = yhteys.prepareStatement(sql);
+
+    			// t‰ytet‰‰n puuttuvat tiedot
+    			lause.setString(1, j.getNimi());
+    			lause.setDouble(2, j.getHinta());
+    			
+
+    			// suoritetaan lause
+    			lause.executeUpdate();
+    			
+    			// consoleen pitsan lis‰ys
+    			System.out.println("lis‰ttiin seuraavat juomat: " + j);
+
+    		} catch (Exception e) {
+    			// ehk‰ virhe
+    			throw new DAOPoikkeus("Juoman lis‰yksest‰ virhe", e);
+    		} finally {
+    			// yhteys kii
+    			suljeYhteys(yhteys);
+    		}
+
+    	}
+        
+        public void poistaJuoma(Juoma j) throws DAOPoikkeus {
+
+    		// avataan yhteys
+    		Connection yhteys = avaaYhteys();
+
+    		try {
+    			// sql alustus
+    			String sql = "delete from juoma where id=?";
+    			PreparedStatement lause = yhteys.prepareStatement(sql);
+
+    			// laitetaan pizzan id sql stringiin
+    			lause.setInt(1, j.getId());
+
+    			// suoritus
+    			lause.executeUpdate();
+
+    			// consoleen pizzan poisto
+    			System.out.println("poistettiin juoma: " + j);
+
+    		} catch (Exception e) {
+    			// ehk‰ virhe
+    			throw new DAOPoikkeus("Juoman poistamisessa virhe", e);
+    		} finally {
+    			// yhteys kii
+    			suljeYhteys(yhteys);
+    		}
+    	}
+        
+        
+        public ArrayList<Juoma> haeJuomatAdmin() throws DAOPoikkeus {
+
+    		Connection yhteys = null;
+    		ArrayList<Juoma> juomalista = new ArrayList<Juoma>();
+
+    		try {
+    			// avataan yhteys tietokantaan
+    			yhteys = avaaYhteys();
+
+    			// Luodaan sql stringist‰ statement ja suoritetaan sql haku
+    			String sql2 = "select id, nimi, hinta from juoma";
+    			Statement haku = yhteys.createStatement();
+    			ResultSet rs = haku.executeQuery(sql2);
+
+    			while (rs.next()) {
+    				juomalista.add(new Juoma(rs.getInt("id"), rs.getString("nimi"),
+    						rs.getDouble("hinta")));
+    			}
+
+    		} catch (Exception e) {
+    			// heit‰ virhe jos virhe
+    			throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
+    		} finally {
+    			// yhteys kiinni
+    			suljeYhteys(yhteys);
+    		}
+    		// palautetaan saatu tulos
+    		return juomalista;
+    	}
+        
+        
+        
         
         public ArrayList<Tayte> haeTaytelista() throws DAOPoikkeus {
 
