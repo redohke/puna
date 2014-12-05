@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fi.omapizzeria.sivusto.bean.Juoma;
 import fi.omapizzeria.sivusto.bean.Pizza;
 import fi.omapizzeria.sivusto.bean.PizzaTayte;
 import fi.omapizzeria.sivusto.bean.Tayte;
@@ -64,6 +65,27 @@ public class AdminServlet extends HttpServlet {
 				
 				request.setAttribute("tayte", taytteet);
 
+			
+				
+				// juomat listaan
+				ArrayList<Juoma> juomat;
+				
+
+				try {
+					// tietokannasta juomat
+					AdminDAO dao = new AdminDAO();
+					juomat = dao.haeJuomatAdmin();
+				
+		
+				} catch (DAOPoikkeus e) {
+					throw new ServletException(e);
+				}
+
+				// lista requestin attribuutiksi
+				request.setAttribute("jlista", juomat);
+				
+			
+
 				// forwardi .jsp:lle
 				request.getRequestDispatcher("list.jsp").forward(request, response);
 
@@ -115,24 +137,24 @@ public class AdminServlet extends HttpServlet {
 		// hinta stringistä doubleksi
 		double d = Double.parseDouble(syotettyHinta);
 		
-		// täytteiden valinta checkboxeista
+		/* täytteiden valinta checkboxeista
 		String valitutTaytteet[]= request.getParameterValues("tayte");
 		for(int i = 0; i < valitutTaytteet.length; i++){
 		
 		System.out.println(valitutTaytteet[i]);
-		
+		*/
 		
 	}
 		
 		
-		//for looppi joka lisää täytteet lomakkeesta IDn perusteella
+		/*for looppi joka lisää täytteet lomakkeesta IDn perusteella
 		for (int i = 0; i < listankoko; i++) {
 			int tayte = jotain;
 			taytteet.add(tayte);
 		}
-		
+		*/
 		// infot olioksi
-		Pizza p = new Pizza(id, syotettyNimi, d, false, false, taytteet);
+		Pizza p = new Pizza(id, syotettyNimi, d, false, false);
 		
 
 		
@@ -150,6 +172,64 @@ public class AdminServlet extends HttpServlet {
 		
 		}
 		 
+		 //juomien poistaminen ja lisääminen
+		 
+		 if (request.getParameter("action").equals("del")){
+				
+			// id formista			
+			String syotettyId = request.getParameter("id");
+			String nimi = null;
+			double d = 0;
+			
+			// int stringistä intiksi
+			int id = Integer.parseInt(syotettyId);
+						
+			// infot olioksi
+			Juoma j = new Juoma(id, nimi, d);
+			
+			try {
+				// uus pizzadao
+				AdminDAO dao = new AdminDAO();
+				// olio poistometodiin
+				dao.poistaJuoma(j);
+			} catch (DAOPoikkeus e) {
+				throw new ServletException(e);
+			}
+			
+			// pitsa poistettu -> redirect removed parameterillä
+			response.sendRedirect("admin?removed=true");
+			
+		}else{
+		
+		
+		// infot formista
+		String syotettyNimi = request.getParameter("juoma");
+
+		String syotettyHinta = request.getParameter("hinta");
+		int id = 0;
+		
+		// hinta stringistä doubleksi
+		double d = Double.parseDouble(syotettyHinta);
+		
+
+		// infot olioksi
+		Juoma j = new Juoma(id, syotettyNimi, d);
+				
+
+				
+				try {
+					// uus pizzadao
+					AdminDAO dao = new AdminDAO();
+					// olio lisaysmetodiin
+					dao.lisaaJuoma(j);
+				} catch (DAOPoikkeus e) {
+					throw new ServletException(e);
+				}
+				
+				// pitsa lisätty -> redirect added parameterillä
+				response.sendRedirect("admin?added=true");
+				
+				}
 
 					
 					
