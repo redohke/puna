@@ -3,12 +3,15 @@ package fi.omapizzeria.sivusto.servlet;
 import java.io.IOException;
 import java.util.ArrayList;
  
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
  
+
+import fi.omapizzeria.sivusto.bean.Juoma;
 import fi.omapizzeria.sivusto.bean.Pizza;
  
 import fi.omapizzeria.sivusto.bean.Tayte;
@@ -42,13 +45,14 @@ public class AdminServlet extends HttpServlet {
                                 // pizzat listaan
                                 ArrayList<Pizza> pizzat;
                                 ArrayList<Tayte> taytteet;
- 
+                                ArrayList<Juoma> juomat;
                                 try {
                                         // tietokannasta pizzat ja taytelista
                                         AdminDAO dao = new AdminDAO();
                                         
                                         pizzat = dao.haePizzatAdmin();                     
                                         taytteet = dao.haeTaytelista();
+                                        juomat = dao.haeJuomatAdmin();
                                         
                                 } catch (DAOPoikkeus e) {
                                         throw new ServletException(e);
@@ -56,8 +60,8 @@ public class AdminServlet extends HttpServlet {
  
                                 // lista requestin attribuutiksi
                                 request.setAttribute("plista", pizzat);
-                               
                                 request.setAttribute("tayte", taytteet);
+                                request.setAttribute("jlista", juomat);
  
                                 // forwardi .jsp:lle
                                 request.getRequestDispatcher("list.jsp").forward(request, response);
@@ -139,7 +143,67 @@ public class AdminServlet extends HttpServlet {
                    
             }              
                                        
-                                       
+                if (request.getParameter("action").equals("del2")){
+    				
+        			// id formista			
+        			String syotettyId = request.getParameter("id");
+        			String nimi = null;
+        			double d = 0;
+        			
+        			// int stringistä intiksi
+        			int id = Integer.parseInt(syotettyId);
+        						
+        			// infot olioksi
+        			Juoma j = new Juoma(id, nimi, d);
+        			
+        			try {
+        				// uus pizzadao
+        				AdminDAO dao = new AdminDAO();
+        				// olio poistometodiin
+        				dao.poistaJuoma(j);
+        			} catch (DAOPoikkeus e) {
+        				throw new ServletException(e);
+        			}
+        			
+        			// pitsa poistettu -> redirect removed parameterillä
+        			response.sendRedirect("admin?removed=true");
+        			
+        		}
+        		 
+        		 if (request.getParameter("action").equals("add2")){
+        		
+        		
+        		// infot formista
+        		String syotettyNimi = request.getParameter("juoma");
+
+        		String syotettyHinta = request.getParameter("hinta");
+        		int id = 0;
+        		
+        		// hinta stringistä doubleksi
+        		double d = Double.parseDouble(syotettyHinta);
+        		
+
+        		// infot olioksi
+        		Juoma j = new Juoma(id, syotettyNimi, d);
+        				
+
+        				
+        				try {
+        					// uus pizzadao
+        					AdminDAO dao = new AdminDAO();
+        					// olio lisaysmetodiin
+        					dao.lisaaJuoma(j);
+        				} catch (DAOPoikkeus e) {
+        					throw new ServletException(e);
+        				}
+        				
+        				// pitsa lisätty -> redirect added parameterillä
+        				response.sendRedirect("admin?added=true");
+        				
+        				}
+
+        	}   
+                
  
         }
-}      
+    
