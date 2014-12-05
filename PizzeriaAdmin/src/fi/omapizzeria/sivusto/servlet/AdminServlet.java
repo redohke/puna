@@ -202,7 +202,60 @@ public class AdminServlet extends HttpServlet {
         				
         				}
 
-        	}   
+
+
+        		 if (request.getParameter("action").equals("piilota")){
+        					 
+        					// id formista			
+        						String syotettyId = request.getParameter("id");
+        						String nimi = null;
+        						double d = 0;
+        						
+        						// int stringistä intiksi
+        						int id = Integer.parseInt(syotettyId);
+        									
+        						// infot olioksi
+        						Juoma j = new Juoma(id, nimi, d);
+        						
+        						try {
+        							// uus pizzadao
+        							AdminDAO dao = new AdminDAO();
+        							// olio poistometodiin
+        							dao.piilotaJuoma(j);
+        						} catch (DAOPoikkeus e) {
+        							throw new ServletException(e);
+        						}
+        						
+        						// pitsa piilotettu -> redirect removed parameterillä
+        						response.sendRedirect("admin?piilotettu=true");
+        	} 
+        		 
+        		 if (request.getParameter("action").equals("palauta")){
+					 
+ 					// id formista			
+ 						String syotettyId = request.getParameter("id");
+ 						String nimi = null;
+ 						double d = 0;
+ 						
+ 						// int stringistä intiksi
+ 						int id = Integer.parseInt(syotettyId);
+ 									
+ 						// infot olioksi
+ 						Juoma j = new Juoma(id, nimi, d);
+ 						
+ 						try {
+ 							// uus pizzadao
+ 							AdminDAO dao = new AdminDAO();
+ 							// olio poistometodiin
+ 							dao.palautaJuoma(j);
+ 						} catch (DAOPoikkeus e) {
+ 							throw new ServletException(e);
+ 						}
+ 						
+ 						// pitsa piilotettu -> redirect removed parameterillä
+ 						response.sendRedirect("admin?palautettu=true");
+ 	} 
+        }
                 
  
         }

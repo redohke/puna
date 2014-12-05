@@ -304,6 +304,62 @@ public AdminDAO() throws DAOPoikkeus {
     		// palautetaan täytteet
     		return taytteet;
     	}
+        
+        public void piilotaJuoma(Juoma j ) throws DAOPoikkeus {
+
+    		// avataan yhteys
+    		Connection yhteys = avaaYhteys();
+
+    		try {
+    			// sql alustus
+    			String sql = "update juoma set tarjolla = '0' where id=?";
+    			PreparedStatement lause = yhteys.prepareStatement(sql);
+
+    			// laitetaan pizzan id sql stringiin
+    			lause.setInt(1, j.getId());
+
+    			// suoritus
+    			lause.executeUpdate();
+
+    			// consoleen juoman piilotus
+    			System.out.println("piilotettiin juoma: " + j);
+
+    		} catch (Exception e) {
+    			// ehkä virhe
+    			throw new DAOPoikkeus("Juoman piilotuksessa virhe", e);
+    		} finally {
+    			// yhteys kii
+    			suljeYhteys(yhteys);
+    		}
+    	}
+        
+    	public void palautaJuoma(Juoma j) throws DAOPoikkeus {
+
+    		// avataan yhteys
+    		Connection yhteys = avaaYhteys();
+
+    		try {
+    			// sql alustus
+    			String sql = "update juoma set tarjolla = '1' where id=?";
+    			PreparedStatement lause = yhteys.prepareStatement(sql);
+
+    			// laitetaan pizzan id sql stringiin
+    			lause.setInt(1, j.getId());
+
+    			// suoritus
+    			lause.executeUpdate();
+
+    			// consoleen juoman palautus
+    			System.out.println("palautettin juoma: " + j);
+
+    		} catch (Exception e) {
+    			// ehkä virhe
+    			throw new DAOPoikkeus("Juoman palautuksessa virhe", e);
+    		} finally {
+    			// yhteys kii
+    			suljeYhteys(yhteys);
+    		}
+    	}
        
  
  

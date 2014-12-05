@@ -97,7 +97,7 @@
 								<input class="del_nappi" type="image" src="img/Piilota.png">
 								<input type="hidden" name="action" value="piilota">
 								<input class="del_nappi" type="image" src="img/Palauta.png">
-								<input type="hidden" name="action" value="piilota">
+								<input type="hidden" name="action" value="palauta">
 
 						</form></td>
 					</tr>
@@ -118,14 +118,19 @@
 								<input class="del_nappi" type="image" src="img/Delete.png">
 								<input type="hidden" name="id" value="${jl.id}"> 
 								<input type="hidden" name="action" value="del2">
+								</form>
+								<form action="admin" method="post">
 								<input class="del_nappi" type="image" src="img/Piilota.png">
-
+								<input type="hidden" name="id" value="${jl.id}"> 
 								<input type="hidden" name="action" value="piilota">
+								</form>
+								<form action="admin" method="post">
 								<input class="del_nappi" type="image" src="img/Palauta.png">
- 
-								<input type="hidden" name="action" value="piilota">
-
-						</form></td>
+								<input type="hidden" name="id" value="${jl.id}"> 
+								<input type="hidden" name="action" value="palauta">
+								</form>
+								
+						</td>
 					</tr>
 				</c:forEach>
 			</table>
