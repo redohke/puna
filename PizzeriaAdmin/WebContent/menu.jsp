@@ -185,10 +185,10 @@
 
 									<td class="c_nappula">
 										<form action="menu" method="post">
-										<input type="hidden" name="action" value="userDel">
+										<input type="hidden" name="action" value="quickDel">
 											<input type="hidden" name="rivinumero"
 												value="<c:out value="${looppi.index}"/>">
-											<button class="pnappula" type="submit" value="userDel">Poista</button>
+											<button class="pnappula" type="submit" value="quickDel">Poista</button>
 										</form>
 									</td>
 								</tr>
