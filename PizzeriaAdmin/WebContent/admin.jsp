@@ -161,7 +161,7 @@
 					</c:forEach>
 				</table>
 								<br/>
-				<p>*Näytä ja Piilota painikkeet hallitsevat tuotteen näkyvyyttä</p>
+				<p>*Näytä ja Piilota painikkeet hallitsevat tuotteen näkyvyyttä Menu-sivulla</p>
 			</div>
 
 			<div class="admin_col">
