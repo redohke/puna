@@ -1,15 +1,24 @@
 package fi.omapizzeria.sivusto.bean;
 
+import java.util.List;
+
 public class Tuote {
 
 	Tuote tuote;
 	int id;
 	String nimi;
 	double hinta;
+	int tarjolla;
+	private List<Tayte> taytteet;
+	
+	public Tuote(int id, String nimi, double hinta, int tarjolla) {
+		super();
+		this.id = id;
+		this.nimi = nimi;
+		this.hinta = hinta;
+		this.tarjolla = tarjolla;
+	}
 
-	
-	
-	
 	public Tuote getTuote() {
 		return tuote;
 	}
@@ -52,13 +61,31 @@ public class Tuote {
 	public void setHinta(double hinta) {
 		this.hinta = hinta;
 	}
+	
+	public int getTarjolla() {
+		return tarjolla;
+	}
 
+	public void setTarjolla(int tarjolla) {
+		this.tarjolla = tarjolla;
+	}
 
+	public List<Tayte> getTaytteet() {
+		return taytteet;
+	}
+
+	public void setTaytteet(List<Tayte> taytteet) {
+		this.taytteet = taytteet;
+	}
 
 	@Override
 	public String toString() {
-		return "Tuote [tuote=" + tuote + "]";
+		return "Tuote [tuote=" + tuote + ", id=" + id + ", nimi=" + nimi
+				+ ", hinta=" + hinta + ", tarjolla=" + tarjolla + ", taytteet="
+				+ taytteet + "]";
 	}
+
+
 
 
 

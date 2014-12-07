@@ -8,9 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
  
 
+
 import fi.omapizzeria.sivusto.bean.Juoma;
 import fi.omapizzeria.sivusto.bean.Pizza;
 import fi.omapizzeria.sivusto.bean.Tayte;
+import fi.omapizzeria.sivusto.bean.Tuote;
 import fi.omapizzeria.sivusto.dao.DAOPoikkeus;
  
  
@@ -18,8 +20,7 @@ import fi.omapizzeria.sivusto.dao.DAOPoikkeus;
 public class AdminDAO extends DAO {
        
 public AdminDAO() throws DAOPoikkeus {
-               
- 
+                
                 try {
                         Class.forName(
                                         DBConnectionProperties.getInstance().getProperty("driver"))
@@ -59,9 +60,7 @@ public AdminDAO() throws DAOPoikkeus {
                         if (rs.next()){
                                 pId = rs.getInt("id");
                         }
-                       
-                       
-                       
+                                                            
                 for(int i = 0; i < tayteLista.size(); i++) {
                                
                         //tietokantaan uusi pizza täytteillä
@@ -77,8 +76,7 @@ public AdminDAO() throws DAOPoikkeus {
                         lause2.executeQuery();
                
                         }
-               
- 
+             
                         // consoleen pitsan lisäys
                         System.out.println("lisättiin seuraavat pizzat: " + p);
  
@@ -141,33 +139,26 @@ public AdminDAO() throws DAOPoikkeus {
                         suljeYhteys(yhteys);
                 }
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        public ArrayList<Pizza> haePizzatAdmin() throws DAOPoikkeus {
+             
+        public ArrayList<Tuote> haePizzatAdmin() throws DAOPoikkeus {
  
                 Connection yhteys = null;
-                ArrayList<Pizza> pizzalista = new ArrayList<Pizza>();
+                ArrayList<Tuote> pizzalista = new ArrayList<Tuote>();
  
                 try {
                         // avataan yhteys tietokantaan
                         yhteys = avaaYhteys();
  
                         // Luodaan sql stringistä statement ja suoritetaan sql haku
-                        String sql = "select id, nimi, hinta from pizza";
+                        String sql = "select id, nimi, hinta, tarjolla from pizza";
                         Statement haku = yhteys.createStatement();
                         ResultSet rs = haku.executeQuery(sql);
  
                         while (rs.next()) {
-                                pizzalista.add(new Pizza(rs.getInt("id"), rs.getString("nimi"),
-                                                rs.getDouble("hinta")));
-                        }
- 
+                                pizzalista.add(new Tuote(rs.getInt("id"), rs.getString("nimi"),
+                                                rs.getDouble("hinta"), rs.getInt("tarjolla")));
+                        }                        
+                        System.out.println("lista: " + pizzalista);
                 } catch (Exception e) {
                         // heitä virhe jos virhe
                         throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
@@ -243,23 +234,23 @@ public AdminDAO() throws DAOPoikkeus {
     	}
         
         
-        public ArrayList<Juoma> haeJuomatAdmin() throws DAOPoikkeus {
+        public ArrayList<Tuote> haeJuomatAdmin() throws DAOPoikkeus {
 
     		Connection yhteys = null;
-    		ArrayList<Juoma> juomalista = new ArrayList<Juoma>();
+    		ArrayList<Tuote> juomalista = new ArrayList<Tuote>();
 
     		try {
     			// avataan yhteys tietokantaan
     			yhteys = avaaYhteys();
 
     			// Luodaan sql stringistä statement ja suoritetaan sql haku
-    			String sql2 = "select id, nimi, hinta from juoma";
+    			String sql2 = "select id, nimi, hinta, tarjolla from juoma";
     			Statement haku = yhteys.createStatement();
     			ResultSet rs = haku.executeQuery(sql2);
 
     			while (rs.next()) {
-    				juomalista.add(new Juoma(rs.getInt("id"), rs.getString("nimi"),
-    						rs.getDouble("hinta")));
+    				juomalista.add(new Tuote(rs.getInt("id"), rs.getString("nimi"),
+    						rs.getDouble("hinta"), rs.getInt("tarjolla")));
     			}
 
     		} catch (Exception e) {

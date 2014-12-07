@@ -70,9 +70,7 @@ public class MenuServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		Ostoskori kori = (Ostoskori) session.getAttribute("kori");
-
-		
-		
+	
 		if (request.getParameter("action").equals("add")) {
 			if (kori == null) {
 				kori = new Ostoskori();
@@ -84,8 +82,6 @@ public class MenuServlet extends HttpServlet {
 
 			String maara = request.getParameter("lkm");
 			int lkm = Integer.parseInt(maara);
-
-			
 			
 			// oregano/valkosipuli valinta checkboxista
 			String klikattuOregano = request.getParameter("oregano");
@@ -93,8 +89,7 @@ public class MenuServlet extends HttpServlet {
 
 			boolean oregano = false;
 			boolean valkosipuli = false;
-			
-			
+						
 			// tsekataan että onko oregano/valkosipuli valittu
 			if (klikattuOregano != null) {
 				oregano = true;
@@ -103,8 +98,6 @@ public class MenuServlet extends HttpServlet {
 				valkosipuli = true;
 			}
 			
-			
-
 			// haetaan pizzaID:llä pizzan tiedot tietokannasta
 			try {
 				
@@ -113,12 +106,9 @@ public class MenuServlet extends HttpServlet {
 				Pizza uusiPizza = pService.tuoPizza(id);
 				
 				double rivihinta = lkm * uusiPizza.getHinta();
-		
-				
 				
 				Tuote uusituote = uusiPizza;
 				
-	
 				Ostos ostos = new Ostos(uusituote,lkm, rivihinta, oregano, valkosipuli);
 				kori.lisaaOstoskoriin(ostos);
 				
@@ -137,13 +127,8 @@ public class MenuServlet extends HttpServlet {
 			request.getSession().setAttribute("kori", kori);
 			response.sendRedirect("/PizzeriaTyyni/menu");
 			System.out.println(kori.getOstokset());
-
 		}
-
-		
-		
-		
-		
+	
 		if (request.getParameter("action").equals("jadd")) {
 			if (kori == null) {
 				kori = new Ostoskori();
@@ -155,9 +140,6 @@ public class MenuServlet extends HttpServlet {
 
 			String maara = request.getParameter("lkm");
 			int lkm = Integer.parseInt(maara);
-
-			
-			
 			
 			// haetaan pizzaID:llä pizzan tiedot tietokannasta
 			try {
@@ -167,8 +149,6 @@ public class MenuServlet extends HttpServlet {
 				
 				Tuote uusiTuote = uusiJuoma;
 				
-				
-
 				Ostos ostos = new Ostos(uusiTuote, lkm, rivihinta, false, false);
 				
 				kori.lisaaOstoskoriin(ostos);
@@ -184,13 +164,8 @@ public class MenuServlet extends HttpServlet {
 			request.getSession().setAttribute("kori", kori);
 			response.sendRedirect("/PizzeriaTyyni/menu");
 			System.out.println(kori.getOstokset());
-
 		}
-		
-	
-	
-		
-		
+			
 		// ostoskorista tuotteen poistaminen
 		if (request.getParameter("action").equals("del") || request.getParameter("action").equals("quickDel")) {
 
@@ -218,8 +193,7 @@ public class MenuServlet extends HttpServlet {
 			}
 
 		}	
-		
-		
+				
 		if (request.getParameter("action").equals("clear")) {
 			
 			try {
@@ -234,8 +208,7 @@ public class MenuServlet extends HttpServlet {
 		if (request.getParameter("action").equals("tyhjkori")) {
 			
 			try {
-				session.invalidate();
-				
+				session.invalidate();				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

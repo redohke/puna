@@ -1,4 +1,3 @@
-<%@page import="fi.omapizzeria.admin.bean.Pizza"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -26,22 +25,16 @@
 			</p>
 		</div>
 
-
 		<div class="lisays_col">
 			<h2>Pizzojen lis‰ys</h2>
 			<br />
 			<form name="input" action="admin" method="post">
 				<input type="text" name="pizza" placeholder="Pizzan nimi"> <input
-					type="text" name="hinta" placeholder="Hinta" size="5"><br>
-					
-					
+					type="text" name="hinta" placeholder="Hinta" size="5"><br>				
 					<br>
-
 							<c:forEach items="${tayte}" var="t">
 							<td class="pmauste"><input type="checkbox" name="tayte" value="${t.id}"> 
-									<c:out value="${t.nimi}" /> </td>
-        						
-        						
+									<c:out value="${t.nimi}" /> </td>      						
     						</c:forEach><br/>
  
 				<button class="nappula" type="submit">Lis‰‰</button>
@@ -105,14 +98,11 @@
 								<input type="hidden" name="id" value="${pl.id}">
 								<input type="hidden" name="action" value="palauta2">
 								</form>
-
-						</form></td>
+					</td>
 					</tr>
 				</c:forEach>
 			</table>
-			
-			
-			
+		
 						<h2>Listalla olevat Juomat:</h2>
 			<br />
 			<table class="taulukko">

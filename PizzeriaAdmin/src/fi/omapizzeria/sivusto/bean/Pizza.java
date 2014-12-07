@@ -7,9 +7,6 @@ public class Pizza extends Tuote {
 	
 	private List<Tayte> taytteet;
 		
-	
-	
-	
 	public Pizza(int id, String nimi, double hinta) {
 		super();
 		this.id = id;
@@ -18,9 +15,6 @@ public class Pizza extends Tuote {
 		
 	}
 	
-	
-
-
 	public int getId() {
 		return id;
 	}

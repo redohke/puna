@@ -206,6 +206,7 @@
 										width="200" height="150"></img></td>
 									<td id="TyhOst">
 										<div>
+										
 											<form action="menu" method="post">
 												<input type="hidden" name="action" value="clear">
 												<button id="nappi" type="submit" value="clear">Tyhjennä</button>
