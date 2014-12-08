@@ -9,7 +9,10 @@
 <title>Pizzeria Tyyni - Admin</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
+<body link ="#FF0000" alink ="#FF0000" vlink ="#FF0000">
+<p style="text-align: right; color: red;"><c:out value="${kayttajatiedot.username}"/><br/>
+<a href="text-color: red; "kirjaudu_ulos">Kirjaudu ulos</a>
+
 	<div id="wrapper">
 
 		<div id="header">
