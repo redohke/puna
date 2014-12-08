@@ -11,7 +11,7 @@
 </head>
 <body link ="#FF0000" alink ="#FF0000" vlink ="#FF0000">
 <p style="text-align: right; color: red;"><c:out value="${kayttajatiedot.username}"/><br/>
-<a href="text-color: red; "kirjaudu_ulos">Kirjaudu ulos</a>
+<a href="kirjaudu_ulos">Kirjaudu ulos</a>
 
 	<div id="wrapper">
 

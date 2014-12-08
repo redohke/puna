@@ -29,6 +29,6 @@ public class UloskirjautumisServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().removeAttribute(SiteServlet.SESSION_ATTR_WEBUSER);
 		request.getSession().invalidate();
-		response.sendRedirect("site");
+		response.sendRedirect("login");
 	}
 }

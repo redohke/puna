@@ -44,7 +44,7 @@ public class SisaankirjautumisServlet extends HttpServlet {
 						SiteServlet.SESSION_ATTR_WEBUSER, kayttajaKannasta);
 				response.sendRedirect("admin");
 			} else {
-				request.setAttribute("error", "‰ FUG YOU :DDDDDD ");
+				request.setAttribute("error", "K‰ytt‰j‰tunnus/Salasana v‰‰rin, kokeile uudestaan!");
 				request.setAttribute("prev_login_username", username);
 				request.getRequestDispatcher(SiteServlet.FRONT_PAGE).forward(request, response);
 			}
