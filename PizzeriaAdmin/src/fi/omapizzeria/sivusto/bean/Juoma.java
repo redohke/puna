@@ -1,7 +1,20 @@
 package fi.omapizzeria.sivusto.bean;
 
+/**
+ * 
+ * Tämän luokka sisältää Juoma olion tietosisällön.
+ * @author Joona, Aleksi
+ *
+ */
+
+
+/**
+ * Juoma.java on Tuote -luokan aliluokka.
+ */
+
 public class Juoma extends Tuote {
-	
+		
+
 
 	public Juoma(int id, String nimi, double hinta) {
 		this.id = id;

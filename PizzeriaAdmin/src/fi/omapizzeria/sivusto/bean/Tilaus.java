@@ -1,5 +1,11 @@
 package fi.omapizzeria.sivusto.bean;
 
+
+/**
+ * Tämä luokka muodostuu Asiakas ja Ostoskori -luokista sekä tilauksen yhteishinnasta.
+ * @author Joona
+ *
+ */
 public class Tilaus {
 	
 	private Asiakas asiakas;

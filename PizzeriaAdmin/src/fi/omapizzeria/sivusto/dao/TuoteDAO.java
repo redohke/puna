@@ -10,8 +10,19 @@ import fi.omapizzeria.sivusto.bean.Juoma;
 import fi.omapizzeria.sivusto.bean.Pizza;
 import fi.omapizzeria.sivusto.bean.Tayte;
 
+/**
+ * T‰m‰ luokka luokka sis‰lt‰‰ metodeja jotka hakevat tietokannasta dataa.
+ * 
+ * @author Aleksi, Joona
+ *
+ */
 public class TuoteDAO extends DAO {
 
+	/**
+	 * T‰m‰ metodi lataa tietokanta Ajurin ja luo uuden instanssin.
+	 * @throws DAOPoikkeus Antaa virheilmoituksen jos ajuria ei kyet‰ lataamaan.
+	 */
+	
 	public TuoteDAO() throws DAOPoikkeus {
 		
 
@@ -24,6 +35,12 @@ public class TuoteDAO extends DAO {
 		}
 	}
 
+	/**
+	 * T‰m‰ metodi hakee tietokannasta pizzalistan menuun katseltavaksi.
+	 * @return Palauttaa tietokannasta haetun pizzalistan.
+	 * @throws DAOPoikkeus Antaa virheilmoituksen jos pizzalistan haku ep‰onnistuu.
+	 */
+	
 	public ArrayList<Pizza> haePizzat() throws DAOPoikkeus {
 
 		Connection yhteys = null;
@@ -53,7 +70,12 @@ public class TuoteDAO extends DAO {
 		// palautetaan saatu tulos
 		return pizzalista;
 	}
-
+/**
+ * T‰m‰ metodi hakee tietokannasta t‰ytteet parametrina saadulle pizzalle.
+ * @param pizzaId Pizzan id
+ * @return Palauttaa halutulle pizzalle t‰ytteet
+ * @throws DAOPoikkeus Antaa virheilmoituksen jos tietokantahaku aiheuttaa virheen.
+ */
 	public ArrayList<Tayte> haeTaytteetPizzalle(int pizzaId) throws DAOPoikkeus {
 
 		Connection yhteys = null;
@@ -84,6 +106,11 @@ public class TuoteDAO extends DAO {
 		return taytteet;
 	}
 
+/**
+ * T‰m‰ metodi hakee tietokannasta juomalistan menuun katseltavaksi.
+ * @return Palauttaa tietokannasta haetun juomalistan.
+ * @throws DAOPoikkeus Antaa virheilmoituksen jos juomalistan haku ep‰onnistuu.
+ */
 	public ArrayList<Juoma> haeJuomat() throws DAOPoikkeus {
 		
 		ArrayList<Juoma> juomalista = new ArrayList<Juoma>();
@@ -115,6 +142,12 @@ public class TuoteDAO extends DAO {
 
 	}
 	
+/**
+ * T‰m‰ metodi hakee pizzan MenuServletist‰ vastaanotetun id:n perusteella.	
+ * @param id Pizzan id
+ * @return Palauttaa tietokannasta haetun pizzan tiedot oliona.
+ * @throws DAOPoikkeus Antaa virheilmoituksen jos pizzan haku ep‰onnistuu.
+ */
 	public Pizza haePizza(int id) throws DAOPoikkeus {
 
 		Pizza pizza = null;
@@ -147,7 +180,13 @@ public class TuoteDAO extends DAO {
 		// palautetaan saatu tulos
 			return pizza;
 	}
-	
+
+/**
+ * T‰m‰ metodi hakee juoman MenuServletist‰ vastaanotetun id:n perusteella.	
+ * @param id Juoman id
+ * @return Palauttaa tietokannasta haetun juoma tiedot oliona.
+ * @throws DAOPoikkeus Antaa virheilmoituksen jos juoman haku ep‰onnistuu.
+ */
 	public Juoma haeJuoma(int id) throws DAOPoikkeus {
 
 		Juoma juoma = null;

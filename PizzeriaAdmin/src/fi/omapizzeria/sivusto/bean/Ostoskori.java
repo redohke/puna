@@ -1,6 +1,12 @@
 package fi.omapizzeria.sivusto.bean;
-
 import java.util.ArrayList;
+
+/**
+ * 
+ * T‰m‰ luokka muodostaa ArrayListin Ostos-luokan olioista.
+ * @author Aleksi, Elias, Joona
+ *
+ */
 
 public class Ostoskori {
 
@@ -18,6 +24,11 @@ public class Ostoskori {
 		return ostokset;
 	}
 
+	/**
+	 * Tyhjent‰‰ ArrayListin Ostos olioista.
+	 */
+	
+	
 	public void tyhjenna() {
 		ostokset.clear();
 	}
@@ -51,14 +62,33 @@ public class Ostoskori {
 	}
 */
 
+	/**
+	 * Lis‰‰ k‰ytt‰j‰n valitseman ostoksen ostoskoriin.
+	 * 
+	 * 
+	 * @param ostos Koottu Ostos olio.
+	 */
 	 public void lisaaOstoskoriin(Ostos ostos) { 
 		 ostokset.add(ostos); 
 	 }
+	 
+	 /**
+	  * Poistaa k‰ytt‰j‰n valitseman ostoksen ostoskorista.
+	  * @param poistettava Vastaanotettu int tietotyyppi
+	  */
 	 
 	public void poistaOstoskorista(int poistettava) {
 		ostokset.remove(poistettava);
 	}
 
+	
+	
+	/**
+	 * Laskee ostoskorin sis‰lt‰mien ostosten yhteishinnan.
+	 * 
+	 * @return Ostosten yhteishinnan.
+	 */
+	
 	public double getTilauksenHinta() {
 		double tilausHinta = 0;
 

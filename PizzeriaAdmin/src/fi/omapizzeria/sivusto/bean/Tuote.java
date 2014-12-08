@@ -2,6 +2,12 @@ package fi.omapizzeria.sivusto.bean;
 
 import java.util.List;
 
+
+/**
+ * Tämä luokka on Pizza ja Juoma luokkien yliluokka.
+ * @author Aleksi, Joona
+ *
+ */
 public class Tuote {
 
 	Tuote tuote;

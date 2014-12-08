@@ -9,8 +9,18 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+/**
+ * T‰m‰ luokka l‰hett‰‰ TilausServletist‰ vastaanotetun tilauksen tietokantaan
+ * Tilaus sis‰lt‰‰ Asiakkaan, ostoskorin ja yhteishinnan
+ * @author Aleksi, Joona
+ *
+ */
 public class TilausDAO extends DAO {
 
+/**
+ * T‰m‰ metodi lataa tietokanta Ajurin ja luo uuden instanssin.
+ * @throws DAOPoikkeus Antaa virheilmoituksen jos ajuria ei kyet‰ lataamaan.
+ */
 	public TilausDAO() throws DAOPoikkeus {
 
 		try {
@@ -21,7 +31,15 @@ public class TilausDAO extends DAO {
 			throw new DAOPoikkeus("Tietokannan ajuria ei kyetty lataamaan.", e);
 		}
 	}
-	
+
+/**
+ * T‰m‰ metodi lis‰‰ Tilauksen osat tietokantaan.
+ * Ensin lis‰tt‰v‰ osa on Asiakas, josta saadaan asiakas_id Tilauksen lis‰‰mist‰ varten.
+ * Tilauksen lis‰‰misest‰ saadaan tilaus_id jota k‰ytet‰‰n foreignkeyn‰ ostoskorin lis‰‰misess‰.
+ * Viimeisen‰ lis‰t‰‰n ostoskori.
+ * @param tilaus TilausServletilt‰ vastaanotettu Tilaus olio
+ * @throws DAOPoikkeus Antaa virheilmoituksen jos tilauksen lis‰‰minen tietokantaan ep‰onnistuu.
+ */
 	public void lisaaTilaus(Tilaus tilaus) throws DAOPoikkeus {
 
 		// avataan yhteys

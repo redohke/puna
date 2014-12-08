@@ -2,8 +2,26 @@ package fi.omapizzeria.sivusto.bean;
 
 import java.util.List;
 
+
+/**
+ * Tämä luokka sisältää Pizza olion tietosisällön.
+ * 
+ * @author Aleksi, Joona
+ *
+ */
+
+
+
+/**
+ * Pizza.java on Tuote -luokan aliluokka.
+ */
+
 public class Pizza extends Tuote {
 
+	
+	/**
+	 * Juoma.java on Tuote -luokan aliluokka
+	 */
 	
 	private List<Tayte> taytteet;
 		

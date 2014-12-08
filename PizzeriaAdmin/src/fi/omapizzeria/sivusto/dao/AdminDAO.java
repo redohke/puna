@@ -6,9 +6,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
- 
-
-
 import fi.omapizzeria.sivusto.bean.Juoma;
 import fi.omapizzeria.sivusto.bean.Pizza;
 import fi.omapizzeria.sivusto.bean.Tayte;
@@ -16,9 +13,21 @@ import fi.omapizzeria.sivusto.bean.Tuote;
 import fi.omapizzeria.sivusto.dao.DAOPoikkeus;
  
  
- 
+/**
+ *  T‰m‰n luokka v‰litt‰‰ tietoa Servletin ja Servicen v‰lill‰.
+ * @author Aleksi, Joona, Markus
+ *
+ */
+
 public class AdminDAO extends DAO {
        
+	
+/**
+ * T‰m‰ metodi lataa tietokanta Ajurin ja luo uuden instanssin.
+ * 
+ * @throws DAOPoikkeus Antaa virheilmoituksen jos ajuria ei kyet‰ lataamaan.
+ */
+	
 public AdminDAO() throws DAOPoikkeus {
                 
                 try {
@@ -30,7 +39,117 @@ public AdminDAO() throws DAOPoikkeus {
                 }
         }
        
-       
+/**
+ * 
+ * T‰m‰ metodi hakee tietokannasta pizzalistan admin paneliin katseltavaksi.
+ * @return Palauttaa tietokannasta haetun pizzalistan.
+ * @throws DAOPoikkeus Antaa virheilmoituksen jos pizzalistan haku ep‰onnistuu.
+ */      
+        public ArrayList<Tuote> haePizzatAdmin() throws DAOPoikkeus {
+ 
+                Connection yhteys = null;
+                ArrayList<Tuote> pizzalista = new ArrayList<Tuote>();
+ 
+                try {
+                        // avataan yhteys tietokantaan
+                        yhteys = avaaYhteys();
+ 
+                        // Luodaan sql stringist‰ statement ja suoritetaan sql haku
+                        String sql = "select id, nimi, hinta, tarjolla from pizza";
+                        Statement haku = yhteys.createStatement();
+                        ResultSet rs = haku.executeQuery(sql);
+ 
+                        while (rs.next()) {
+                                pizzalista.add(new Tuote(rs.getInt("id"), rs.getString("nimi"),
+                                                rs.getDouble("hinta"), rs.getInt("tarjolla")));
+                        }                        
+                        System.out.println("lista: " + pizzalista);
+                } catch (Exception e) {
+                        // heit‰ virhe jos virhe
+                        throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
+                } finally {
+                        // yhteys kiinni
+                        suljeYhteys(yhteys);
+                }
+                // palautetaan saatu tulos
+                return pizzalista;
+        }
+        
+/**
+ * T‰m‰ metodi hakee tietokannasta juomalistan admin paneliin katseltavaksi.
+ * @return Palauttaa tietokannasta haetun juomalistan.
+ * @throws DAOPoikkeus Antaa virheilmoituksen jos juomalistan haku ep‰onnistuu.
+ */
+        public ArrayList<Tuote> haeJuomatAdmin() throws DAOPoikkeus {
+
+     		Connection yhteys = null;
+     		ArrayList<Tuote> juomalista = new ArrayList<Tuote>();
+
+     		try {
+     			// avataan yhteys tietokantaan
+     			yhteys = avaaYhteys();
+
+     			// Luodaan sql stringist‰ statement ja suoritetaan sql haku
+     			String sql2 = "select id, nimi, hinta, tarjolla from juoma";
+     			Statement haku = yhteys.createStatement();
+     			ResultSet rs = haku.executeQuery(sql2);
+
+     			while (rs.next()) {
+     				juomalista.add(new Tuote(rs.getInt("id"), rs.getString("nimi"),
+     						rs.getDouble("hinta"), rs.getInt("tarjolla")));
+     			}
+
+     		} catch (Exception e) {
+     			// heit‰ virhe jos virhe
+     			throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
+     		} finally {
+     			// yhteys kiinni
+     			suljeYhteys(yhteys);
+     		}
+     		// palautetaan saatu tulos
+     		return juomalista;
+     	}
+
+/**
+ * T‰m‰ metodi hakee tietokannasta t‰ytelistan admin paneliin katseltavaksi.     
+ * @return Palauttaa tietokannasta haetun t‰ytelistan.
+ * @throws DAOPoikkeus Antaa virheilmoituksen jos t‰ytelistan haku ep‰onnistuu.
+ */
+        public ArrayList<Tayte> haeTaytelista() throws DAOPoikkeus {
+
+    		Connection yhteys = null;
+    		ArrayList<Tayte> taytteet = new ArrayList<Tayte>();
+    			
+    		try {
+    			// avataan yhteys tietokantaan
+    			yhteys = avaaYhteys();
+    			
+    			// haetaan taytteet tietokannasta statementill‰ laitetaan haun tulokset ResultSetiksis
+    			String sql = "select id, nimi from tayte";
+    			PreparedStatement ps = yhteys.prepareStatement(sql);
+    			ResultSet rs = ps.executeQuery();
+    			
+    			while(rs.next()) {
+    				taytteet.add(new Tayte(rs.getInt("id"), rs.getString("nimi")));
+    			}
+    		
+    		} catch (Exception e) {
+    			// heit‰ virhe jos virhe
+    			throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
+    		} finally {
+    			// yhteys kii
+    			suljeYhteys(yhteys);
+    		}
+    		// palautetaan t‰ytteet
+    		return taytteet;
+    	}
+
+ /**
+  * T‰m‰ metodi lis‰‰ tietokantaan AdminServletist‰ l‰hetetyn pizzan.
+  * @param p AdminServicelt‰ vastaanotettu lis‰tt‰v‰ Pizza olio.
+  * @param tayteLista AdminServicelt‰ vastaanotettu t‰ytelista.
+  * @throws DAOPoikkeus Antaa virheilmoituksen jos pizzan lis‰ys ep‰onnistuu.
+  */
         public void lisaaPizza(Pizza p, List<Integer> tayteLista) throws DAOPoikkeus {
  
                 // avataan yhteys
@@ -89,7 +208,12 @@ public AdminDAO() throws DAOPoikkeus {
                 }
  
         }
-       
+     
+ /**
+  * T‰m‰ metodi poistaa MenuServletist‰ valitun pizzan       
+  * @param p AdminServicelt‰ vastaanotettu poistettava Pizza olio.
+  * @throws DAOPoikkeus Antaa virheilmoituksen jos pizzan poisto ep‰onnistuu.
+  */
         public void poistaPizza(Pizza p) throws DAOPoikkeus {
  
                 // avataan yhteys
@@ -139,39 +263,81 @@ public AdminDAO() throws DAOPoikkeus {
                         suljeYhteys(yhteys);
                 }
         }
+
+/**
+* T‰m‰ metodi piilottaa pizzan Pizzerian ruokalistalta siten ettei sit‰ voi valita ostoskoriin.    
+* @param p AdminServicelt‰ vastaanotettu piilotettava Pizza olio.
+* @throws DAOPoikkeus Antaa virheilmoituksen jos pizzan piilotus ep‰onnistuu.
+*/      
+        
+        public void piilotaPizza(Pizza p ) throws DAOPoikkeus {
+
+
+            		// avataan yhteys
+            		Connection yhteys = avaaYhteys();
+
+            		try {
+            			// sql alustus
+            			String sql = "update pizza set tarjolla = '0' where id=?";
+            			PreparedStatement lause = yhteys.prepareStatement(sql);
+
+            			// laitetaan pizzan id sql stringiin
+            			lause.setInt(1, p.getId());
+
+            			// suoritus
+            			lause.executeUpdate();
+
+            			// consoleen juoman piilotus
+            			System.out.println("piilotettiin pizza: " + p);
+
+            		} catch (Exception e) {
+            			// ehk‰ virhe
+            			throw new DAOPoikkeus("Pizzan piilotuksessa virhe", e);
+            		} finally {
+            			// yhteys kii
+            			suljeYhteys(yhteys);
+            		}
+            	}
+      	
+ /**
+* T‰m‰ metodi palauttaa pizzan Pizzerian ruokalistalle jotta sen voi valita ostoskoriin.    
+* @param p AdminServicelt‰ vastaanotettu palautettava Pizza olio.
+* @throws DAOPoikkeus Antaa virheilmoituksen jos pizzan palautus ep‰onnistuu.
+*/        
+        public void palautaPizza(Pizza p) throws DAOPoikkeus {
+
+            		// avataan yhteys
+            		Connection yhteys = avaaYhteys();
+
+            		try {
+            			// sql alustus
+            			String sql = "update pizza set tarjolla = '1' where id=?";
+            			PreparedStatement lause = yhteys.prepareStatement(sql);
+
+            			// laitetaan pizzan id sql stringiin
+            			lause.setInt(1, p.getId());
+
+            			// suoritus
+            			lause.executeUpdate();
+
+            			// consoleen juoman palautus
+            			System.out.println("palautettin pizza: " + p);
+
+            		} catch (Exception e) {
+            			// ehk‰ virhe
+            			throw new DAOPoikkeus("Pizzan palautuksessa virhe", e);
+            		} finally {
+            			// yhteys kii
+            			suljeYhteys(yhteys);
+            		}
+            	}
              
-        public ArrayList<Tuote> haePizzatAdmin() throws DAOPoikkeus {
- 
-                Connection yhteys = null;
-                ArrayList<Tuote> pizzalista = new ArrayList<Tuote>();
- 
-                try {
-                        // avataan yhteys tietokantaan
-                        yhteys = avaaYhteys();
- 
-                        // Luodaan sql stringist‰ statement ja suoritetaan sql haku
-                        String sql = "select id, nimi, hinta, tarjolla from pizza";
-                        Statement haku = yhteys.createStatement();
-                        ResultSet rs = haku.executeQuery(sql);
- 
-                        while (rs.next()) {
-                                pizzalista.add(new Tuote(rs.getInt("id"), rs.getString("nimi"),
-                                                rs.getDouble("hinta"), rs.getInt("tarjolla")));
-                        }                        
-                        System.out.println("lista: " + pizzalista);
-                } catch (Exception e) {
-                        // heit‰ virhe jos virhe
-                        throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
-                } finally {
-                        // yhteys kiinni
-                        suljeYhteys(yhteys);
-                }
-                // palautetaan saatu tulos
-                return pizzalista;
-        }
-        
-        
-        
+ /**
+  * T‰m‰ metodi lis‰‰ tietokantaan AdminServletist‰ l‰hetetyn juoman.
+  * @param j AdminServicelt‰ vastaanotettu lis‰tt‰v‰ Juoma olio.
+  * @throws DAOPoikkeus Antaa virheilmoituksen jos juoman lis‰ys ep‰onnistuu.
+  */
+     
         public void lisaaJuoma(Juoma j) throws DAOPoikkeus {
 
     		// avataan yhteys
@@ -205,6 +371,12 @@ public AdminDAO() throws DAOPoikkeus {
 
     	}
         
+/**
+ * T‰m‰ metodi poistaa MenuServletist‰ valitun juoman.        
+ * @param j AdminServicelt‰ vastaanotettu poistettava Juoma olio.
+ * @throws DAOPoikkeus Antaa virheilmoituksen jos juoman poisto ep‰onnistuu.
+ */
+        
         public void poistaJuoma(Juoma j) throws DAOPoikkeus {
 
     		// avataan yhteys
@@ -232,70 +404,12 @@ public AdminDAO() throws DAOPoikkeus {
     			suljeYhteys(yhteys);
     		}
     	}
-        
-        
-        public ArrayList<Tuote> haeJuomatAdmin() throws DAOPoikkeus {
-
-    		Connection yhteys = null;
-    		ArrayList<Tuote> juomalista = new ArrayList<Tuote>();
-
-    		try {
-    			// avataan yhteys tietokantaan
-    			yhteys = avaaYhteys();
-
-    			// Luodaan sql stringist‰ statement ja suoritetaan sql haku
-    			String sql2 = "select id, nimi, hinta, tarjolla from juoma";
-    			Statement haku = yhteys.createStatement();
-    			ResultSet rs = haku.executeQuery(sql2);
-
-    			while (rs.next()) {
-    				juomalista.add(new Tuote(rs.getInt("id"), rs.getString("nimi"),
-    						rs.getDouble("hinta"), rs.getInt("tarjolla")));
-    			}
-
-    		} catch (Exception e) {
-    			// heit‰ virhe jos virhe
-    			throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
-    		} finally {
-    			// yhteys kiinni
-    			suljeYhteys(yhteys);
-    		}
-    		// palautetaan saatu tulos
-    		return juomalista;
-    	}
-        
-        
-        
-        
-        public ArrayList<Tayte> haeTaytelista() throws DAOPoikkeus {
-
-    		Connection yhteys = null;
-    		ArrayList<Tayte> taytteet = new ArrayList<Tayte>();
-    			
-    		try {
-    			// avataan yhteys tietokantaan
-    			yhteys = avaaYhteys();
-    			
-    			// haetaan taytteet tietokannasta statementill‰ laitetaan haun tulokset ResultSetiksis
-    			String sql = "select id, nimi from tayte";
-    			PreparedStatement ps = yhteys.prepareStatement(sql);
-    			ResultSet rs = ps.executeQuery();
-    			
-    			while(rs.next()) {
-    				taytteet.add(new Tayte(rs.getInt("id"), rs.getString("nimi")));
-    			}
-    		
-    		} catch (Exception e) {
-    			// heit‰ virhe jos virhe
-    			throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
-    		} finally {
-    			// yhteys kii
-    			suljeYhteys(yhteys);
-    		}
-    		// palautetaan t‰ytteet
-    		return taytteet;
-    	}
-        
+            
+/**
+ * T‰m‰ metodi piilottaa juoman Pizzerian ruokalistalta siten ettei sit‰ voi valita ostoskoriin.    
+ * @param j AdminServicelt‰ vastaanotettu piilotettava Juoma olio.
+ * @throws DAOPoikkeus Antaa virheilmoituksen jos juoman piilotus ep‰onnistuu.
+ */
         public void piilotaJuoma(Juoma j ) throws DAOPoikkeus {
 
     		// avataan yhteys
@@ -323,7 +437,11 @@ public AdminDAO() throws DAOPoikkeus {
     			suljeYhteys(yhteys);
     		}
     	}
-        
+/**
+ * T‰m‰ metodi palauttaa juoman Pizzerian ruokalistalle jotta sen voi valita ostoskoriin.    
+ * @param j AdminServicelt‰ vastaanotettu palautettava Juoma olio.
+ * @throws DAOPoikkeus Antaa virheilmoituksen jos juoman palautus ep‰onnistuu.
+ */
     	public void palautaJuoma(Juoma j) throws DAOPoikkeus {
 
     		// avataan yhteys
@@ -351,61 +469,4 @@ public AdminDAO() throws DAOPoikkeus {
     			suljeYhteys(yhteys);
     		}
     	}
-       
-    	public void piilotaPizza(Pizza p ) throws DAOPoikkeus {
-
-    		// avataan yhteys
-    		Connection yhteys = avaaYhteys();
-
-    		try {
-    			// sql alustus
-    			String sql = "update pizza set tarjolla = '0' where id=?";
-    			PreparedStatement lause = yhteys.prepareStatement(sql);
-
-    			// laitetaan pizzan id sql stringiin
-    			lause.setInt(1, p.getId());
-
-    			// suoritus
-    			lause.executeUpdate();
-
-    			// consoleen juoman piilotus
-    			System.out.println("piilotettiin pizza: " + p);
-
-    		} catch (Exception e) {
-    			// ehk‰ virhe
-    			throw new DAOPoikkeus("Pizzan piilotuksessa virhe", e);
-    		} finally {
-    			// yhteys kii
-    			suljeYhteys(yhteys);
-    		}
-    	}
-        
-    	public void palautaPizza(Pizza p) throws DAOPoikkeus {
-
-    		// avataan yhteys
-    		Connection yhteys = avaaYhteys();
-
-    		try {
-    			// sql alustus
-    			String sql = "update pizza set tarjolla = '1' where id=?";
-    			PreparedStatement lause = yhteys.prepareStatement(sql);
-
-    			// laitetaan pizzan id sql stringiin
-    			lause.setInt(1, p.getId());
-
-    			// suoritus
-    			lause.executeUpdate();
-
-    			// consoleen juoman palautus
-    			System.out.println("palautettin pizza: " + p);
-
-    		} catch (Exception e) {
-    			// ehk‰ virhe
-    			throw new DAOPoikkeus("Pizzan palautuksessa virhe", e);
-    		} finally {
-    			// yhteys kii
-    			suljeYhteys(yhteys);
-    		}
-    	}
- 
-}
+}	

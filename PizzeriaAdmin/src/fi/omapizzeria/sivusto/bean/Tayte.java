@@ -1,5 +1,11 @@
 package fi.omapizzeria.sivusto.bean;
 
+/**
+ * Tämän luokka sisältää Täyte olion tietosisällön.
+ * @author Joona
+ *
+ */
+
 public class Tayte {
 	int id;
 	String nimi;

@@ -1,5 +1,6 @@
 package fi.omapizzeria.sivusto.dao;
 
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;

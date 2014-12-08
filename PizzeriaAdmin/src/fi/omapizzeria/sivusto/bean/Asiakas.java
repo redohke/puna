@@ -1,7 +1,16 @@
 package fi.omapizzeria.sivusto.bean;
 
+/**
+ * 
+ * Tämän luokka sisältää Asiakkaan tietosisällön.
+ * @author Joona
+ *
+ */
+
+
 public class Asiakas {
 
+	
 	private int id;
 	private String etunimi, sukunimi, yritys, puh, email, osoite, postnro, kaupunki;
 	

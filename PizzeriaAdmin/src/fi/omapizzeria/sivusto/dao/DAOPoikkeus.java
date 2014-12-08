@@ -1,5 +1,11 @@
 package fi.omapizzeria.sivusto.dao;
 
+/**
+ * T‰m‰ luokka sis‰lt‰‰ virheilmoitukset.
+ * @author Aleksi, Joona
+ *
+ */
+
 public class DAOPoikkeus extends Exception {
 
 	private static final long serialVersionUID = 1L;

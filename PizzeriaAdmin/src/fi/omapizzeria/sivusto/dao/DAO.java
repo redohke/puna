@@ -5,9 +5,20 @@ import java.sql.DriverManager;
 
 import fi.omapizzeria.sivusto.dao.DAOPoikkeus;
 import fi.omapizzeria.sivusto.dao.DBConnectionProperties;
+/**
+ * T‰m‰n luokka sis‰lt‰‰ metodit jotka avaavat tai sulkevat yhteyden tietokantaan.
+ * @author Aleksi, Joona
+ *
+ */
+
 
 public abstract class DAO {
 
+	
+/**
+ * T‰m‰ metodi avaa yhteyden tietokantaan	.
+ * @throws DAOPoikkeus Antaa virheilmoituksen jos tietokantayhteyden avaaminen ep‰onnistuu.
+ */
 	// metodi, joka avaa yhteyden tietokantaan
 	public Connection avaaYhteys() throws DAOPoikkeus {
 		try {
@@ -21,6 +32,11 @@ public abstract class DAO {
 		}
 	}
 
+/**
+ * T‰m‰ metodi sulkee avatun tietokantayhdeyden.
+ * @param yhteys Vastaanotettu yhteys
+ * @throws DAOPoikkeus Antaa virheilmoituksen jos tietokantayhteyden sulkeminen ep‰onnistuu.
+ */
 	// sulje yhteys tietokantaan
 	public void suljeYhteys(Connection yhteys) throws DAOPoikkeus {
 		try {

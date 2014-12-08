@@ -1,6 +1,17 @@
 package fi.omapizzeria.sivusto.bean;
 import fi.omapizzeria.sivusto.bean.Tuote;
 
+
+
+/**
+ * 
+ * Tämän luokka sisältää Ostos olion tietosisällön.
+ * @author Aleksi, Elias, Joona
+ *
+ */
+
+
+
 public class Ostos {
 	
 
