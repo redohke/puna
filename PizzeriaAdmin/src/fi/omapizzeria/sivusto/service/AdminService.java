@@ -11,11 +11,25 @@ import fi.omapizzeria.sivusto.dao.AdminDAO;
 import fi.omapizzeria.sivusto.dao.DAOPoikkeus;
 import fi.omapizzeria.sivusto.dao.TuoteDAO;
 
+
+
+/** 
+ * Tämä luokka välittää pyyntöjä AdminServletin ja AdminDAO:n välillä
+ * @author Aleksi, Markus, Joona
+ */
+
 public class AdminService {
 
 	public AdminService() throws DAOPoikkeus {
 		super();
 	}
+	
+	/** 
+	 * Tämä metodi välittää AdminServletiltä saadun pyynnön AdminDAO:lle
+	 * 
+	 * @return Palauttaa AdminDAO:sta saadun pitsalistan.
+	 * @throws DAOPoikkeus Antaa virheilmoituksen jos tietokantahaku ei toimi.
+	 */
 
 	public ArrayList<Tuote> haePizzalistaAdmin() throws DAOPoikkeus {
 		ArrayList<Tuote> pizzat;
@@ -31,6 +45,12 @@ public class AdminService {
 		return pizzat;
 	}
 	
+	/**
+	 * Tämä metodi palauttaa AdminServletiltä saadun pyynnön AdminDAO:lle
+	 * @return Palauttaa AdminDAO:lta saadun täytelistan.
+	 * @throws DAOPoikkeus Antaa virheilmoituksen jos tietokantahaku ei toimi.
+	 */
+	
 	public ArrayList<Tayte> haeTaytelistaAdmin() throws DAOPoikkeus {
 		 ArrayList<Tayte> taytteet;
 		 AdminDAO dao = new AdminDAO();
@@ -40,6 +60,12 @@ public class AdminService {
 		return taytteet;
 	}
 	
+	/**
+	 * Tämä metodi palauttaa AdminServletiltä saadun pyynnön AdminDAO:lle
+	 * @return Palauttaa AdminDAO:lta saadun Juomalistan.
+	 * @throws DAOPoikkeus Antaa virheilmoituksen jos tietokantahaku ei toimi.
+	 */
+	
 	public ArrayList<Tuote> haeJuomalistaAdmin() throws DAOPoikkeus {
 		 ArrayList<Tuote> juomat;
 		 AdminDAO dao = new AdminDAO();
@@ -48,6 +74,13 @@ public class AdminService {
 		
 		return juomat;
 	}
+	
+	/**
+	 * Vie Servletissä luodun pizzan AdminDAO:lle.
+	 * @param p Servletissä luotu pizza.
+	 * @param taytteet Servletissä luotu täytelista.
+	 * @throws DAOPoikkeus Antaa virheilmoituksen jos tietokantahaku ei toimi.
+	 */
 	
 	public void viePizza(Pizza p, String[] taytteet) throws DAOPoikkeus {
 
@@ -60,11 +93,23 @@ public class AdminService {
 		dao.lisaaPizza(p, tayteLista);
 	}
 	
+	/**
+	 * Vie Servletissä luodun juoman AdminDAO:lle.
+	 * @param j Servletissä luotu juoma.
+	 * @throws DAOPoikkeus Antaa virheilmoituksen jos tietokantahaku ei toimi.
+	 */
+	
 	public void vieJuoma(Juoma j) throws DAOPoikkeus {
 		AdminDAO dao = new AdminDAO();
 
 		dao.lisaaJuoma(j);
 	}
+	
+	/**
+	 * Vie AdminServletistä saadun poistopyynnön AdminDAO:lle
+	 * @param p Poistettava pizza.
+	 * @throws DAOPoikkeus Antaa virheilmoituksen jos tietokantahaku ei toimi.
+	 */
 	
 	public void poistaPizza(Pizza p) throws DAOPoikkeus {
 		AdminDAO dao = new AdminDAO();
@@ -72,11 +117,23 @@ public class AdminService {
 		dao.poistaPizza(p);
 	}
 	
+	/**
+	 * Vie AdminServletistä saadun poistopyynnön AdminDAO:lle
+	 * @param p Poistettava juoma.
+	 * @throws DAOPoikkeus Antaa virheilmoituksen jos tietokantahaku ei toimi.
+	 */
+	
 	public void poistaJuoma(Juoma j) throws DAOPoikkeus {
 		AdminDAO dao = new AdminDAO();
 		
 		dao.poistaJuoma(j);
 	}
+	
+	/**
+	 * Vie AdminServletistä saadun piilotuspyynnön AdminDAO:lle
+	 * @param p Piilotettava juoma.
+	 * @throws DAOPoikkeus Antaa virheilmoituksen jos tietokantahaku ei toimi.
+	 */
 	
 	public void piilotaJuoma(Juoma j) throws DAOPoikkeus {
 		AdminDAO dao = new AdminDAO();
@@ -84,17 +141,35 @@ public class AdminService {
 		dao.piilotaJuoma(j);
 	}
 	
+	/**
+	 * Vie AdminServletistä saadun piilotuspyynnön AdminDAO:lle
+	 * @param p Piilotettava pizza.
+	 * @throws DAOPoikkeus Antaa virheilmoituksen jos tietokantahaku ei toimi.
+	 */
+	
 	public void piilotaPizza(Pizza p) throws DAOPoikkeus {
 		AdminDAO dao = new AdminDAO();
 		
 		dao.piilotaPizza(p);
 	}
 	
+	/**
+	 * Vie AdminServletistä saadun näytä pyynnön AdminDAO:lle
+	 * @param p Juoma jonka halutaan näkyvän menussa.
+	 * @throws DAOPoikkeus Antaa virheilmoituksen jos tietokantahaku ei toimi.
+	 */
+	
 	public void palautaJuoma(Juoma j) throws DAOPoikkeus {
 		AdminDAO dao = new AdminDAO();
 		
 		dao.palautaJuoma(j);
 	}
+	
+	/**
+	 * Vie AdminServletistä saadun näytä pyynnön AdminDAO:lle
+	 * @param p Pizza jonka halutaan näkyvän menussa.
+	 * @throws DAOPoikkeus Antaa virheilmoituksen jos tietokantahaku ei toimi.
+	 */
 	
 	public void palautaPizza(Pizza p) throws DAOPoikkeus {
 		AdminDAO dao = new AdminDAO();
