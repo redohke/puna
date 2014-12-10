@@ -33,19 +33,28 @@ public class Ostoskori {
 		ostokset.clear();
 	}
 
-	/*
-	//jos lisaa pitsu+limsu ja sitten limsu niin kosh
-	//syy: servletiss‰ ostokseen oregano/valkosipuli oli ostos mik‰vaan
+	
+
+	
+	/**
+	 * Lis‰‰ k‰ytt‰j‰n valitseman ostoksen ostoskoriin.
+	 * Jos Ostos lˆytyy jo korista, kasvatetetaan sen lukum‰‰r‰‰, muuten lis‰t‰‰n uusi ostos-
+	 * 
+	 * 
+	 * @param ostos Koottu Ostos olio.
+	 */
+	
 	public void lisaaOstoskoriin(Ostos ostos) {
 
 		boolean uusi = true;
 
 		for (Ostos o : ostokset) {
+			
 			if (o.getTuote().getId() == ostos.getTuote().getId()
 					&& o.isOregano() == ostos.isOregano()
 					&& o.isValkosipuli() == ostos.isValkosipuli()
-					&& ostos.getTuote().getClass().getSimpleName()
-							.equals("Pizza")) {
+					&& o.getTuote().getClass().getSimpleName().equals("Pizza") == 
+					ostos.getTuote().getClass().getSimpleName().equals("Pizza")) {
 
 				uusi = false;
 				
@@ -56,11 +65,11 @@ public class Ostoskori {
 				o.setRivihinta(hinta);
 			}
 		}
-		if (uusi) {
+			if (uusi) {
 			ostokset.add(ostos);
 		}
 	}
-*/
+
 
 	/**
 	 * Lis‰‰ k‰ytt‰j‰n valitseman ostoksen ostoskoriin.
@@ -68,10 +77,10 @@ public class Ostoskori {
 	 * 
 	 * @param ostos Koottu Ostos olio.
 	 */
-	 public void lisaaOstoskoriin(Ostos ostos) { 
+/*	 public void lisaaOstoskoriin(Ostos ostos) { 
 		 ostokset.add(ostos); 
 	 }
-	 
+*/	 
 	 /**
 	  * Poistaa k‰ytt‰j‰n valitseman ostoksen ostoskorista.
 	  * @param poistettava Vastaanotettu int tietotyyppi
