@@ -14,7 +14,7 @@
 
 		<div id="header">
 			<div id="banner">
-				<img class="logo" src="img/logo.png" alt="logo">
+				<img class="logo" src="img/logo2.png" alt="logo">
 			</div>
 			<nav id="nav">
 				<ul>
