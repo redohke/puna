@@ -4,6 +4,11 @@ import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import fi.omapizzeria.security.Salaaja;
 
+/**
+ * Tämä luokka luo uuden webuser -olion
+ * @author Erik, Markus, Samuli
+ *
+ */
 public class WebUser {
 	private int id;
 	private String username;

@@ -46,7 +46,7 @@ public class TilausDAO extends DAO {
 		Connection yhteys = avaaYhteys();
 
 		try {
-			System.out.println(tilaus);
+			
 			
 			String sqlAsiakas = "insert into asiakas(etunimi, sukunimi, yritys, puhelin, sposti, osoite, postinumero, kaupunki) values(?,?,?,?,?,?,?,?)";
 			PreparedStatement prest = yhteys.prepareStatement(sqlAsiakas, Statement.RETURN_GENERATED_KEYS);

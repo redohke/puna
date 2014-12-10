@@ -9,6 +9,11 @@ import fi.omapizzeria.sivusto.bean.WebUser;
 import fi.omapizzeria.sivusto.dao.DAO;
 import fi.omapizzeria.sivusto.dao.DAOPoikkeus;
 
+/**
+ * T‰m‰n luokka sis‰lt‰‰ metodit jotka avaavat tai sulkevat yhteyden tietokantaan.
+ *
+ *
+ */
 public class WebUserDAO extends DAO {
 	public WebUserDAO() throws DAOPoikkeus {
 		

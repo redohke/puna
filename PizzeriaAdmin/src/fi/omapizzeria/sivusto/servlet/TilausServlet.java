@@ -78,12 +78,12 @@ public class TilausServlet extends HttpServlet {
 						email, osoite, pnro, kaupunki);
 		
 		
-		System.out.println("asiakas on: " + asiakas);
+		
 		tilaus = new Tilaus(asiakas, kori, kokohinta);
 		
 
 		
-		System.out.println(tilaus);
+		
 		
 		request.getSession().setAttribute("toimitus", toimitus);
 		request.getSession().setAttribute("maksu", maksu);
@@ -140,7 +140,7 @@ public class TilausServlet extends HttpServlet {
 			
 								
 			response.sendRedirect("/PizzeriaTyyni/yhteenveto.jsp");
-			System.out.println(tilaus);
+		
 			
 		}
 		

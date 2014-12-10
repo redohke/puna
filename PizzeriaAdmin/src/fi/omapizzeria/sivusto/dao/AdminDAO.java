@@ -63,7 +63,7 @@ public AdminDAO() throws DAOPoikkeus {
                                 pizzalista.add(new Tuote(rs.getInt("id"), rs.getString("nimi"),
                                                 rs.getDouble("hinta"), rs.getInt("tarjolla")));
                         }                        
-                        System.out.println("lista: " + pizzalista);
+                      
                 } catch (Exception e) {
                         // heitä virhe jos virhe
                         throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
@@ -223,7 +223,7 @@ public AdminDAO() throws DAOPoikkeus {
                 	
                 		int pId = p.getId();
                 		
-                		System.out.println("pizzaid = " + pId);
+                		
                 	
                 		String sql = "select id from pizzatayte where pizza_id=?";   
                 		PreparedStatement haku = yhteys.prepareStatement(sql);

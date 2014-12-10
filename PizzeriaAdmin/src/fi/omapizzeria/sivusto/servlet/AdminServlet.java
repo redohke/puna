@@ -164,7 +164,6 @@ public class AdminServlet extends HttpServlet {
 
 			// infot olioksi
 			Pizza p = new Pizza(id, nimi, d);
-			System.out.println(p);
 
 			try {
 				// uus pizzadao

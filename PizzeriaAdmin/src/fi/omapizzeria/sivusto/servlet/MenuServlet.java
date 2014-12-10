@@ -113,7 +113,7 @@ public class MenuServlet extends HttpServlet {
 				kori.lisaaOstoskoriin(ostos);
 				
 			
-				System.out.println(uusituote);
+			
 				
 				//Hinnat sessioon
 				double hinta = kori.getTilauksenHinta();
@@ -126,7 +126,7 @@ public class MenuServlet extends HttpServlet {
 
 			request.getSession().setAttribute("kori", kori);
 			response.sendRedirect("/PizzeriaTyyni/menu");
-			System.out.println(kori.getOstokset());
+			
 		}
 	
 		if (request.getParameter("action").equals("jadd")) {
@@ -163,7 +163,7 @@ public class MenuServlet extends HttpServlet {
 
 			request.getSession().setAttribute("kori", kori);
 			response.sendRedirect("/PizzeriaTyyni/menu");
-			System.out.println(kori.getOstokset());
+
 		}
 			
 		// ostoskorista tuotteen poistaminen
@@ -184,7 +184,7 @@ public class MenuServlet extends HttpServlet {
 			request.getSession().setAttribute("kori", kori);
 			// siirryt‰‰n takaisin koriin
 			
-			System.out.println(kori.getOstokset());
+			
 			
 			if (request.getParameter("action").equals("del")) {
 				response.sendRedirect("/PizzeriaTyyni/kori.jsp");
