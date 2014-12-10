@@ -14,7 +14,6 @@
 <a href="kirjaudu_ulos">Kirjaudu ulos</a>
 
 	<div id="wrapper">
-
 		<div id="header">
 			<div id="admin_banner">
 				<p class="aotsikko">Menun hallinta</p>

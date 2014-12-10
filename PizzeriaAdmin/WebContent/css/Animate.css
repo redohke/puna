@@ -632,6 +632,7 @@ Copyright (c) 2014 Daniel Eden
 .bounceInDown {
   -webkit-animation-name: bounceInDown;
           animation-name: bounceInDown;
+          animation-duration: 0.7s;
 }
 
 @-webkit-keyframes bounceInLeft {

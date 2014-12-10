@@ -752,3 +752,14 @@ ul.muru li#muru_end {
 	font-size: 15px;
 	text-decoration: none;
 }
+
+#login {
+	margin-top: 50px;
+	font-size: 20px;
+	width: 420px;
+	margin-bottom: 5px;
+	background: #f1efd8;
+	-webkit-box-shadow: 0px 0px 0px 5px #c1b398;
+	-moz-box-shadow: 0px 0px 0px 5px #c1b398;
+	box-shadow: 0px 0px 0px 5px #c1b398;
+}

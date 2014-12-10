@@ -5,10 +5,13 @@ pageEncoding="ISO-8859-1"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="styles/auth.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/Animate.css">
 <title>Etusivu</title>
 </head>
 <body>
+<div align="center" class="animated bounceInDown">
+<div id="login">
 <c:if test="${not empty error }">
 <p class="Virhe">
 <c:out value="${error}" />
@@ -32,6 +35,8 @@ pageEncoding="ISO-8859-1"%>
 </tr>
 </table>
 </form>
+</div>
+</div>
 </div>
 </body>
 </html>

@@ -13,14 +13,19 @@ import fi.omapizzeria.sivusto.bean.Juoma;
 import fi.omapizzeria.sivusto.bean.Pizza;
 import fi.omapizzeria.sivusto.bean.Tayte;
 import fi.omapizzeria.sivusto.bean.Tuote;
+import fi.omapizzeria.sivusto.bean.WebUser;
 import fi.omapizzeria.sivusto.dao.DAOPoikkeus;
 import fi.omapizzeria.sivusto.service.AdminService;
+
 
 /**
  * Servlet implementation class AdminServlet
  */
 @WebServlet("/admin")
 public class AdminServlet extends HttpServlet {
+	public static final String FRONT_PAGE = "kirjaudu.jsp";
+	private static final String INSIDE_PAGE = "WEB-INF/admin.jsp";
+	public static final String SESSION_ATTR_WEBUSER = "kayttajatiedot";
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -38,7 +43,10 @@ public class AdminServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		
+		
+			
+			
 		// pizzat listaan
 		ArrayList<Tuote> pizzat;
 		ArrayList<Tayte> taytteet;
@@ -60,9 +68,21 @@ public class AdminServlet extends HttpServlet {
 		request.setAttribute("tayte", taytteet);
 		request.setAttribute("jlista", juomat);
 
-		// forwardi .jsp:lle
-		request.getRequestDispatcher("admin.jsp").forward(request, response);
-
+		
+		
+	
+		
+	
+		
+		// otetaan käyttäjätiedot sessiosta
+				WebUser user = (WebUser) request.getSession().getAttribute(
+						SESSION_ATTR_WEBUSER);
+				if (user == null) // jos käyttäjätietoja ei löydy, heitetään etusivulle
+					request.getRequestDispatcher(FRONT_PAGE).forward(request, response);
+				else
+					// mikäli käyttäjätiedot löytyvät, päästetään sisään
+					request.getRequestDispatcher(INSIDE_PAGE)
+							.forward(request, response);
 	}
 
 	/**

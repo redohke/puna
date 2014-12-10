@@ -41,12 +41,12 @@ public class SisaankirjautumisServlet extends HttpServlet {
 			boolean validiKayttaja = kayttajaKannasta.vertaaSalasanaa(password);
 			if (validiKayttaja) {
 				request.getSession().setAttribute(
-						SiteServlet.SESSION_ATTR_WEBUSER, kayttajaKannasta);
+						AdminServlet.SESSION_ATTR_WEBUSER, kayttajaKannasta);
 				response.sendRedirect("admin");
 			} else {
 				request.setAttribute("error", "K‰ytt‰j‰tunnus/Salasana v‰‰rin, kokeile uudestaan!");
 				request.setAttribute("prev_login_username", username);
-				request.getRequestDispatcher(SiteServlet.FRONT_PAGE).forward(request, response);
+				request.getRequestDispatcher(AdminServlet.FRONT_PAGE).forward(request, response);
 			}
 		} catch (DAOPoikkeus e) {
 			e.printStackTrace();

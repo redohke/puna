@@ -1,5 +1,5 @@
 package fi.omapizzeria.sivusto.servlet;
-
+/*
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,17 +10,17 @@ import fi.omapizzeria.sivusto.bean.WebUser;
 
 /**
  * Servlet implementation class BaseServlet
- */
+
 @WebServlet("/login")
 public class SiteServlet extends HttpServlet {
-	public static final String FRONT_PAGE = "etusivu.jsp";
-	private static final String INSIDE_PAGE = "admin.jsp";
+	public static final String FRONT_PAGE = "kirjaudu.jsp";
+	private static final String INSIDE_PAGE = "WEB-INF/admin.jsp";
 	public static final String SESSION_ATTR_WEBUSER = "kayttajatiedot";
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
-	 */
+	 
 	public SiteServlet() {
 		super();
 	}
@@ -28,7 +28,7 @@ public class SiteServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
-	 */
+	 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// otetaan k‰ytt‰j‰tiedot sessiosta
@@ -40,5 +40,9 @@ public class SiteServlet extends HttpServlet {
 			// mik‰li k‰ytt‰j‰tiedot lˆytyv‰t, p‰‰stet‰‰n sis‰‰n
 			request.getRequestDispatcher(INSIDE_PAGE)
 					.forward(request, response);
+		
+		// forwardi .jsp:lle
+		request.getRequestDispatcher("WEB-INF/admin.jsp").forward(request, response);
 	}
 }
+*/
