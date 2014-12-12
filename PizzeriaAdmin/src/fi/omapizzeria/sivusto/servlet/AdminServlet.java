@@ -95,7 +95,7 @@ public class AdminServlet extends HttpServlet {
 
 		// jos tuleva parametri action on del ajetaan poisto else lisäys
 
-		if (request.getParameter("action").equals("add")) {
+		if (request.getParameter("action").equals("addPizza")) {
 
 			// infot formista
 			String syotettyNimi = request.getParameter("pizza");
@@ -125,7 +125,7 @@ public class AdminServlet extends HttpServlet {
 
 		}
 		
-		if (request.getParameter("action").equals("add2")) {
+		if (request.getParameter("action").equals("addJuoma")) {
 
 			// infot formista
 			String syotettyNimi = request.getParameter("juoma");
@@ -152,7 +152,7 @@ public class AdminServlet extends HttpServlet {
 
 		}
 
-		if (request.getParameter("action").equals("del")) {
+		if (request.getParameter("action").equals("delPizza")) {
 
 			// id formista
 			String syotettyId = request.getParameter("id");
@@ -179,7 +179,7 @@ public class AdminServlet extends HttpServlet {
 
 		}
 
-		if (request.getParameter("action").equals("del2")) {
+		if (request.getParameter("action").equals("delJuoma")) {
 
 			// id formista
 			String syotettyId = request.getParameter("id");
@@ -206,7 +206,7 @@ public class AdminServlet extends HttpServlet {
 
 		}
 
-		if (request.getParameter("action").equals("piilota")) {
+		if (request.getParameter("action").equals("piilotaJuoma")) {
 
 			// id formista
 			String syotettyId = request.getParameter("id");
@@ -233,7 +233,7 @@ public class AdminServlet extends HttpServlet {
 			response.sendRedirect("admin?piilotettu2=true");
 		}
 
-		if (request.getParameter("action").equals("piilota2")) {
+		if (request.getParameter("action").equals("piilotaPizza")) {
 
 			// id formista
 			String syotettyId = request.getParameter("id");
@@ -260,7 +260,7 @@ public class AdminServlet extends HttpServlet {
 			response.sendRedirect("admin?piilotettu=true");
 		}
 
-		if (request.getParameter("action").equals("palauta")) {
+		if (request.getParameter("action").equals("palautaJuoma")) {
 
 			// id formista
 			String syotettyId = request.getParameter("id");
@@ -286,7 +286,7 @@ public class AdminServlet extends HttpServlet {
 			response.sendRedirect("admin?palautettu2=true");
 		}
 
-		if (request.getParameter("action").equals("palauta2")) {
+		if (request.getParameter("action").equals("palautaPizza")) {
 
 			// id formista
 			String syotettyId = request.getParameter("id");
