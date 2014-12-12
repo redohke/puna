@@ -97,6 +97,19 @@ public class Ostos {
 	}
 
 
+	/**
+	 * Tarkistaa, että toinen ostos (tilausrivi) on tarpeeksi samanlainen, jotta rivit voidaan yhdistää
+	 * @param toinen ostos, johon verrataan
+	 * @return true mikäli sama pizza ja oregano ja valkosipuli matchaa tai sama juoma. Muutoin false.
+	 */
+	public boolean voidaanYhdistaa(Ostos toinen) {
+
+		return toinen.getTuote().getId() == getTuote().getId() && //pizzalla ja juomalla voi olla sama id
+				toinen.getTuote().getClass().equals(getTuote().getClass()) && //joten tarkistetaan, että ovat myös saman luokan ilmentymiä
+				toinen.isOregano() == isOregano() && 
+				toinen.isValkosipuli() == isValkosipuli();
+				
+	}
 
 	@Override
 	public String toString() {

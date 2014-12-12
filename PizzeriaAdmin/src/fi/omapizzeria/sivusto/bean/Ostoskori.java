@@ -38,34 +38,37 @@ public class Ostoskori {
 	
 	/**
 	 * Lis‰‰ k‰ytt‰j‰n valitseman ostoksen ostoskoriin.
-	 * Jos Ostos lˆytyy jo korista, kasvatetetaan sen lukum‰‰r‰‰, muuten lis‰t‰‰n uusi ostos-
-	 * 
-	 * 
-	 * @param ostos Koottu Ostos olio.
+	 * Jos Ostos lˆytyy jo korista, kasvatetetaan sen lukum‰‰r‰‰ ja rivin hintaa,
+	 * muuten lis‰t‰‰n uusi ostos koriin.
+
+	 * @param ostos Ostoskoriin lis‰tt‰v‰ uusi ostos (eli tilausrivi).
 	 */
 	
 	public void lisaaOstoskoriin(Ostos ostos) {
 
-		boolean uusi = true;
+		//oletetaan, ett‰ samanlaista ostosta (tilausrivi‰) ei lˆydy
+		boolean ostosOnUudenlainen = true;
 
-		for (Ostos o : ostokset) {
-			
-			if (o.getTuote().getId() == ostos.getTuote().getId()
-					&& o.isOregano() == ostos.isOregano()
-					&& o.isValkosipuli() == ostos.isValkosipuli()
-					&& o.getTuote().getClass().getSimpleName().equals("Pizza") == 
-					ostos.getTuote().getClass().getSimpleName().equals("Pizza")) {
+		//k‰yd‰‰n kuitenkin kaikki vanhat ostokset l‰pi
+		for (Ostos vanhaOstos : ostokset) {
 
-				uusi = false;
-				
-				int lkm = o.getLkm() + ostos.getLkm();
-				o.setLkm(lkm);
-
-				double hinta = o.getRivihinta() + ostos.getRivihinta();
-				o.setRivihinta(hinta);
+			//mik‰li samanlainen lˆytyy
+			if (ostos.voidaanYhdistaa(vanhaOstos)) {
+				//merkit‰‰n lˆydetyksi
+				ostosOnUudenlainen = false;
+				//kasvatetaan vain vanhan rivin lukum‰‰r‰‰
+				int lkm = vanhaOstos.getLkm() + ostos.getLkm();
+				vanhaOstos.setLkm(lkm);
+				//ja lasketaan uusi hinta
+				double hinta = vanhaOstos.getRivihinta() + ostos.getRivihinta();
+				vanhaOstos.setRivihinta(hinta);
+				//ei tarvitse etsi‰ en‰‰
+				break;
 			}
 		}
-			if (uusi) {
+		//mik‰li samanlaista ostosta ei lˆytynyt ostoskorista
+		if (ostosOnUudenlainen) {
+			//lis‰t‰‰n ostos uutena rivin‰
 			ostokset.add(ostos);
 		}
 	}
