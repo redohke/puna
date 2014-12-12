@@ -41,7 +41,7 @@
 							</c:forEach>
 						</tr>
 					</table>
-					<input type="hidden" name="action" value="add">
+					<input type="hidden" name="action" value="addPizza">
 				</form>
 			</div>
 			
@@ -76,7 +76,7 @@
 					<input type="text" name="juoma" placeholder="Juoman nimi">
 					<input type="text" name="hinta" placeholder="Hinta" size="5">
 					<button class="nappula" type="submit">Lisää</button>
-					<input type="hidden" name="action" value="add2">
+					<input type="hidden" name="action" value="addJuoma">
 				</form>
 			</div>
 			
@@ -140,20 +140,20 @@
 										<td>
 											<form action="admin" method="post">
 												<input type="hidden" name="id" value="${pl.id}"> <input
-													type="hidden" name="action" value="palauta2">
+													type="hidden" name="action" value="palautaPizza">
 													<button class="hnappula" type="submit">Näytä</button>
 											</form>
 										</td>
 										<td>
 											<form action="admin" method="post">
 												<input type="hidden" name="id" value="${pl.id}"> <input
-													type="hidden" name="action" value="piilota2">
+													type="hidden" name="action" value="piilotaPizza">
 													<button class="hnappula" type="submit">Piilota</button>
 											</form>
 										</td>
 										<td><form action="admin" method="post">
 												<input type="hidden" name="id" value="${pl.id}"> <input
-													type="hidden" name="action" value="del">
+													type="hidden" name="action" value="delPizza">
 													<button class="hnappula" type="submit">Poista</button>
 											</form></td>
 									</tr>
@@ -195,19 +195,19 @@
 										<td>
 											<form action="admin" method="post">
 												<input type="hidden" name="id" value="${jl.id}"> <input
-													type="hidden" name="action" value="palauta"> <button class="hnappula" type="submit">Näytä</button>
+													type="hidden" name="action" value="palautaJuoma"> <button class="hnappula" type="submit">Näytä</button>
 											</form>
 										</td>
 										<td>
 											<form action="admin" method="post">
 
 												<input type="hidden" name="id" value="${jl.id}"> <input
-													type="hidden" name="action" value="piilota"> <button class="hnappula" type="submit">Piilota</button>
+													type="hidden" name="action" value="piilotaJuoma"> <button class="hnappula" type="submit">Piilota</button>
 											</form>
 										</td>
 										<td><form action="admin" method="post">
 												<input type="hidden" name="id" value="${jl.id}"> <input
-													type="hidden" name="action" value="del2"> <button class="hnappula" type="submit">Poista</button>
+													type="hidden" name="action" value="delJuoma"> <button class="hnappula" type="submit">Poista</button>
 											</form></td>
 									</tr>
 								</table></td>
