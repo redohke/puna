@@ -46,29 +46,32 @@ public class Ostoskori {
 	
 	public void lisaaOstoskoriin(Ostos ostos) {
 
-		//oletetaan, ett‰ samanlaista ostosta (tilausrivi‰) ei lˆydy
+		// Oletusarvona lis‰tt‰v‰ ostos olisi uniikki
 		boolean ostosOnUudenlainen = true;
 
-		//k‰yd‰‰n kuitenkin kaikki vanhat ostokset l‰pi
+		// K‰yd‰‰n kaikki jo ostoskorissa olevat ostokset l‰pi
 		for (Ostos vanhaOstos : ostokset) {
 
-			//mik‰li samanlainen lˆytyy
+			// Jos luuppi lˆyt‰‰ ostoksen joka t‰ytt‰‰ ehdot
+			
 			if (ostos.voidaanYhdistaa(vanhaOstos)) {
-				//merkit‰‰n lˆydetyksi
+				//  Ostos ei ole uudenlainen
 				ostosOnUudenlainen = false;
-				//kasvatetaan vain vanhan rivin lukum‰‰r‰‰
+				// Haetaan vanha ostoksen (tilausrivin) lukum‰‰r‰ ja kasvatetaan sit‰ lis‰tt‰v‰n ostoksen lukum‰‰r‰ll‰
 				int lkm = vanhaOstos.getLkm() + ostos.getLkm();
 				vanhaOstos.setLkm(lkm);
-				//ja lasketaan uusi hinta
+				
+				// Haetaan vanhan ostoksen (tilausrivin) hinta ja lis‰t‰‰n siihen lis‰tt‰v‰n ostoksen hinta
 				double hinta = vanhaOstos.getRivihinta() + ostos.getRivihinta();
 				vanhaOstos.setRivihinta(hinta);
-				//ei tarvitse etsi‰ en‰‰
+				
+				// Muutosten j‰lkeen luuppia on turha jatkaa joten se voidaan katkaista
 				break;
 			}
 		}
-		//mik‰li samanlaista ostosta ei lˆytynyt ostoskorista
+		// Mik‰li luuppi ei lˆyd‰ samanlaista ostosta (tilausrivi‰),
 		if (ostosOnUudenlainen) {
-			//lis‰t‰‰n ostos uutena rivin‰
+			// lis‰t‰‰n ostos uutena rivin‰.
 			ostokset.add(ostos);
 		}
 	}

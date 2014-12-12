@@ -102,10 +102,18 @@ public class Ostos {
 	 * @param toinen ostos, johon verrataan
 	 * @return true mikäli sama pizza ja oregano ja valkosipuli matchaa tai sama juoma. Muutoin false.
 	 */
+	
+	
+		//Ehtometodi samanlaisen ostoksen (tilausrivin) yhdistämistä varten 
 	public boolean voidaanYhdistaa(Ostos toinen) {
 
-		return toinen.getTuote().getId() == getTuote().getId() && //pizzalla ja juomalla voi olla sama id
-				toinen.getTuote().getClass().equals(getTuote().getClass()) && //joten tarkistetaan, että ovat myös saman luokan ilmentymiä
+			// Tarkastetellaan ehtoja:
+		
+					// Verrataan jos tuotteen ID löytyy jo jostain ostoskorin sisältävästä tuotteesta
+		return toinen.getTuote().getId() == getTuote().getId() &&		
+					// Pizzalla ja Juomalla voi olla sama ID, joten täytyy tarkistaa kumpaa niistä tarkoitetaan
+				toinen.getTuote().getClass().equals(getTuote().getClass()) &&
+					// Tarkastetaan eri Pizzan mausteiden variaatiot
 				toinen.isOregano() == isOregano() && 
 				toinen.isValkosipuli() == isValkosipuli();
 				
