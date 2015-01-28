@@ -11,7 +11,7 @@ import fi.omapizzeria.sivusto.dao.DBConnectionProperties;
  *
  */
 
-// MMMMMMMMMMMMMMMMMMMMMMMMMMM
+// MMMMMMMMMMM
 public abstract class DAO {
 
 	
@@ -20,6 +20,7 @@ public abstract class DAO {
  * @throws DAOPoikkeus Antaa virheilmoituksen jos tietokantayhteyden avaaminen epäonnistuu.
  */
 	// metodi, joka avaa yhteyden tietokantaan
+	
 	public Connection avaaYhteys() throws DAOPoikkeus {
 		try {
 			return DriverManager.getConnection(DBConnectionProperties
