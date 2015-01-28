@@ -10,7 +10,7 @@ import fi.omapizzeria.sivusto.dao.DBConnectionProperties;
  * @author Aleksi, Joona
  *
  */
-
+//testiä
 // MMMMMMMMMMM
 public abstract class DAO {
 
