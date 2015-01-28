@@ -11,7 +11,7 @@ import fi.omapizzeria.sivusto.dao.DBConnectionProperties;
  *
  */
 
-
+// MMMMMMMMMMMMMMMMMMMMMMMMMMM
 public abstract class DAO {
 
 	
